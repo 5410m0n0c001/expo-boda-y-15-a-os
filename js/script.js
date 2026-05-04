@@ -25,6 +25,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Robust Hack: If a video "steals" the audio focus and the browser pauses it,
+    // we force it to resume immediately.
+    bgAudio.addEventListener('pause', function() {
+        if (!bgAudio.ended) {
+            bgAudio.play().catch(e => console.log('Could not resume audio:', e));
+        }
+    });
+
     // Intersection Observer for Animations
     const observerOptions = {
         threshold: 0.15,
