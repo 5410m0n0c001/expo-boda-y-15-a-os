@@ -131,6 +131,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 modifier: 1,
                 slideShadows: true,
             },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
             pagination: {
                 el: ".swiper-pagination",
             },
