@@ -200,9 +200,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Video Safely Play (Some browsers pause background videos)
-    const heroVideo = document.getElementById('heroVideo');
-    if (heroVideo) {
-        heroVideo.play().catch(() => {});
+    // Parallax Effect for Hero
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        window.addEventListener('scroll', function() {
+            const scrollValue = window.pageYOffset;
+            hero.style.backgroundPositionY = (scrollValue * 0.5) + 'px';
+        });
     }
 });
