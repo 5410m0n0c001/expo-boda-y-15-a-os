@@ -67,14 +67,6 @@ h1, h2, h3, h4, .serif-text {
     max-width: 500px;
 }
 
-.preloader-text {
-    color: var(--primary-dark);
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
 .btn-enter {
     background: var(--primary-pink);
     color: var(--white);
