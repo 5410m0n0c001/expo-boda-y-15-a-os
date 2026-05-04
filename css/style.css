@@ -112,7 +112,7 @@ h1, h2, h3, h4, .serif-text {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('../assets/hero.png');
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../assets/portada2.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
