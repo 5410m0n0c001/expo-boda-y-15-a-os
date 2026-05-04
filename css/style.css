@@ -266,6 +266,12 @@ h1, h2, h3, h4, .serif-text {
     border-color: var(--primary-pink);
 }
 
+.tool-card.highlight {
+    background: #FFF5F7;
+    border: 1px solid var(--primary-pink);
+    box-shadow: 0 10px 20px rgba(246, 92, 122, 0.1);
+}
+
 .tool-icon {
     width: 60px;
     height: 60px;
