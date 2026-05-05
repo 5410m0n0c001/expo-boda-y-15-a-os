@@ -267,9 +267,8 @@ h1, h2, h3, h4, .serif-text {
 }
 
 .tool-card.highlight {
-    background: #FFF9FA;
-    border: 1px dashed var(--primary-pink);
-    box-shadow: none;
+    border-top: 3px solid var(--primary-pink);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
 }
 
 .tool-icon {

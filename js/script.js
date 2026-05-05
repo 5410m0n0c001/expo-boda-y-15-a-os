@@ -35,8 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Intersection Observer for Animations
     const observerOptions = {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.05,
+        rootMargin: '0px 0px -20px 0px'
     };
 
     const revealObserver = new IntersectionObserver((entries) => {
@@ -48,9 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    reveals.forEach((reveal, index) => {
-        // Add slight delay for sequential appearance if needed
-        reveal.style.transitionDelay = `${index * 0.1}s`;
+    reveals.forEach((reveal) => {
         revealObserver.observe(reveal);
     });
 
