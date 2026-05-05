@@ -530,6 +530,15 @@ h1, h2, h3, h4, .serif-text {
     font-weight: 600;
 }
 
+.brand-note {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--primary-dark);
+    margin-top: 5px;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+}
+
 .support-note {
     font-size: 0.8rem;
     font-weight: 400;
