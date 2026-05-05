@@ -99,9 +99,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Publications Dropdown Logic
+    const btnPublications = document.getElementById('btnPublications');
+    const publicationsMenu = document.getElementById('publicationsMenu');
+
+    if (btnPublications && publicationsMenu) {
+        btnPublications.addEventListener('click', (e) => {
+            e.stopPropagation();
+            publicationsMenu.classList.toggle('active');
+        });
+    }
+
     // Close menus on click outside
     document.addEventListener('click', () => {
         fabGroups.forEach(group => group.classList.remove('active'));
+        if (publicationsMenu) {
+            publicationsMenu.classList.remove('active');
+        }
     });
 
     // 3D Swiper Album Logic
