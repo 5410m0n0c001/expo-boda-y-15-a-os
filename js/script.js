@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const indexPasswordError = document.getElementById('indexPasswordError');
     
     function attemptEnter() {
-        if (indexPasswordInput && indexPasswordInput.value === 'PrimaveraVIP') {
+        if (indexPasswordInput && indexPasswordInput.value.trim() === 'PrimaveraVIP') {
             preloader.classList.add('fade-out');
             startAudio();
         } else if (indexPasswordInput) {

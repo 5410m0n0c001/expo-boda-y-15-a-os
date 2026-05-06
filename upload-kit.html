@@ -261,7 +261,7 @@
 
             function checkPassword() {
                 // Contraseña establecida: PrimaveraVIP
-                if (input.value === 'PrimaveraVIP') {
+                if (input.value.trim() === 'PrimaveraVIP') {
                     overlay.classList.add('hidden');
                     setTimeout(() => { overlay.style.display = 'none'; }, 500);
                 } else {
