@@ -258,16 +258,10 @@
             const input = document.getElementById('passwordInput');
             const submitBtn = document.getElementById('passwordSubmit');
             const errorMsg = document.getElementById('passwordError');
-            
-            // Revisa si ya fue desbloqueado en esta sesión
-            if (sessionStorage.getItem('kitUnlocked') === 'true') {
-                overlay.style.display = 'none';
-            }
 
             function checkPassword() {
                 // Contraseña establecida: PrimaveraVIP
                 if (input.value === 'PrimaveraVIP') {
-                    sessionStorage.setItem('kitUnlocked', 'true');
                     overlay.classList.add('hidden');
                     setTimeout(() => { overlay.style.display = 'none'; }, 500);
                 } else {
