@@ -6,12 +6,39 @@ document.addEventListener('DOMContentLoaded', function() {
     const reveals = document.querySelectorAll('.reveal');
 
     // Preloader Entrance
-    btnEnter.addEventListener('click', function() {
-        preloader.classList.add('fade-out');
+    const indexPasswordInput = document.getElementById('indexPasswordInput');
+    const indexPasswordError = document.getElementById('indexPasswordError');
+    
+    function attemptEnter() {
+        if (indexPasswordInput && indexPasswordInput.value === 'PrimaveraVIP') {
+            preloader.classList.add('fade-out');
+            startAudio();
+        } else if (indexPasswordInput) {
+            indexPasswordError.style.display = 'block';
+            indexPasswordInput.style.border = '2px solid #ff6b6b';
+            indexPasswordInput.value = '';
+            indexPasswordInput.focus();
+        } else {
+            // Fallback en caso de que no exista el input (no debería pasar)
+            preloader.classList.add('fade-out');
+            startAudio();
+        }
+    }
+
+    btnEnter.addEventListener('click', attemptEnter);
+    
+    if (indexPasswordInput) {
+        indexPasswordInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                attemptEnter();
+            }
+        });
         
-        // Start Audio
-        startAudio();
-    });
+        indexPasswordInput.addEventListener('input', () => {
+            indexPasswordError.style.display = 'none';
+            indexPasswordInput.style.border = 'none';
+        });
+    }
 
     // Audio Logic
     function startAudio() {

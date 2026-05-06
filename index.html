@@ -35,9 +35,11 @@
         <video id="preloaderVideo" autoplay muted loop playsinline>
             <source src="assets/preloader.mp4" type="video/mp4">
         </video>
-        <div class="preloader-overlay">
+        <div class="preloader-overlay" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+            <input type="password" id="indexPasswordInput" placeholder="Contraseña" style="padding: 15px 25px; border-radius: 50px; border: none; font-family: 'Poppins', sans-serif; font-size: 1rem; text-align: center; width: 100%; max-width: 320px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); outline: none;">
+            <div id="indexPasswordError" style="color: #ff6b6b; font-weight: 600; display: none; text-shadow: 0 1px 5px rgba(0,0,0,0.8); font-size: 0.9rem;">Contraseña incorrecta. Inténtalo de nuevo.</div>
             <!-- [EDITABLE - TEXTO] Texto del botón de entrada -->
-            <button id="btnEnter" class="btn-enter">Entrar a la Expo</button>
+            <button id="btnEnter" class="btn-enter">Bienvenido a la Expo ingresa tu password</button>
         </div>
     </div>
 
