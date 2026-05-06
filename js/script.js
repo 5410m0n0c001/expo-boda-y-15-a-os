@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Share Logic
     const btnShare = document.getElementById('btnShare');
+    // [EDITABLE - TEXTOS COMPARTIR] Estos son los textos predeterminados que aparecen cuando alguien toca el botón "Compartir" en dispositivos móviles.
     const shareData = {
         title: 'Expositores: Expo Boda y 15 Años | Centro de Convenciones Presidente',
         text: '¡Hola! Te comparto la información exclusiva para expositores de la Expo Boda y 15 Años. Únete a la exhibición más prestigiosa.',
@@ -120,6 +121,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 3D Swiper Album Logic
     const albumTrack = document.getElementById('albumTrack');
+    // [EDITABLE - GALERÍA DE IMÁGENES] Agrega, elimina o reemplaza las imágenes de la galería 3D.
+    // Tamaño recomendado por imagen: 500x500px o 800x800px (Proporción Cuadrada 1:1) - Formato JPG/PNG.
+    // Asegúrate de que las rutas 'src' coincidan con tus archivos en la carpeta 'assets'.
     const galleryImages = [
         { src: 'assets/expo1.png', caption: 'Montaje de Gala' },
         { src: 'assets/expo2.png', caption: 'Decoración Floral' },

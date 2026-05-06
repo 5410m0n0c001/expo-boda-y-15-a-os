@@ -151,9 +151,147 @@
                 font-size: 0.95rem;
             }
         }
+        
+        /* Password Overlay Styles */
+        .password-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        .password-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .password-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            animation: slideDown 0.5s ease-out;
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .password-card h2 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+        .password-card p {
+            color: var(--gray-text);
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .password-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--beige);
+            border-radius: 10px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s;
+            text-align: center;
+        }
+        .password-input:focus {
+            outline: none;
+            border-color: var(--primary-pink);
+        }
+        .password-btn {
+            background: var(--primary-pink);
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+        }
+        .password-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(232, 163, 175, 0.3);
+        }
+        .password-error {
+            color: #e74c3c;
+            font-size: 0.85rem;
+            margin-top: -15px;
+            margin-bottom: 15px;
+            display: none;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
+    <!-- Password Protection Overlay -->
+    <div class="password-overlay" id="passwordOverlay">
+        <div class="password-card">
+            <i class="fa-solid fa-key" style="font-size: 3rem; color: var(--primary-pink); margin-bottom: 15px;"></i>
+            <h2>¡Gracias por tu interés!</h2>
+            <p style="margin-bottom: 15px; color: var(--gray-text);">Gracias por tu interés en participar, pronto nos comunicaremos contigo.</p>
+            <p style="font-size: 0.95rem; margin-bottom: 25px; color: var(--primary-pink); font-weight: 500;">Si ya cuentas con un código o con un password, ingrésalo ahora:</p>
+            <input type="password" id="passwordInput" class="password-input" placeholder="Ingresa tu código o password" autocomplete="off">
+            <div id="passwordError" class="password-error">Contraseña incorrecta. Inténtalo de nuevo.</div>
+            <button id="passwordSubmit" class="password-btn">Acceder al Kit</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const overlay = document.getElementById('passwordOverlay');
+            const input = document.getElementById('passwordInput');
+            const submitBtn = document.getElementById('passwordSubmit');
+            const errorMsg = document.getElementById('passwordError');
+            
+            // Revisa si ya fue desbloqueado en esta sesión
+            if (sessionStorage.getItem('kitUnlocked') === 'true') {
+                overlay.style.display = 'none';
+            }
+
+            function checkPassword() {
+                // Contraseña establecida: PrimaveraVIP
+                if (input.value === 'PrimaveraVIP') {
+                    sessionStorage.setItem('kitUnlocked', 'true');
+                    overlay.classList.add('hidden');
+                    setTimeout(() => { overlay.style.display = 'none'; }, 500);
+                } else {
+                    errorMsg.style.display = 'block';
+                    input.style.borderColor = '#e74c3c';
+                    input.value = '';
+                    input.focus();
+                }
+            }
+
+            submitBtn.addEventListener('click', checkPassword);
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    checkPassword();
+                }
+            });
+            
+            input.addEventListener('input', () => {
+                errorMsg.style.display = 'none';
+                input.style.borderColor = 'var(--beige)';
+            });
+        });
+    </script>
+
     <div class="upload-container">
         <div class="upload-card">
             <div class="upload-icon">

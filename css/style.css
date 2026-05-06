@@ -1,13 +1,14 @@
 :root {
-    --primary-pink: #F65C7A;
-    --primary-light: #FF8FA3;
-    --primary-dark: #1F1F1F;
-    --background-light: #F8F6F4;
+    /* [EDITABLE - COLORES] Cambia estos valores hexadecimales para adaptar toda la página a los colores de tu marca */
+    --primary-pink: #F65C7A; /* Color primario principal */
+    --primary-light: #FF8FA3; /* Color primario claro (efectos hover, fondos suaves) */
+    --primary-dark: #1F1F1F; /* Color primario oscuro (textos principales, títulos) */
+    --background-light: #F8F6F4; /* Fondo claro general del sitio */
     --white: #FFFFFF;
-    --soft-pink: #FADADD;
-    --beige: #EFE7E1;
-    --gold-accent: #C9A96E;
-    --gray-text: #6D6D6D;
+    --soft-pink: #FADADD; /* Fondo suave para destacar elementos */
+    --beige: #EFE7E1; /* Bordes y divisiones sutiles */
+    --gold-accent: #C9A96E; /* Color de acento (ej. íconos, viñetas) */
+    --gray-text: #6D6D6D; /* Textos secundarios y descripciones */
 }
 
 * {
@@ -112,6 +113,7 @@ h1, h2, h3, h4, .serif-text {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    /* [EDITABLE - FONDO HERO] Cambia 'assets/portada2.png' por tu imagen de fondo. Tamaño recomendado: 1920x1080px (Horizontal). Si la imagen es muy brillante, puedes aumentar la opacidad del linear-gradient a 0.5 o 0.6 */
     background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../assets/portada2.png');
     background-size: cover;
     background-position: center;
