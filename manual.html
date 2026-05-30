@@ -892,6 +892,9 @@
         }
 
         @media (max-width: 768px) {
+            .hide-mobile {
+                display: none !important;
+            }
             .layout-container {
                 flex-direction: column;
             }
@@ -1066,6 +1069,9 @@
                 <li class="sidebar-item" id="menu-ch11"><a href="#ch11">11. Glosario de Términos</a></li>
                 <li class="sidebar-item" id="menu-ch12"><a href="#ch12">12. Vigencia y Actualizaciones</a></li>
             </ul>
+            <div style="margin-top: 30px; border-top: 1px solid var(--beige); padding-top: 20px;" class="hide-mobile">
+                <a href="assets/Manual_Colaboracion_PrimaveraEventsGroup.pdf" download="Manual_Colaboracion_PrimaveraEventsGroup.pdf" class="btn-dashboard-nav" style="width: 100%; justify-content: center; background: var(--gold-accent); box-shadow: 0 4px 15px rgba(201, 169, 110, 0.3);"><i class="fa-solid fa-file-pdf"></i> Descargar PDF</a>
+            </div>
         </aside>
 
         <!-- Main Panel Content -->
@@ -1074,7 +1080,10 @@
             <!-- Panel Header -->
             <nav class="panel-nav">
                 <span class="panel-nav-title"><i class="fa-solid fa-file-shield"></i> Portal de Identidad de Marca</span>
-                <a href="index.html" class="btn-dashboard-nav"><i class="fa-solid fa-house"></i> Ir al Dashboard Principal</a>
+                <div style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+                    <a href="assets/Manual_Colaboracion_PrimaveraEventsGroup.pdf" download="Manual_Colaboracion_PrimaveraEventsGroup.pdf" class="btn-dashboard-nav" style="background: var(--gold-accent); box-shadow: 0 4px 15px rgba(201, 169, 110, 0.3);"><i class="fa-solid fa-file-pdf"></i> Descargar PDF</a>
+                    <a href="index.html" class="btn-dashboard-nav"><i class="fa-solid fa-house"></i> Ir al Dashboard Principal</a>
+                </div>
             </nav>
 
             <!-- Manual Hero Banner -->
