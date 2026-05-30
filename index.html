@@ -22,7 +22,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <!-- Custom CSS -->
@@ -142,6 +142,14 @@
                         <p>Únete para recibir noticias y coordinar dinámicas en tiempo real.</p>
                     </div>
                 </a>
+                <!-- [EDITABLE - ENLACE/TEXTO] Tarjeta 7: Manual de Colaboración -->
+                <a href="manual.html" class="tool-card reveal reveal-left highlight">
+                    <div class="tool-icon" style="background: var(--gold-accent); color: white;"><i class="fa-solid fa-book-open"></i></div>
+                    <div class="tool-content">
+                        <h4>Manual de Colaboración</h4>
+                        <p><strong>Identidad y Estrategia:</strong> Conoce quiénes somos, nuestra misión y cómo colaborar en sinergia digital.</p>
+                    </div>
+                </a>
             </div>
         </section>
 
@@ -150,9 +158,26 @@
             <!-- [EDITABLE - TEXTO] Título de Galería -->
             <h3 class="section-title"><i class="fa-solid fa-camera-retro"></i> Álbum de Momentos</h3>
             <div class="album-container">
-                <!-- [EDITABLE - GALERÍA] Las imágenes de esta galería se editan en js/script.js (buscar variable 'galleryImages'). Tamaño recomendado: 500x500px o 800x800px (Proporción 1:1 Cuadrado) -->
+                <!-- [EDITABLE - GALERÍA] Las imágenes de esta galería se editan en js/script.js (buscar variable 'galleryImages'). -->
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper" id="albumTrack">
+                        <!-- Slides will be injected by JS -->
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3D Exhibitors Logos Album -->
+        <section class="gallery-section reveal reveal-left">
+            <!-- [EDITABLE - TEXTO] Título de Galería de Logos -->
+            <h3 class="section-title"><i class="fa-solid fa-gem"></i> Logotipos de Expositores</h3>
+            <div class="album-container">
+                <!-- [EDITABLE - GALERÍA] Las imágenes de esta galería se editan en js/script.js (buscar variable 'logoImages'). -->
+                <div class="swiper myLogosSwiper">
+                    <div class="swiper-wrapper" id="logosTrack">
                         <!-- Slides will be injected by JS -->
                     </div>
                     <div class="swiper-pagination"></div>
@@ -191,7 +216,6 @@
                     <i class="fa-brands fa-facebook"></i> Publicaciones para Compartir <i class="fa-solid fa-chevron-down"></i>
                 </button>
                 <div class="publications-menu" id="publicationsMenu">
-                    <!-- [EDITABLE - ENLACES/TEXTO] Lista de links a publicaciones en Facebook/Instagram -->
                     <a href="https://www.facebook.com/share/r/1KgsKHy7aL/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Reel Promocional 1</a>
                     <a href="https://www.facebook.com/share/v/18iKWceBd3/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Video Promocional 2</a>
                     <a href="https://www.facebook.com/share/p/1CQHB1QUUQ/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Publicación 3</a>
@@ -199,18 +223,14 @@
                     <a href="https://www.facebook.com/share/p/14b6mBwErAk/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Publicación 5</a>
                     <a href="https://www.facebook.com/share/r/18tYMpkQM6/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Reel Promocional 6</a>
                     <a href="https://www.facebook.com/share/p/1NHeKdS9c3/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Publicación 7</a>
-                    <a href="https://www.facebook.com/share/p/18iikT1n7C/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Publicación 8</a>
-                    <a href="https://www.facebook.com/share/r/1DHgLVuDWC/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Reel Promocional 9</a>
-                    <a href="https://www.facebook.com/share/p/1CpGhPkntm/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Publicación 10</a>
-                    <a href="https://www.facebook.com/share/p/14ZgR1FEvYs/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Publicación 11</a>
-                    <a href="https://www.facebook.com/share/r/14jiP5crKci/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Reel Promocional 12</a>
-                    <a href="https://www.facebook.com/share/p/1AjZN5tyCr/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Publicación 13</a>
-                    <a href="https://www.facebook.com/share/r/14gGu3rwZx9/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Reel Promocional 14</a>
-                    <a href="https://www.facebook.com/share/p/1CR9SrL5aU/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Publicación 15</a>
-                    <a href="https://www.facebook.com/share/p/1BBt2gTzbw/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Publicación 16</a>
-                    <a href="https://www.facebook.com/share/p/1YRCvXWux3/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Publicación 17</a>
-                    <a href="https://www.facebook.com/share/r/18c8r9hkK6/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Reel Promocional 18</a>
-                    <a href="https://www.facebook.com/share/p/18mMDRp19c/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Publicación 19</a>
+                    <a href="https://www.facebook.com/share/r/18gDaCjHAu/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Reel Promocional 8</a>
+                    <a href="https://www.facebook.com/share/r/1JAeCj55mo/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Reel Promocional 9</a>
+                    <a href="https://www.facebook.com/share/r/1KBVAk7HbW/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Reel Promocional 10</a>
+                    <a href="https://www.facebook.com/share/v/1B3NT5A5js/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Video Promocional 11</a>
+                    <a href="https://www.facebook.com/share/p/1cvH8HhmWu/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Publicación 12</a>
+                    <a href="https://www.facebook.com/share/p/197GyDhoeZ/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Publicación 13</a>
+                    <a href="https://www.facebook.com/share/p/194pkmZrpK/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Publicación 14</a>
+                    <a href="https://www.facebook.com/share/r/18ySKyFQZg/" target="_blank" class="publications-item"><i class="fa-solid fa-share"></i> Reel Promocional 15</a>
                 </div>
             </div>
         </section>
@@ -220,47 +240,54 @@
             <!-- [EDITABLE - TEXTO] Título Organizadores -->
             <h3 class="section-title reveal reveal-right"><i class="fa-solid fa-users-gear"></i> Contacto Organizadores</h3>
             <div class="organizers-grid">
-                <!-- [EDITABLE - ORGANIZADOR 1] -->
-                <a href="https://wa.me/521234567890" target="_blank" class="organizer-card reveal reveal-left">
+                <!-- ORGANIZADOR 1: Richard Hernández -->
+                <a href="https://primaveraeventsgroup.com/richard-hernandez/" target="_blank" class="organizer-card reveal reveal-left">
                     <div class="organizer-media">
-                        <!-- [EDITABLE - MEDIA] Video Organizador 1. Archivo: 'assets/richard.mp4'. Formato: MP4, Tamaño recomendado: 500x500px (Cuadrado 1:1) -->
                         <video autoplay muted loop playsinline>
                             <source src="assets/richard.mp4" type="video/mp4">
                         </video>
                     </div>
                     <div class="organizer-info">
-                        <!-- [EDITABLE - TEXTO] -->
                         <h4>Richard Hernández</h4>
-                        <p>Organizador Principal</p>
+                        <p>Co-propietario de Primavera Group</p>
                         <p class="brand-note">Wedding and Event Planning Jessy & Richard</p>
                     </div>
                 </a>
                 
-                <!-- [EDITABLE - ORGANIZADOR 2] -->
-                <a href="https://wa.me/521234567891" target="_blank" class="organizer-card reveal reveal-right">
+                <!-- ORGANIZADOR 2: Jessica Patricia Sandoval -->
+                <a href="https://primaveraeventsgroup.com/jessy/" target="_blank" class="organizer-card reveal reveal-right">
                     <div class="organizer-media">
-                        <!-- [EDITABLE - MEDIA] Imagen Organizador 2. Archivo: 'assets/jessica.png'. Formato: PNG/JPG, Tamaño recomendado: 500x500px (Cuadrado 1:1) -->
                         <img src="assets/jessica.png" alt="Jessica Sandoval">
                     </div>
                     <div class="organizer-info">
-                        <!-- [EDITABLE - TEXTO] -->
-                        <h4>Jessica Sandoval</h4>
-                        <p>Organizadora Principal</p>
+                        <h4>C.P. Jessica Patricia Sandoval</h4>
+                        <p>Co-propietaria de Primavera Group</p>
                         <p class="brand-note">Wedding and Event Planning Jessy & Richard</p>
                     </div>
                 </a>
                 
-                <!-- [EDITABLE - ORGANIZADOR 3] -->
-                <a href="https://wa.me/521234567892" target="_blank" class="organizer-card reveal reveal-left">
+                <!-- ORGANIZADOR 3: Alex Salomón -->
+                <a href="https://5410m0n0c001.github.io/INIT-IDEA/" target="_blank" class="organizer-card reveal reveal-left">
                     <div class="organizer-media">
-                        <!-- [EDITABLE - MEDIA] Imagen Organizador 3. Archivo: 'assets/marketing.png'. Formato: PNG/JPG, Tamaño recomendado: 500x500px (Cuadrado 1:1) -->
                         <img src="assets/marketing.png" alt="Alex Salomón">
                     </div>
                     <div class="organizer-info">
-                        <!-- [EDITABLE - TEXTO] -->
                         <h4>Alex Salomón</h4>
-                        <p>Virtual Concierge & Digital Marketing Manager</p>
-                        <p class="support-note">Contacto directo para soporte y apoyo para Expositores.</p>
+                        <p>Virtual Concierge & Community Manager</p>
+                        <p class="support-note">Soporte y apoyo digital para Expositores.</p>
+                    </div>
+                </a>
+
+                <!-- ORGANIZADOR 4: Rubí Alvarado (Anfitrión) -->
+                <a href="https://wa.me/522711148997" target="_blank" class="organizer-card reveal reveal-right">
+                    <div class="organizer-media">
+                        <img src="assets/logo_presidente.png" alt="Centro de Convenciones Presidente" style="object-fit: contain; padding: 20px; background: #fff;">
+                    </div>
+                    <div class="organizer-info">
+                        <h4>Rubí Alvarado</h4>
+                        <p>Contacto del Anfitrión</p>
+                        <p class="brand-note">Centro de Convenciones Presidente</p>
+                        <p class="support-note" style="font-size: 0.8rem; font-weight: 500; color: var(--gold-accent); margin-top: 5px;"><i class="fa-solid fa-phone"></i> +52 271 114 8997</p>
                     </div>
                 </a>
             </div>
@@ -274,9 +301,12 @@
             <p>&copy; 2026 Primavera Events Group. Todos los derechos reservados.</p>
             <div class="social-links">
                 <!-- [EDITABLE - ENLACES] Enlaces rápidos de redes (Footer) -->
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61582170571060" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://instagram.com/primavera.events.group?igsh=Y2g4d3hvZW95dDc5" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://tiktok.com/@primavera_events_group?_r=1&_t=ZS-94uQ5m4lTyG" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://mx.pinterest.com/primaveraeventsgroup/" target="_blank" title="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+                <a href="https://x.com/JessyRichardwp" target="_blank" title="X"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://maps.app.goo.gl/Pj63bWfv6hmHr5RR9" target="_blank" title="Google Maps"><i class="fa-solid fa-map-location-dot"></i></a>
             </div>
         </div>
     </footer>
@@ -290,10 +320,13 @@
                 <!-- [EDITABLE - ENLACES] Botones flotantes de redes sociales -->
                 <a href="https://www.facebook.com/profile.php?id=61582170571060" target="_blank" class="fab-item" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
                 <a href="https://instagram.com/primavera.events.group?igsh=Y2g4d3hvZW95dDc5" target="_blank" class="fab-item" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://tiktok.com/@primavera_events_group?_r=1&_t=ZS-94uQ5m4lTyG" target="_blank" class="fab-item" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://tiktok.com/@primavera_events_group?_r=1&_t=ZS-94uQ5m4lTyG" class="fab-item" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://mx.pinterest.com/primaveraeventsgroup/" target="_blank" class="fab-item" title="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+                <a href="https://x.com/JessyRichardwp" target="_blank" class="fab-item" title="X"><i class="fa-brands fa-x-twitter"></i></a>
                 <a href="https://linkedin.com/in/richard-hernandez-3844ba3b9" target="_blank" class="fab-item" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
                 <a href="https://www.youtube.com/@PrimaveraEventsGroup" target="_blank" class="fab-item" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
                 <a href="https://tripadvisor.com/Profile/PrimaveraEventsGroup" target="_blank" class="fab-item" title="TripAdvisor"><i class="fa-solid fa-binoculars"></i></a>
+                <a href="https://maps.app.goo.gl/Pj63bWfv6hmHr5RR9" target="_blank" class="fab-item" title="Google Maps"><i class="fa-solid fa-map-location-dot"></i></a>
             </div>
             <button class="fab-main fab-social" id="btnSocial">
                 <!-- [EDITABLE - TEXTO] Etiqueta del botón de redes sociales -->

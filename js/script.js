@@ -158,18 +158,66 @@ document.addEventListener('DOMContentLoaded', function() {
         { src: 'assets/expo4.png', caption: 'Banquete Premium' },
         { src: 'assets/expo5.png', caption: 'Mesa de Postres' },
         { src: 'assets/expo6.png', caption: 'Momentos Especiales' },
+        { src: 'assets/expo_new1.png', caption: 'Elegancia y Diseño' },
+        { src: 'assets/expo_new2.png', caption: 'Boda Espectacular' },
+        { src: 'assets/expo_new3.png', caption: 'Celebración Inolvidable' },
+        { src: 'assets/expo_new4.png', caption: 'Detalles Únicos' },
+        { src: 'assets/expo_new5.png', caption: 'Momentos Mágicos' },
+        { src: 'assets/expo_new6.png', caption: 'Brillo de la Noche' },
+        { src: 'assets/expo_new7.png', caption: 'Pasión por los Eventos' },
+        { src: 'assets/expo_new8.png', caption: 'Diseño Exclusivo' },
+        { src: 'assets/expo_new9.png', caption: 'Detalles que Enamoran' },
+        { src: 'assets/anp.png', caption: 'Sabor y Estilo' },
+        { src: 'assets/coverv.png', caption: 'Tu Boda Ideal' },
+        { src: 'assets/rr.jpg', caption: 'Diseño y Distinción' },
         { src: 'assets/logo_presidente.png', caption: 'Centro de Convenciones Presidente' },
         { src: 'assets/init.png', caption: 'Init Concept' }
+    ];
+
+    // [EDITABLE - GALERÍA DE LOGOS] Agrega, elimina o reemplaza las imágenes de logotipos.
+    const logoImages = [
+        { src: 'assets/logo_new1.png', caption: 'La Princesa Paletería' },
+        { src: 'assets/logo_new2.png', caption: 'Florería La Orquídea' },
+        { src: 'assets/logo_new3.png', caption: 'Joyería Brillante' },
+        { src: 'assets/logo_new4.png', caption: 'Pastelería Sweet Dream' },
+        { src: 'assets/logo_new5.png', caption: 'Alta Costura Novias' },
+        { src: 'assets/logo_new6.png', caption: 'Banquetes Delicatessen' },
+        { src: 'assets/logo_new7.png', caption: 'DJ & Proyecciones' },
+        { src: 'assets/logo_new8.png', caption: 'Fotografía & Cine' },
+        { src: 'assets/logo_new9.png', caption: 'Coctelería Fina' },
+        { src: 'assets/logo_new10.png', caption: 'Arreglos Florales' },
+        { src: 'assets/logo_new11.png', caption: 'Invitaciones Elegantes' },
+        { src: 'assets/logo_new12.jpeg', caption: 'Renta de Trajes' },
+        { src: 'assets/logo_new13.png', caption: 'Iluminación Led' },
+        { src: 'assets/logo_new14.png', caption: 'Cabina de Fotos' },
+        { src: 'assets/logo_new15.png', caption: 'Barra de Postres' },
+        { src: 'assets/logo_new16.png', caption: 'Saxofonista Solista' },
+        { src: 'assets/logo_new17.png', caption: 'Mía Concept Store' },
+        { src: 'assets/logo_new18.jpeg', caption: 'Pianista & Arpa' }
     ];
 
     if (albumTrack) {
         galleryImages.forEach((img, index) => {
             const slide = document.createElement('div');
             slide.classList.add('swiper-slide');
-            slide.innerHTML = `<img src="${img.src}" alt="${img.caption}" data-index="${index}">`;
+            slide.style.backgroundImage = `url('${img.src}')`;
+            slide.innerHTML = `<div class="slide-blur-overlay"></div><img src="${img.src}" alt="${img.caption}" data-index="${index}">`;
             albumTrack.appendChild(slide);
         });
+    }
 
+    const logosTrack = document.getElementById('logosTrack');
+    if (logosTrack) {
+        logoImages.forEach((img, index) => {
+            const slide = document.createElement('div');
+            slide.classList.add('swiper-slide');
+            slide.style.backgroundImage = `url('${img.src}')`;
+            slide.innerHTML = `<div class="slide-blur-overlay"></div><img src="${img.src}" alt="${img.caption}" data-index="${index}">`;
+            logosTrack.appendChild(slide);
+        });
+    }
+
+    if (albumTrack) {
         const swiper = new Swiper(".mySwiper", {
             effect: "coverflow",
             grabCursor: true,
@@ -187,13 +235,43 @@ document.addEventListener('DOMContentLoaded', function() {
                 disableOnInteraction: false,
             },
             pagination: {
-                el: ".swiper-pagination",
+                el: ".mySwiper .swiper-pagination",
+                clickable: true
             },
             navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
+                nextEl: ".mySwiper .swiper-button-next",
+                prevEl: ".mySwiper .swiper-button-prev",
             },
         });
+    }
+
+    if (logosTrack) {
+        const logosSwiper = new Swiper(".myLogosSwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".myLogosSwiper .swiper-pagination",
+                clickable: true
+            },
+            navigation: {
+                nextEl: ".myLogosSwiper .swiper-button-next",
+                prevEl: ".myLogosSwiper .swiper-button-prev",
+            },
+        });
+    }
 
         // Lightbox Logic
         const lightbox = document.getElementById('lightbox');
@@ -241,7 +319,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
-    }
 
     // Parallax Effect for Hero
     const hero = document.querySelector('.hero');

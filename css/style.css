@@ -1,11 +1,11 @@
 :root {
     /* [EDITABLE - COLORES] Cambia estos valores hexadecimales para adaptar toda la página a los colores de tu marca */
-    --primary-pink: #F65C7A; /* Color primario principal */
-    --primary-light: #FF8FA3; /* Color primario claro (efectos hover, fondos suaves) */
+    --primary-pink: #f05a7e; /* Color primario principal (Alineado con el sitio oficial) */
+    --primary-light: #f78da7; /* Color primario claro (Alineado con el sitio oficial) */
     --primary-dark: #1F1F1F; /* Color primario oscuro (textos principales, títulos) */
     --background-light: #F8F6F4; /* Fondo claro general del sitio */
     --white: #FFFFFF;
-    --soft-pink: #FADADD; /* Fondo suave para destacar elementos */
+    --soft-pink: #FFF0F2; /* Fondo suave rosado (Alineado con el sitio oficial) */
     --beige: #EFE7E1; /* Bordes y divisiones sutiles */
     --gold-accent: #C9A96E; /* Color de acento (ej. íconos, viñetas) */
     --gray-text: #6D6D6D; /* Textos secundarios y descripciones */
@@ -95,13 +95,13 @@ h1, h2, h3, h4, .serif-text {
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 4px 20px rgba(246, 92, 122, 0.4);
+    box-shadow: 0 4px 20px rgba(240, 90, 126, 0.4);
     transition: all 0.3s ease;
 }
 
 .btn-enter:hover {
     transform: scale(1.05) translateY(-3px);
-    background: #e04b69;
+    background: #d94f6f;
 }
 
 /* Hero Section */
@@ -130,7 +130,7 @@ h1, h2, h3, h4, .serif-text {
 
 .hero-badge {
     display: inline-block;
-    background: rgba(246, 92, 122, 0.9);
+    background: rgba(240, 90, 126, 0.9);
     padding: 8px 20px;
     border-radius: 40px;
     font-size: 0.9rem;
@@ -326,21 +326,45 @@ h1, h2, h3, h4, .serif-text {
 }
 
 .swiper-slide {
+    position: relative;
     background-position: center;
     background-size: cover;
     width: 300px;
-    height: 300px;
+    height: 380px;
     border-radius: 20px;
     box-shadow: 0 15px 50px rgba(0,0,0,0.3);
     overflow: hidden;
     cursor: pointer;
+    background-color: #121212;
+}
+
+/* Elegant blurred background overlay for the slide */
+.slide-blur-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 1;
 }
 
 .swiper-slide img {
+    position: relative;
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    z-index: 2;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+
+.swiper-slide:hover img {
+    transform: scale(1.03);
 }
 
 .swiper-button-next, .swiper-button-prev {
@@ -436,8 +460,8 @@ h1, h2, h3, h4, .serif-text {
 
 @media (max-width: 768px) {
     .swiper-slide {
-        width: 250px;
-        height: 250px;
+        width: 240px;
+        height: 310px;
     }
 }
 
@@ -724,17 +748,24 @@ h1, h2, h3, h4, .serif-text {
 }
 
 .fab-menu {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 45px);
+    gap: 12px;
     position: absolute;
-    bottom: 100%;
-    right: 5px;
+    bottom: 75px;
+    right: 0px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 15px;
+    border-radius: 24px;
+    border: 1px solid var(--beige);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(20px);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    margin-bottom: 15px;
+    transform: scale(0.8) translateY(20px);
+    transform-origin: bottom right;
+    transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     pointer-events: none;
     z-index: 1;
 }
@@ -742,7 +773,7 @@ h1, h2, h3, h4, .serif-text {
 .fab-group.active .fab-menu {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: scale(1) translateY(0);
     pointer-events: auto;
 }
 
@@ -757,7 +788,7 @@ h1, h2, h3, h4, .serif-text {
     justify-content: center;
     text-decoration: none;
     font-size: 1.2rem;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     transition: all 0.3s ease;
 }
 
