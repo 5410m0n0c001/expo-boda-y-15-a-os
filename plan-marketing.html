@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan de Comunicación Junio 2026 — Primavera Events Group</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+  :root {
+    --primary-pink: #f05a7e; 
+    --primary-light: #f78da7; 
+    --primary-dark: #1F1F1F; 
+    --background-light: #F8F6F4; 
+    --white: #FFFFFF;
+    --soft-pink: #FFF0F2; 
+    --beige: #EFE7E1; 
+    --gold-accent: #C9A96E; 
+    --gray-text: #6D6D6D; 
+
+    /* Colores del plan adaptados armónicamente */
+    --rosa: var(--primary-pink);
+    --rosa-light: var(--primary-light);
+    --rosa-pale: var(--soft-pink);
+    --dorado: var(--gold-accent);
+    --dorado-light: #F5EDE4;
+    --azul: #1A3A5C; /* Azul de Campaña para Bodas */
+    --azul-light: #EBF2FA;
+    --azul-pale: #f5f9ff;
+    --gris: var(--gray-text);
+    --gris-light: var(--background-light);
+    --negro: var(--primary-dark);
+    --blanco: var(--white);
+    --shadow: 0 10px 30px rgba(26,58,92,0.06);
+    --radius: 16px;
+  }
+  
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body {
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    background: var(--background-light);
+    color: var(--negro);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, .serif-text {
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--azul);
+    color: white;
+    padding: 0;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  }
+  .header-top {
+    background: var(--dorado);
+    text-align: center;
+    padding: 8px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--negro);
+  }
+  .header-main {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 32px; gap: 16px; flex-wrap: wrap;
+  }
+  .logo-area { display: flex; align-items: center; gap: 14px; }
+  .logo-circle {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--rosa);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 900; color: white;
+    flex-shrink: 0;
+  }
+  .logo-text h1 { font-size: 18px; font-weight: 800; letter-spacing: 0.04em; }
+  .logo-text p { font-size: 11px; opacity: 0.75; font-weight: 400; }
+  
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .btn-dashboard-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 12.5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+  .btn-dashboard-nav:hover {
+    background: var(--rosa);
+    border-color: var(--rosa);
+    transform: translateY(-2px);
+  }
+
+  /* ── HERO / COUNTDOWN ── */
+  .hero {
+    background: linear-gradient(135deg, var(--azul) 0%, #0f2440 60%, #1a3a5c 100%);
+    color: white;
+    text-align: center;
+    padding: 56px 24px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+  .hero-eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
+    color: var(--dorado); text-transform: uppercase; margin-bottom: 12px;
+  }
+  .hero h2 {
+    font-size: clamp(24px, 4.5vw, 38px);
+    font-weight: 900; line-height: 1.2;
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+  }
+  .hero-sub {
+    font-size: 14px; opacity: 0.8; margin-bottom: 28px;
+    max-width: 520px; margin-left: auto; margin-right: auto;
+  }
+
+  /* Countdown */
+  .countdown {
+    display: flex; justify-content: center; gap: 14px;
+    flex-wrap: wrap; margin-bottom: 28px;
+    position: relative;
+    z-index: 2;
+  }
+  .cd-block {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 14px 22px;
+    min-width: 90px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .cd-num {
+    font-size: 38px; font-weight: 900;
+    color: var(--dorado); line-height: 1;
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 4px;
+  }
+  .cd-label { font-size: 10px; opacity: 0.7; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
+
+  .hero-eslogan {
+    display: inline-block;
+    background: var(--rosa);
+    color: white;
+    padding: 8px 26px;
+    border-radius: 30px;
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-top: 4px;
+    box-shadow: 0 4px 15px rgba(240,90,126,0.3);
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px 80px; }
+
+  /* ── SECTION TITLE ── */
+  .section-title {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 20px; margin-top: 44px;
+  }
+  .section-title .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--rosa); flex-shrink: 0;
+  }
+  .section-title h3 {
+    font-size: 16px; font-weight: 800; color: var(--azul);
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .section-title span {
+    font-size: 12px; color: var(--gris); font-weight: 500;
+    margin-left: 4px;
+  }
+
+  /* ── CARDS GRID ── */
+  .card {
+    background: var(--blanco);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid var(--beige);
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(26,58,92,0.1); }
+
+  .card-header {
+    padding: 16px 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .card-header-rosa { background: var(--rosa); color: white; }
+  .card-header-azul { background: var(--azul); color: white; }
+  .card-header-dorado { background: var(--dorado); color: var(--negro); }
+  .card-icon { font-size: 20px; }
+  .card-title { font-size: 14px; font-weight: 700; letter-spacing: 0.02em; }
+  .card-body { padding: 24px 28px; }
+
+  /* ── TIMELINE SEMANA ── */
+  .week-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 768px) {
+    .week-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .week-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .day-cell {
+    background: var(--azul-pale);
+    border: 1.5px solid var(--azul-light);
+    border-radius: 10px;
+    padding: 12px 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .day-cell:hover { background: var(--azul-light); border-color: var(--azul); transform: scale(1.03); }
+  .day-cell.active { background: var(--azul); color: white; border-color: var(--azul); box-shadow: 0 4px 12px rgba(26,58,92,0.2); }
+  .day-cell.active .day-label, .day-cell.active .day-num { color: white; }
+  .day-cell.rosa { border-color: var(--rosa); background: var(--rosa-pale); }
+  .day-cell.rosa.active { background: var(--rosa); border-color: var(--rosa); box-shadow: 0 4px 12px rgba(240,90,126,0.2); }
+  .day-num { font-size: 22px; font-weight: 900; color: var(--azul); }
+  .day-label { font-size: 9px; color: var(--gris); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+  .day-tag {
+    font-size: 8px; font-weight: 700;
+    padding: 3px 6px; border-radius: 5px; margin-top: 6px;
+    display: inline-block;
+    letter-spacing: 0.02em;
+  }
+  .tag-lanzamiento { background: var(--azul-light); color: var(--azul); }
+  .tag-roster { background: var(--rosa-pale); color: var(--rosa); }
+  .tag-contenido { background: var(--dorado-light); color: #7a5e1a; }
+  .tag-urgencia { background: #fee2e2; color: #dc2626; }
+  .tag-evento { background: #fef3c7; color: #d97706; }
+  
+  .day-cell.active .tag-lanzamiento { background: rgba(255,255,255,0.2); color: white; }
+  .day-cell.active .tag-roster { background: rgba(255,255,255,0.2); color: white; }
+  .day-cell.active .tag-contenido { background: rgba(255,255,255,0.2); color: white; }
+  .day-cell.active .tag-urgencia { background: #b91c1c; color: white; }
+  .day-cell.active .tag-evento { background: #b45309; color: white; }
+
+  /* ── CENTRALIZED MATERIAL HUBS ── */
+  .resource-hub-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--beige);
+    padding: 35px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .resource-hub-desc {
+    color: var(--gris);
+    font-size: 14.5px;
+    max-width: 800px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+  }
+  .resource-hub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .hub-box {
+    background: var(--background-light);
+    border: 1.5px solid var(--beige);
+    border-radius: 12px;
+    padding: 28px 24px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: all 0.3s ease;
+  }
+  .hub-box:hover {
+    border-color: var(--rosa);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+  }
+  .hub-box.download-box:hover {
+    border-color: var(--rosa);
+  }
+  .hub-box.upload-box:hover {
+    border-color: var(--azul);
+  }
+  .hub-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+    color: var(--rosa);
+    background: var(--soft-pink);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+  }
+  .hub-box.upload-box .hub-icon {
+    color: var(--azul);
+    background: var(--azul-light);
+  }
+  .hub-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--negro);
+    margin-bottom: 8px;
+  }
+  .hub-desc {
+    font-size: 12.5px;
+    color: var(--gris);
+    margin-bottom: 20px;
+    line-height: 1.5;
+    flex-grow: 1;
+  }
+  .hub-desc ul {
+    list-style: none;
+    margin-top: 8px;
+  }
+  .hub-desc li {
+    margin-bottom: 6px;
+    position: relative;
+    padding-left: 14px;
+  }
+  .hub-desc li::before {
+    content: "•";
+    color: var(--rosa);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+  .hub-box.upload-box .hub-desc li::before {
+    color: var(--azul);
+  }
+  .btn-hub-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+  .btn-download-hub {
+    background: var(--rosa);
+    color: white;
+    box-shadow: 0 4px 15px rgba(240,90,126,0.25);
+  }
+  .btn-download-hub:hover {
+    background: #d94f6f;
+    transform: translateY(-2px);
+  }
+  .btn-upload-hub {
+    background: var(--azul);
+    color: white;
+    box-shadow: 0 4px 15px rgba(26,58,92,0.25);
+  }
+  .btn-upload-hub:hover {
+    background: #0f2440;
+    transform: translateY(-2px);
+  }
+
+  /* ── COPIES ── */
+  .copy-box {
+    background: var(--gris-light);
+    border: 1.5px solid var(--beige);
+    border-radius: 10px;
+    padding: 18px;
+    font-size: 12.5px;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    color: var(--negro);
+    margin-bottom: 12px;
+    max-height: 240px;
+    overflow-y: auto;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.02);
+  }
+  .copy-box.rosa-border { border-color: var(--rosa); background: var(--rosa-pale); }
+  .copy-box.azul-border { border-color: var(--azul); background: var(--azul-pale); }
+  .copy-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; margin-bottom: 8px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .copy-label.rosa { color: var(--rosa); }
+  .copy-label.azul { color: var(--azul); }
+  
+  .btn-copy {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--azul);
+    color: white;
+    border: none; cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 11.5px; font-weight: 700;
+    letter-spacing: 0.04em;
+    transition: all 0.2s ease;
+    margin-top: 6px;
+    margin-right: 6px;
+  }
+  .btn-copy:hover { background: #0f2440; transform: translateY(-1px); }
+  .btn-copy.rosa { background: var(--rosa); }
+  .btn-copy.rosa:hover { background: #d94f6f; }
+  .btn-copy.dorado { background: var(--dorado); color: var(--negro); }
+  .btn-copy.dorado:hover { background: #b8943e; }
+  .copied-msg {
+    color: #16a34a; font-size: 11.5px; font-weight: 700;
+    display: none; margin-left: 8px;
+  }
+
+  /* ── HASHTAGS ── */
+  .hashtag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+  .hashtag {
+    background: var(--azul-light);
+    color: var(--azul);
+    border-radius: 30px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+  .hashtag:hover { background: var(--azul); color: white; transform: translateY(-1px); }
+  .hashtag.rosa { background: var(--rosa-pale); color: var(--rosa); }
+  .hashtag.rosa:hover { background: var(--rosa); color: white; }
+  .hashtag.dorado-h { background: #fdf2e9; color: #7a5e1a; }
+  .hashtag.dorado-h:hover { background: var(--dorado); color: var(--negro); }
+
+  /* ── LINKS TABLE ── */
+  .links-table-container {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--beige);
+  }
+  .links-table { width: 100%; border-collapse: collapse; font-size: 12.5px; text-align: left; }
+  .links-table th {
+    background: var(--azul); color: white;
+    padding: 12px 16px; font-size: 11.5px; font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .links-table td { padding: 12px 16px; border-bottom: 1px solid var(--beige); color: var(--negro); }
+  .links-table tr:last-child td { border-bottom: none; }
+  .links-table tr:nth-child(even) td { background: var(--background-light); }
+  .links-table a { color: var(--rosa); font-weight: 600; text-decoration: none; word-break: break-all; }
+  .links-table a:hover { text-decoration: underline; }
+
+  /* ── PLATAFORMAS TABS ── */
+  .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; border-bottom: 1.5px solid var(--beige); padding-bottom: 12px; }
+  .tab {
+    padding: 8px 18px;
+    border-radius: 30px;
+    border: 1.5px solid var(--beige);
+    background: var(--white);
+    font-size: 12px; font-weight: 700;
+    cursor: pointer; transition: all 0.2s ease;
+    color: var(--gris);
+  }
+  .tab:hover {
+    border-color: var(--rosa);
+    color: var(--rosa);
+  }
+  .tab.active {
+    background: var(--rosa); color: white; border-color: var(--rosa);
+    box-shadow: 0 4px 12px rgba(240,90,126,0.25);
+  }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* ── FAQ ── */
+  .faq-item {
+    border: 1px solid var(--beige);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  }
+  .faq-q {
+    padding: 15px 20px;
+    font-weight: 700; font-size: 13.5px;
+    cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--white);
+    transition: background 0.15s;
+    color: var(--negro);
+  }
+  .faq-q:hover { background: var(--rosa-pale); color: var(--rosa); }
+  .faq-a {
+    padding: 0 20px;
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.2s;
+    font-size: 12.5px; color: var(--gris); line-height: 1.7;
+    background: var(--background-light);
+  }
+  .faq-a.open { max-height: 300px; padding: 16px 20px; border-top: 1px solid var(--beige); }
+  .faq-toggle { font-size: 18px; color: var(--rosa); transition: transform 0.2s; font-weight: 600; }
+  .faq-toggle.open { transform: rotate(45deg); }
+
+  /* ── CONTACT FOOTER ── */
+  .contact-bar {
+    background: var(--azul);
+    color: white;
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    display: flex; flex-wrap: wrap; gap: 24px;
+    align-items: center; justify-content: space-between;
+    margin-top: 40px;
+    box-shadow: 0 10px 25px rgba(26,58,92,0.15);
+  }
+  .contact-bar h4 { font-size: 15px; margin-bottom: 6px; font-weight: 700; letter-spacing: 0.02em; }
+  .contact-bar p { font-size: 12.5px; opacity: 0.85; line-height: 1.5; }
+  .contact-link {
+    background: var(--rosa);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 700; font-size: 13px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(240,90,126,0.3);
+  }
+  .contact-link:hover { background: #d94f6f; transform: translateY(-2px); }
+
+  /* ── PROGRESS BAR ── */
+  .progress-label { display: flex; justify-content: space-between; font-size: 11px; color: var(--gris); margin-bottom: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+  .progress-bar { height: 10px; background: #e5e7eb; border-radius: 30px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--rosa), var(--dorado)); border-radius: 30px; }
+
+  /* ── ALERT ── */
+  .alert {
+    background: var(--dorado-light);
+    border: 1.5px solid var(--dorado);
+    border-radius: 10px;
+    padding: 14px 20px;
+    font-size: 13px;
+    display: flex; gap: 12px; align-items: flex-start;
+    margin-bottom: 24px;
+    color: #5c4815;
+  }
+  .alert-icon { font-size: 20px; flex-shrink: 0; }
+
+  /* Password Protection Overlay */
+  .password-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+  .password-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .password-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    animation: slideDown 0.5s ease-out;
+    border: 1px solid var(--beige);
+  }
+  @keyframes slideDown {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .password-card h2 {
+    color: var(--primary-dark);
+    margin-bottom: 15px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+  }
+  .password-card p {
+    color: var(--gray-text);
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .password-input {
+    width: 100%;
+    padding: 14px 20px;
+    border: 2px solid var(--beige);
+    border-radius: 30px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s;
+    text-align: center;
+    outline: none;
+  }
+  .password-input:focus {
+    border-color: var(--primary-pink);
+  }
+  .password-btn {
+    background: var(--primary-pink);
+    color: var(--white);
+    border: none;
+    padding: 14px 30px;
+    border-radius: 30px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 4px 15px rgba(240,90,126,0.3);
+  }
+  .password-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(240,90,126,0.4);
+  }
+  .password-error {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: -15px;
+    margin-bottom: 15px;
+    display: none;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .header-main { padding: 12px 20px; }
+    .hero { padding: 40px 16px 32px; }
+    .cd-num { font-size: 30px; }
+    .cd-block { padding: 10px 16px; min-width: 75px; }
+    .container { padding: 24px 16px 48px; }
+    .card-body { padding: 20px 20px; }
+    .contact-bar { padding: 24px 24px; text-align: center; justify-content: center; }
+    .contact-link { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Password Protection Overlay -->
+<div class="password-overlay" id="passwordOverlay">
+  <div class="password-card">
+    <i class="fa-solid fa-key" style="font-size: 3rem; color: var(--primary-pink); margin-bottom: 20px;"></i>
+    <h2>Acceso Restringido</h2>
+    <p>Este es el panel del plan estratégico de comunicación interna de Junio 2026. Por favor, ingresa tu contraseña autorizada:</p>
+    <input type="password" id="passwordInput" class="password-input" placeholder="Ingresa tu contraseña" autocomplete="off">
+    <div id="passwordError" class="password-error">Contraseña incorrecta. Inténtalo de nuevo.</div>
+    <button id="passwordSubmit" class="password-btn">Acceder al Plan</button>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-top">🌸 PRIMAVERA EVENTS GROUP — DASHBOARD INTERNO DE EXPOSITORES — USO AUTORIZADO ÚNICAMENTE</div>
+  <div class="header-main">
+    <div class="logo-area">
+      <div class="logo-circle">P</div>
+      <div class="logo-text">
+        <h1>Primavera Events Group</h1>
+        <p>Dashboard de Expositores · Plan de Comunicación Junio 2026</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="header-badge hide-mobile" style="background: var(--rosa); color: white; padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.05em;">21 JUNIO 2026</div>
+      <a href="index.html" class="btn-dashboard-nav"><i class="fa-solid fa-house"></i> Volver al Dashboard</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">📅 Countdown oficial al evento</div>
+  <h2>Expo Boda &amp; XV Años 2026<br>Primavera Haute Runway</h2>
+  <p class="hero-sub">Centro de Convenciones Presidente · Córdoba, Veracruz</p>
+  <div class="countdown" id="countdown">
+    <div class="cd-block"><div class="cd-num" id="cd-days">--</div><div class="cd-label">Días</div></div>
+    <div class="cd-block"><div class="cd-num" id="cd-hours">--</div><div class="cd-label">Horas</div></div>
+    <div class="cd-block"><div class="cd-num" id="cd-mins">--</div><div class="cd-label">Minutos</div></div>
+    <div class="cd-block"><div class="cd-num" id="cd-secs">--</div><div class="cd-label">Segundos</div></div>
+  </div>
+  <div class="hero-eslogan">💍 "2026 es un año para casarse"</div>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+  <!-- ALERTA -->
+  <div class="alert">
+    <div class="alert-icon"><i class="fa-solid fa-bolt"></i></div>
+    <div><strong>Plan activo.</strong> Los copies, hashtags y enlaces de esta página son los materiales OFICIALES del plan de marketing junio 2026. Comparte directamente desde las publicaciones de @PrimaveraEventsGroup — no generes publicaciones nuevas con el material para evitar penalizaciones del algoritmo de Meta.</div>
+  </div>
+
+  <!-- 1. SEMANA EN CURSO -->
+  <div class="section-title"><div class="dot"></div><h3>¿Qué pasa esta semana?</h3><span>— Calendario Junio 2026</span></div>
+
+  <div class="card">
+    <div class="card-header card-header-azul">
+      <div class="card-icon"><i class="fa-solid fa-calendar-days"></i></div>
+      <div class="card-title">Calendario de Acciones — Días 1 al 21 de Junio</div>
+    </div>
+    <div class="card-body">
+      <div class="week-grid" id="calGrid"></div>
+      <div id="day-detail" style="background:var(--azul-pale);border-radius:10px;border:1px solid var(--azul-light);padding:18px 22px;font-size:13.5px;color:var(--azul);line-height:1.7;min-height:60px;transition: all 0.3s ease;"></div>
+    </div>
+  </div>
+
+  <!-- PROGRESS -->
+  <div style="margin-top:20px;">
+    <div class="progress-label"><span>Avance del plan</span><span id="prog-label">0%</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+  </div>
+
+  <!-- 2. DESCARGAS (Centralizadas para evitar confusión de descargas duplicadas) -->
+  <div class="section-title"><div class="dot"></div><h3>Descargar y Subir Material Oficial</h3></div>
+  <div class="resource-hub-card">
+    <p class="resource-hub-desc">
+      Para evitar versiones desactualizadas y garantizar la máxima resolución de los archivos, no ofrecemos descargas individuales directas aquí. En su lugar, hemos centralizado todo el material de apoyo en carpetas oficiales seguras de <strong>Google Drive</strong>. Puedes descargar y subir todo desde los siguientes dos botones:
+    </p>
+    <div class="resource-hub-grid">
+      <!-- HUB DESCARGAS -->
+      <div class="hub-box download-box">
+        <div class="hub-icon"><i class="fa-solid fa-cloud-arrow-down"></i></div>
+        <h4 class="hub-title">Descargar Recursos de Apoyo</h4>
+        <div class="hub-desc">
+          Accede al repositorio completo de recursos oficiales del evento. Aquí encontrarás:
+          <ul>
+            <li>Manual de Colaboración v1.0 (PDF)</li>
+            <li>Póster Editorial Blanco (Expectativa)</li>
+            <li>Póster Haute Runway (XV Años)</li>
+            <li>Póster de Campaña Azul (Bodas)</li>
+            <li>Póster Expo Rosa (Comercial / Conversión)</li>
+            <li>Marcas Sonoras Oficiales A (Emotiva) y B (Inspiracional)</li>
+            <li>Guía de Hashtags e Identidad Visual (PDF)</li>
+          </ul>
+        </div>
+        <a href="https://drive.google.com/drive/folders/168BJ-2D2Ul6qDIBNU9w8oeLHLkVHF5Y5?usp=sharing" target="_blank" class="btn-hub-action btn-download-hub">
+          <i class="fa-solid fa-folder-open"></i> Acceder a Carpeta de Apoyo
+        </a>
+      </div>
+
+      <!-- HUB SUBIDAS -->
+      <div class="hub-box upload-box">
+        <div class="hub-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+        <h4 class="hub-title">Subir tus Materiales de Marca</h4>
+        <div class="hub-desc">
+          Carga tus logotipos, portafolios y fotos oficiales para que el comité de marketing los integre en el plan de difusión.
+          <ul style="margin-top:8px;">
+            <li><strong>Instrucción estricta:</strong> Genera una carpeta en tu computadora con el nombre de tu marca.</li>
+            <li>Guarda en ella tu logo vectorizado y fotos de alta resolución.</li>
+            <li>Agrega tu ficha técnica en formato PDF o TXT.</li>
+            <li>Sube la carpeta completa al Drive sin subir archivos sueltos.</li>
+          </ul>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1WDpTEL5nAeHbUzz63820Z-bZr0GOe3AC?usp=sharing" target="_blank" class="btn-hub-action btn-upload-hub">
+          <i class="fa-solid fa-folder-arrow-up"></i> Subir Mi Kit de Marca
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. COPIES POR PLATAFORMA -->
+  <div class="section-title"><div class="dot"></div><h3>Copies Oficiales Listos para Usar</h3></div>
+  <div class="card">
+    <div class="card-header card-header-rosa">
+      <div class="card-icon"><i class="fa-solid fa-pen-nib"></i></div>
+      <div class="card-title">Selecciona la plataforma y línea de mercado</div>
+    </div>
+    <div class="card-body">
+      <div class="tabs" id="platform-tabs">
+        <button class="tab active" onclick="switchTab('fb-bodas')"><i class="fa-brands fa-facebook"></i> FB/IG — Bodas</button>
+        <button class="tab" onclick="switchTab('fb-xv')"><i class="fa-brands fa-instagram"></i> FB/IG — XV Años</button>
+        <button class="tab" onclick="switchTab('tiktok')"><i class="fa-brands fa-tiktok"></i> TikTok</button>
+        <button class="tab" onclick="switchTab('youtube')"><i class="fa-brands fa-youtube"></i> YouTube</button>
+        <button class="tab" onclick="switchTab('twitter')"><i class="fa-brands fa-x-twitter"></i> X/Twitter</button>
+        <button class="tab" onclick="switchTab('linkedin')"><i class="fa-brands fa-linkedin"></i> LinkedIn</button>
+      </div>
+
+      <!-- FB BODAS -->
+      <div class="tab-content active" id="tab-fb-bodas">
+        <div class="copy-label azul"><i class="fa-solid fa-ban"></i> Versión SIN enlaces — Pegar como post en Facebook</div>
+        <div class="copy-box azul-border" id="copy-fb-bodas-sin">✨ El conteo ha comenzado.
+
+El 21 de junio de 2026, el Centro de Convenciones Presidente de Córdoba, Veracruz, se convierte en el escenario más esperado del año: la Expo Boda &amp; XV Años 2026 organizada por Primavera Events Group.
+
+Un espacio donde cada detalle está diseñado para que tú tomes las decisiones que harán de tu boda el evento más memorable de tu vida.
+
+Fotografía. Banquetes. Vestidos. Flores. Música. Todo lo que necesitas, en un solo lugar.
+
+📅 21 de junio de 2026
+📍 Centro de Convenciones Presidente — Córdoba, Veracruz
+📞 +52 777 458 7923
+
+En los comentarios encontrarás el enlace directo para registrarte. ¡No dejes que se agoten los lugares!
+
+2026 es un año para casarse. 💍
+
+#ExpoBoda15Presidente #PrimaveraEventsGroup #CentroDeConvencionesPresidente #BodasCuernavaca #WeddingPlannerMexico</div>
+        <button class="btn-copy" onclick="copyText('copy-fb-bodas-sin', this)"><i class="fa-regular fa-copy"></i> Copiar Post</button>
+        <span class="copied-msg">¡Copiado!</span>
+
+        <div class="copy-label rosa" style="margin-top:20px;"><i class="fa-solid fa-link"></i> Versión CON enlaces — Pegar como primer comentario en Facebook / Caption Instagram</div>
+        <div class="copy-box rosa-border" id="copy-fb-bodas-con">✨ El conteo ha comenzado.
+
+El 21 de junio de 2026, el Centro de Convenciones Presidente, la Expo Boda &amp; XV Años 2026 organizada por Primavera Events Group.
+
+Fotografía. Banquetes. Vestidos. Flores. Música. Todo lo que necesitas, en un solo lugar.
+
+📅 21 de junio de 2026
+📍 Centro de Convenciones Presidente — Córdoba, Veracruz
+
+🔗 Registro oficial:
+primaveraeventsgroup.com/expo-boda-y-quince-anoscentro-de-convencionespresidente/
+
+🎪 Información del evento:
+primaveraeventsgroup.com/richard-hernandez-handwedding-planner/
+
+📞 +52 777 458 7923
+👉 facebook.com/share/14emEV89SKu/
+
+2026 es un año para casarse. 💍
+
+#ExpoBoda15Presidente #PrimaveraEventsGroup #CentroDeConvencionesPresidente #BodasCuernavaca #WeddingPlannerMexico</div>
+        <button class="btn-copy rosa" onclick="copyText('copy-fb-bodas-con', this)"><i class="fa-regular fa-copy"></i> Copiar versión con enlaces</button>
+      </div>
+
+      <!-- FB XV -->
+      <div class="tab-content" id="tab-fb-xv">
+        <div class="copy-label azul"><i class="fa-solid fa-ban"></i> Versión SIN enlaces — Post en Facebook</div>
+        <div class="copy-box azul-border" id="copy-fb-xv-sin">🌸 Tu gran día merece el escenario más soñado.
+
+El 21 de junio, Primavera Events Group presenta la Expo Boda &amp; XV Años 2026 en el Centro de Convenciones Presidente — y con ella, Primavera Haute Runway: el performance más emocionante del año para las que están a punto de vivir su gran día.
+
+Porque tus XV años no son solo una fiesta. Son el inicio de una historia.
+
+✨ Vestidos de ensueño
+✨ Tendencias de moda 2026
+✨ La pasarela Primavera Haute Runway
+✨ Todo lo que necesitas para planear el evento de tu vida
+
+📅 21 de junio de 2026
+📍 Centro de Convenciones Presidente, Córdoba, Veracruz
+📞 +52 777 458 7923
+
+¡Registro disponible! Encuéntralo en los comentarios. ⬇️
+
+#ExpoBoda15Presidente #PrimaveraEventsGroup #PrimaveraHauteRunway #ReviveTuGranDia #XV2026 #XVMorelos #CentroDeConvencionesPresidente</div>
+        <button class="btn-copy" onclick="copyText('copy-fb-xv-sin', this)"><i class="fa-regular fa-copy"></i> Copiar Post</button>
+
+        <div class="copy-label rosa" style="margin-top:20px;"><i class="fa-solid fa-link"></i> Versión CON enlaces — Primer comentario Facebook / Caption Instagram</div>
+        <div class="copy-box rosa-border" id="copy-fb-xv-con">🌸 Tu gran día merece el escenario más soñado.
+
+El 21 de junio, Primavera Events Group + Primavera Haute Runway en el Centro de Convenciones Presidente.
+
+✨ Vestidos. Pasarela. Tendencias 2026. Todo en un solo lugar.
+
+📅 21 Jun 2026 | 📍 Córdoba, Veracruz
+
+🎀 Registro (incluye participación en sorteos):
+primaveraeventsgroup.com/expo-boda-y-quince-anoscentro-de-convencionespresidente/
+
+🎪 Primavera Haute Runway — 'Revive tu gran día':
+primaveraeventsgroup.com/primavera-haute-runway
+
+📞 +52 777 458 7923 | 👉 facebook.com/share/14emEV89SKu/
+
+#ExpoBoda15Presidente #PrimaveraEventsGroup #PrimaveraHauteRunway #ReviveTuGranDia #XV2026 #XVMorelos</div>
+        <button class="btn-copy rosa" onclick="copyText('copy-fb-xv-con', this)"><i class="fa-regular fa-copy"></i> Copiar versión con enlaces</button>
+      </div>
+
+      <!-- TIKTOK -->
+      <div class="tab-content" id="tab-tiktok">
+        <div class="copy-label rosa"><i class="fa-brands fa-tiktok"></i> TikTok — Línea XV Años</div>
+        <div class="copy-box rosa-border" id="copy-tiktok-xv">🌸 POV: Tienes 21 días para prepararte para el evento más soñado del año.
+
+La Expo Boda &amp; XV Años 2026 de Primavera Events Group llega el 21 de junio al Centro de Convenciones Presidente. Vestidos, tendencias, la pasarela Haute Runway y todo lo que necesitas para tu gran día en un solo lugar.
+
+¿Ya te registraste? 👇 El link está en el perfil.
+
+📅 21 Jun | 📍 Córdoba, Veracruz
+
+#PrimaveraHauteRunway #ReviveTuGranDia #XV2026 #XVMorelos #ExpoBoda15Presidente #PrimaveraEventsGroup</div>
+        <button class="btn-copy rosa" onclick="copyText('copy-tiktok-xv', this)"><i class="fa-regular fa-copy"></i> Copiar — XV Años</button>
+
+        <div class="copy-label azul" style="margin-top:20px;"><i class="fa-brands fa-tiktok"></i> TikTok — Línea Bodas</div>
+        <div class="copy-box azul-border" id="copy-tiktok-bodas">💍 El escenario de tu boda soñada está a 21 días.
+
+Expo Boda &amp; XV Años 2026 | Primavera Events Group
+📅 21 de Junio | 📍 Centro de Convenciones Presidente, Córdoba, Veracruz
+
+Fotografía, banquetes, vestidos, flores. Todo en un solo lugar.
+Entra al link de la bio y regístrate gratis. ✨
+
+#BodasCuernavaca #WeddingPlannerMexico #ExpoBoda15Presidente #PrimaveraEventsGroup #CentroDeConvencionesPresidente</div>
+        <button class="btn-copy" onclick="copyText('copy-tiktok-bodas', this)"><i class="fa-regular fa-copy"></i> Copiar — Bodas</button>
+      </div>
+
+      <!-- YOUTUBE -->
+      <div class="tab-content" id="tab-youtube">
+        <div class="copy-label azul"><i class="fa-brands fa-youtube"></i> YouTube — Descripción estándar (todos los videos)</div>
+        <div class="copy-box azul-border" id="copy-yt">Expo Boda &amp; XV Años 2026 | Primavera Haute Runway — 21 de Junio, Córdoba, Veracruz
+
+En este video encontrarás todo lo que necesitas saber sobre el evento de bodas y XV años más importante de la región, organizado por Primavera Events Group en el Centro de Convenciones Presidente.
+
+📅 Fecha: 21 de junio de 2026
+📍 Sede: Centro de Convenciones Presidente — Córdoba, Veracruz
+🎪 Performance: Primavera Haute Runway — 'Revive tu gran día'
+
+🔗 REGISTRO OFICIAL:
+primaveraeventsgroup.com/expo-boda-y-quince-anoscentro-de-convencionespresidente/
+
+🎀 PRIMAVERA HAUTE RUNWAY:
+primaveraeventsgroup.com/primavera-haute-runway
+
+📞 +52 777 458 7923
+🌐 primaveraeventsgroup.com
+📱 Facebook: facebook.com/banqueteprimavera
+📸 Instagram: @primavera.events.group
+🎵 TikTok: @primavera_events_group
+
+━━━━━━━━━━━━━━━━
+2026 es un año para casarse. 💍
+━━━━━━━━━━━━━━━━
+#ExpoBoda15Presidente #PrimaveraEventsGroup #CentroDeConvencionesPresidente #PrimaveraHauteRunway #BodasCuernavaca #XV2026</div>
+        <button class="btn-copy" onclick="copyText('copy-yt', this)"><i class="fa-regular fa-copy"></i> Copiar descripción YouTube</button>
+      </div>
+
+      <!-- TWITTER -->
+      <div class="tab-content" id="tab-twitter">
+        <div class="copy-label azul"><i class="fa-brands fa-x-twitter"></i> Tweet 1 — Apertura</div>
+        <div class="copy-box azul-border" id="copy-tw1">✨ 21 días para el evento de bodas y XV años más esperado del año.
+
+Expo Boda &amp; XV Años 2026 | Primavera Events Group
+📅 21 Jun | 📍 Córdoba, Veracruz
+
+Regístrate 👉 primaveraeventsgroup.com/expo-boda-y-quince-anos
+
+#ExpoBoda15Presidente #BodasCuernavaca</div>
+        <button class="btn-copy" onclick="copyText('copy-tw1', this)"><i class="fa-regular fa-copy"></i> Copiar Tweet 1</button>
+
+        <div class="copy-label rosa" style="margin-top:20px;"><i class="fa-brands fa-x-twitter"></i> Tweet 2 — Haute Runway</div>
+        <div class="copy-box rosa-border" id="copy-tw2">🎀 Primavera Haute Runway llega el 21 de junio.
+
+El performance más soñado para quinceañeras. 'Revive tu gran día.'
+
+📍 Centro de Convenciones Presidente — Córdoba, Veracruz
+🔗 primaveraeventsgroup.com/primavera-haute-runway
+
+#ReviveTuGranDia #XV2026</div>
+        <button class="btn-copy rosa" onclick="copyText('copy-tw2', this)"><i class="fa-regular fa-copy"></i> Copiar Tweet 2</button>
+
+        <div class="copy-label azul" style="margin-top:20px;"><i class="fa-brands fa-x-twitter"></i> Tweet 3 — Urgencia (días 15–20)</div>
+        <div class="copy-box azul-border" id="copy-tw3">⏳ Últimos días para registrarte.
+
+La Expo Boda &amp; XV Años 2026 es el 21 de junio en el Centro de Convenciones Presidente.
+
+Todo lo que necesitas para tu boda o XV años. Un solo lugar.
+
+Registro: primaveraeventsgroup.com/expo-boda-y-quince-anos
+
+#ExpoBoda15Presidente #PrimaveraEventsGroup</div>
+        <button class="btn-copy" onclick="copyText('copy-tw3', this)"><i class="fa-regular fa-copy"></i> Copiar Tweet 3</button>
+      </div>
+
+      <!-- LINKEDIN -->
+      <div class="tab-content" id="tab-linkedin">
+        <div class="copy-label azul"><i class="fa-brands fa-linkedin-in"></i> LinkedIn — Post ejecutivo B2B (expositores/aliados)</div>
+        <div class="copy-box azul-border" id="copy-li">Primavera Events Group se complace en anunciar la Expo Boda &amp; XV Años 2026, el evento comercial de bodas y quinceañeras más relevante de la región Córdoba-Veracruz, a realizarse el 21 de junio de 2026 en el Centro de Convenciones Presidente.
+
+Este año, el evento incorpora Primavera Haute Runway, una pasarela editorial de alta producción diseñada para posicionar a las marcas participantes en el segmento premium del mercado nupcial y de eventos sociales de Morelos y Veracruz.
+
+Para marcas del sector bodas, XV años, fotografía, banquetes, moda nupcial, decoración y entretenimiento, la Expo representa una oportunidad directa de contacto con cientos de clientes potenciales en un entorno de alta intención de compra.
+
+📅 21 de junio de 2026
+📍 Centro de Convenciones Presidente — Córdoba, Veracruz
+🔗 primaveraeventsgroup.com/expo-boda-y-quince-anoscentro-de-convencionespresidente/
+📞 +52 777 458 7923
+🌐 primaveraeventsgroup.com/richard-hernandez-handwedding-planner/
+
+Richard Hernández &amp; Jessica Patricia Sandoval | Co-propietarios
+Primavera Events Group
+
+#PrimaveraEventsGroup #ExpoBoda15Presidente #WeddingPlannerMexico #BodasCuernavaca #EventosSociales</div>
+        <button class="btn-copy" onclick="copyText('copy-li', this)"><i class="fa-regular fa-copy"></i> Copiar post LinkedIn</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. HASHTAGS -->
+  <div class="section-title"><div class="dot"></div><h3>Sistema de Hashtags</h3><span>— Click para copiar</span></div>
+  <div class="card">
+    <div class="card-body">
+      <div style="font-size:11.5px;font-weight:700;color:var(--azul);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em;"><i class="fa-solid fa-star"></i> Obligatorios en TODA publicación (Principal: #ExpoBoda15Presidente)</div>
+      <div class="hashtag-cloud" style="margin-bottom:18px;">
+        <button class="hashtag" onclick="copyHashtag(this)">#ExpoBoda15Presidente</button>
+        <button class="hashtag" onclick="copyHashtag(this)">#PrimaveraEventsGroup</button>
+        <button class="hashtag" onclick="copyHashtag(this)">#CentroDeConvencionesPresidente</button>
+      </div>
+      
+      <div style="font-size:11.5px;font-weight:700;color:var(--rosa);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em;"><i class="fa-solid fa-crown"></i> XV Años / Haute Runway</div>
+      <div class="hashtag-cloud" style="margin-bottom:18px;">
+        <button class="hashtag rosa" onclick="copyHashtag(this)">#PrimaveraHauteRunway</button>
+        <button class="hashtag rosa" onclick="copyHashtag(this)">#ReviveTuGranDía</button>
+        <button class="hashtag rosa" onclick="copyHashtag(this)">#ReviveTuGranDia</button>
+        <button class="hashtag rosa" onclick="copyHashtag(this)">#XV2026</button>
+        <button class="hashtag rosa" onclick="copyHashtag(this)">#XVMorelos</button>
+        <button class="hashtag rosa" onclick="copyHashtag(this)">#Quinceañeras</button>
+        <button class="hashtag rosa" onclick="copyHashtag(this)">#Quinceañera</button>
+        <button class="hashtag rosa" onclick="copyHashtag(this)">#ExpoXV</button>
+        <button class="hashtag rosa" onclick="copyHashtag(this)">#FashionRunway</button>
+        <button class="hashtag rosa" onclick="copyHashtag(this)">#QuinceañeraRunway</button>
+      </div>
+      
+      <div style="font-size:11.5px;font-weight:700;color:var(--azul);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em;"><i class="fa-solid fa-ring"></i> Bodas</div>
+      <div class="hashtag-cloud" style="margin-bottom:18px;">
+        <button class="hashtag" onclick="copyHashtag(this)">#BodasCuernavaca</button>
+        <button class="hashtag" onclick="copyHashtag(this)">#WeddingPlannerMexico</button>
+        <button class="hashtag" onclick="copyHashtag(this)">#ExpoBoda</button>
+      </div>
+
+      <div style="font-size:11.5px;font-weight:700;color:var(--dorado);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em;"><i class="fa-solid fa-gem"></i> Estilo de Vida &amp; Eventos Premium</div>
+      <div class="hashtag-cloud" style="margin-bottom:18px;">
+        <button class="hashtag dorado-h" onclick="copyHashtag(this)">#LuxuryEvents</button>
+        <button class="hashtag dorado-h" onclick="copyHashtag(this)">#EventosElegantes</button>
+        <button class="hashtag dorado-h" onclick="copyHashtag(this)">#EventosPremium</button>
+      </div>
+
+      <div style="font-size:11.5px;font-weight:700;color:#7a5e1a;margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em;"><i class="fa-solid fa-location-dot"></i> SEO Local &amp; Regional</div>
+      <div class="hashtag-cloud">
+        <button class="hashtag dorado-h" onclick="copyHashtag(this)">#Cuernavaca</button>
+        <button class="hashtag dorado-h" onclick="copyHashtag(this)">#Morelos</button>
+        <button class="hashtag dorado-h" onclick="copyHashtag(this)">#CórdobaVeracruz</button>
+        <button class="hashtag dorado-h" onclick="copyHashtag(this)">#BodasMorelos</button>
+        <button class="hashtag dorado-h" onclick="copyHashtag(this)">#EventosMorelos</button>
+        <button class="hashtag dorado-h" onclick="copyHashtag(this)">#CuernavacaEventos</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4.1 ¿CÓMO NOS VE EL ROBOT DE LA PLATAFORMA? -->
+  <div class="card" style="margin-top: 20px; background: #fffcf9; border: 1.5px solid #f3e5d8; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); margin-bottom: 24px;">
+    <div class="card-body" style="padding: 24px;">
+      <h3 style="color: var(--rosa); font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+        <i class="fa-solid fa-robot" style="color: var(--rosa);"></i> ¿Cómo nos ve el Robot de la Red Social? (Explicación Sencilla 🤖)
+      </h3>
+      <p style="font-size: 13px; line-height: 1.6; color: var(--negro); margin-bottom: 15px;">
+        Imaginen que Facebook e Instagram son como una <strong>gigante biblioteca digital</strong> gestionada por un robot bibliotecario muy inteligente. Cuando subimos fotos bonitas de nuestros vestidos, banquetes o arreglos de flores, las personas (la audiencia humana) dicen: <em>"¡Wow, qué hermoso!"</em>. Pero el robot bibliotecario no tiene ojos como nosotros; él no "mira" la foto en sí, sino que <strong>lee las etiquetas, los textos y las palabras</strong> que le ponemos para saber en qué pasillo de la biblioteca clasificar nuestro stand digital.
+      </p>
+      <p style="font-size: 13px; line-height: 1.6; color: var(--negro); margin-bottom: 15px;">
+        Si el robot bibliotecario entiende a la perfección quién eres, qué vendes y que estás conectado con la Expo, te otorgará <strong>los mejores pasillos de exhibición (máximo alcance orgánico de Meta)</strong>. Para ganarnos al robot, es obligatorio cumplir con estas 4 sencillas claves de "rastreo técnico":
+      </p>
+      <ul style="font-size: 12.5px; line-height: 1.7; color: var(--gris); margin-left: 20px; margin-bottom: 15px; list-style-type: square;">
+        <li style="margin-bottom: 8px;"><strong style="color: var(--negro);">No envíes solo fotos, comparte tu contenido en texto:</strong> Al subir tu Kit de Marca, no cargues solo fotos o logotipos. Agrega obligatoriamente un archivo de texto o PDF detallando al máximo tus servicios, especialidades, paquetes y precios. ¡Al robot bibliotecario le encanta leer texto enriquecido para clasificarte con precisión en las búsquedas locales!</li>
+        <li style="margin-bottom: 8px;"><strong style="color: var(--negro);">Tus nombres de usuario exactos (Handles):</strong> Indica con exactitud tus nombres de usuario (ej. <code>@TuMarcaOficial</code>) y en qué redes tienes presencia para que el sistema pueda vincular tus perfiles reales sin margen de error.</li>
+        <li style="margin-bottom: 8px;"><strong style="color: var(--negro);">¡Sigue a la página oficial! (Indispensable):</strong> Tu perfil comercial <strong>debe seguir activamente a @PrimaveraEventsGroup</strong> en Facebook e Instagram. Si no nos sigues, las políticas de Meta impedirán que te etiquetemos en las co-publicaciones, bloqueando la conexión algorítmica.</li>
+        <li style="margin-bottom: 8px;"><strong style="color: var(--negro);">Hashtags Personalizados (Footprinting 👣):</strong> Crearemos un hashtag único para tu marca vinculado al evento (ej. <code>#ExpoBodaTuMarca</code>). Esto crea una "huella digital" imborrable que conecta tu marca al ecosistema de la Expo, permitiendo que el robot les recomiende juntos cada vez que un cliente busque servicios nupciales en Córdoba o Veracruz.</li>
+      </ul>
+      <p style="font-size: 12.5px; font-weight: 600; color: #7a5e1a; background: #fffbeb; border: 1px solid #fef3c7; padding: 12px; border-radius: 8px; margin: 0; display: flex; align-items: center; gap: 8px;">
+        <i class="fa-solid fa-lightbulb" style="font-size: 15px; color: var(--dorado);"></i> Recuerda: La plataforma premia con visibilidad y prioridad de feed a quienes mejor le ayudan a distinguir, catalogar y ubicar sus marcas en la red. ¡Facilitemos el trabajo al robot y multipliquemos nuestro alcance!
+      </p>
+    </div>
+  </div>
+
+  <!-- 5. ENLACES OFICIALES -->
+  <div class="section-title"><div class="dot"></div><h3>Enlaces Oficiales Obligatorios</h3></div>
+  <div class="card">
+    <div class="card-body" style="padding:0;">
+      <div class="links-table-container">
+        <table class="links-table">
+          <thead><tr><th>Destino</th><th>URL / Contacto</th><th>Uso</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Expo — Registro Asistentes</strong></td><td><a href="https://primaveraeventsgroup.com/expo-boda-y-quince-anoscentro-de-convencionespresidente/" target="_blank">primaveraeventsgroup.com/expo-boda-y-quince-anos...</a></td><td>Feed, Stories, Bio</td></tr>
+            <tr><td><strong>Primavera Haute Runway</strong></td><td><a href="https://primaveraeventsgroup.com/primavera-haute-runway" target="_blank">primaveraeventsgroup.com/primavera-haute-runway</a></td><td>Posts XV Años, TikTok</td></tr>
+            <tr><td><strong>Contacto / Richard Hernández</strong></td><td><a href="https://primaveraeventsgroup.com/richard-hernandez-handwedding-planner/" target="_blank">primaveraeventsgroup.com/richard-hernandez...</a></td><td>LinkedIn, B2B</td></tr>
+            <tr><td><strong>Evento Facebook</strong></td><td><a href="https://facebook.com/share/14emEV89SKu/" target="_blank">facebook.com/share/14emEV89SKu/</a></td><td>FB, WhatsApp</td></tr>
+            <tr><td><strong>Teléfono Directo</strong></td><td><strong>+52 777 458 7923</strong></td><td>Bio, Stories, WhatsApp</td></tr>
+            <tr><td><strong>Sede (Rubí Alvarado)</strong></td><td><strong>+52 271 114 8997</strong></td><td>Logística, Expositores</td></tr>
+            <tr><td><strong>Google Maps</strong></td><td><a href="https://maps.app.goo.gl/Pj63bWfv6hmHr5RR9" target="_blank">maps.app.goo.gl/Pj63bWfv6hmHr5RR9</a></td><td>Posts de llegada</td></tr>
+            <tr><td><strong>Instagram Oficial</strong></td><td><a href="https://instagram.com/primavera.events.group" target="_blank">@primavera.events.group</a></td><td>Etiqueta siempre</td></tr>
+            <tr><td><strong>TikTok Oficial</strong></td><td><a href="https://tiktok.com/@primavera_events_group" target="_blank">@primavera_events_group</a></td><td>Bio TikTok</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. FAQ -->
+  <div class="section-title"><div class="dot"></div><h3>Preguntas Frecuentes — Expositores</h3></div>
+  <div id="faq">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><span>¿Puedo hacer mi propio post con el material gráfico de Primavera?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">No. El protocolo aprobado indica que debes <strong>compartir las publicaciones oficiales</strong> directamente desde la cuenta @PrimaveraEventsGroup en tus Stories y estados. Generar publicaciones nuevas con el material fragmenta las métricas y puede ser penalizado por el algoritmo de Meta. Si participaste activamente en la creación del contenido, puedes usar la función Instagram Collab.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><span>¿Cuándo se va a publicar el roster completo de expositores?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">El roster **totalmente confirmado y completado al 100%** se revelará oficialmente el <strong>Día 14 (14 de junio)</strong> mediante un video Reel especial. Aclaramos que el roster se ha estado mostrando en publicaciones previas pero de forma parcial e incompleta, actualizándose progresivamente con base en el ingreso, registro y entrega de contenidos de cada expositor. En esta fecha se dará a conocer el roster consolidado final. Antes de ese día, no publiques listas borradoras, renders o capturas para no fragmentar el impacto de la revelación oficial.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><span>¿Puedo modificar el copy oficial para adaptarlo a mi estilo?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">No, sin autorización previa. El copy oficial está diseñado con una estrategia de embudo de conversión específica. Si necesitas una adaptación menor, solicítala con al menos <strong>48 horas de anticipación</strong> al comité organizador al +52 777 458 7923.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><span>¿Cómo funciona el formulario de registro de asistentes?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">El formulario en el sitio web filtra a los asistentes por intereses (fecha de evento, presupuesto, categorías de interés). También incluye la posibilidad de obtener premios mediante el registro, lo que incentiva el llenado. La base de datos resultante es parte del CRM del evento.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><span>¿Cómo puedo compartir publicaciones de forma correcta?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">1) Ve a la publicación oficial en @PrimaveraEventsGroup. 2) Usa el botón de compartir de Instagram para enviarlo a tus Stories. 3) Etiqueta @primavera.events.group en cualquier contenido propio relacionado al evento. 4) Si eres colaborador oficial, usa la función Instagram Collab para co-publicar.</div>
+    </div>
+  </div>
+
+  <!-- CONTACTO -->
+  <style>
+    .contact-bar-marketing {
+      background: var(--azul);
+      color: white;
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-top: 40px;
+      box-shadow: 0 10px 25px rgba(26,58,92,0.15);
+    }
+    .contact-bar-marketing h4 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .contact-bar-marketing p {
+      font-size: 13px;
+      opacity: 0.85;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    .contact-buttons-grid {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .contact-btn-individual {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 12.5px;
+      font-weight: 700;
+      text-decoration: none;
+      color: white;
+      transition: all 0.25s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+    .contact-btn-individual.richard {
+      background: var(--rosa);
+      box-shadow: 0 4px 12px rgba(240,90,126,0.3);
+    }
+    .contact-btn-individual.richard:hover {
+      background: #d94f6f;
+      transform: translateY(-2px);
+    }
+    .contact-btn-individual.jessy {
+      background: var(--dorado);
+      color: var(--negro);
+      box-shadow: 0 4px 12px rgba(201, 169, 110, 0.3);
+    }
+    .contact-btn-individual.jessy:hover {
+      background: #b8943e;
+      transform: translateY(-2px);
+    }
+    .contact-btn-individual.alex {
+      background: #3182ce;
+      box-shadow: 0 4px 12px rgba(49,130,206,0.3);
+    }
+    .contact-btn-individual.alex:hover {
+      background: #2b6cb0;
+      transform: translateY(-2px);
+    }
+    .contact-btn-individual.rubi {
+      background: #25D366;
+      box-shadow: 0 4px 12px rgba(37,211,102,0.3);
+    }
+    .contact-btn-individual.rubi:hover {
+      background: #20ba5a;
+      transform: translateY(-2px);
+    }
+    @media (max-width: 768px) {
+      .contact-btn-individual {
+        width: 100%;
+      }
+    }
+  </style>
+  <div class="contact-bar-marketing">
+    <h4>¿Tienes dudas? Contacta al equipo</h4>
+    <p>Haz clic en cualquiera de los botones de abajo para comunicarte o consultar los perfiles oficiales de los coordinadores y anfitriones de la Expo:</p>
+    <div class="contact-buttons-grid">
+      <a class="contact-btn-individual richard" href="https://primaveraeventsgroup.com/richard-hernandez/" target="_blank">
+        <i class="fa-solid fa-user-tie"></i> Richard Hernández (Co-Propietario)
+      </a>
+      <a class="contact-btn-individual jessy" href="https://primaveraeventsgroup.com/jessy/" target="_blank">
+        <i class="fa-solid fa-user-tie"></i> Jessica Sandoval (Co-Propietaria)
+      </a>
+      <a class="contact-btn-individual alex" href="https://5410m0n0c001.github.io/INIT-IDEA/" target="_blank">
+        <i class="fa-solid fa-laptop-code"></i> Alex Salomón (Soporte Digital)
+      </a>
+      <a class="contact-btn-individual rubi" href="https://wa.me/522711148997" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i> Rubí Alvarado (Anfitriona Sede)
+      </a>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+// ── PASSWORD PROTECTION ──
+document.addEventListener('DOMContentLoaded', () => {
+    const overlay = document.getElementById('passwordOverlay');
+    const input = document.getElementById('passwordInput');
+    const submitBtn = document.getElementById('passwordSubmit');
+    const errorMsg = document.getElementById('passwordError');
+
+    // Verificar si ya ha iniciado sesión en esta sesión del navegador
+    if (sessionStorage.getItem('exhibitor_authenticated') === 'true') {
+        overlay.style.display = 'none';
+    }
+
+    function checkPassword() {
+        if (input.value.trim() === 'PrimaveraVIP') {
+            sessionStorage.setItem('exhibitor_authenticated', 'true');
+            overlay.classList.add('hidden');
+            setTimeout(() => { overlay.style.display = 'none'; }, 500);
+        } else {
+            errorMsg.style.display = 'block';
+            input.style.borderColor = '#e74c3c';
+            input.value = '';
+            input.focus();
+        }
+    }
+
+    submitBtn.addEventListener('click', checkPassword);
+    input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            checkPassword();
+        }
+    });
+    
+    input.addEventListener('input', () => {
+        errorMsg.style.display = 'none';
+        input.style.borderColor = 'var(--beige)';
+    });
+});
+
+// ── COUNTDOWN ──
+function updateCountdown() {
+  const event = new Date('2026-06-21T10:00:00');
+  const now = new Date();
+  const diff = event - now;
+  if (diff <= 0) {
+    document.getElementById('countdown').innerHTML = '<div class="cd-block"><div class="cd-num" style="color:#fff">🎉</div><div class="cd-label">¡Hoy es el evento!</div></div>';
+    return;
+  }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  document.getElementById('cd-days').textContent = String(d).padStart(2,'0');
+  document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+  document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+  document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// ── CALENDAR ──
+const calDays = [
+  {d:1, fase:'LANZAMIENTO', tag:'tag-lanzamiento', desc:'📣 Publicación oficial: "Arranca la cuenta regresiva". Story + Post con póster de campaña azul. Activar campañas pagadas en Meta Ads.'},
+  {d:2, fase:'ADS', tag:'tag-lanzamiento', desc:'💰 Activar campañas pagadas Meta Ads: Campaña XV Años (rosa/Haute Runway) y Campaña Bodas (azul de campaña/dorado). Segmentación Morelos.'},
+  {d:3, fase:'ROSTER', tag:'tag-roster', desc:'🎬 Teaser video: "Pronto revelaremos quiénes estarán el 21 de junio". Grid animado SIN logos. IG Reel + TikTok.'},
+  {d:4, fase:'ROSTER', tag:'tag-roster', desc:'👗 1er expositor individual — Categoría Moda/Vestidos. Story con link al registro asistentes.'},
+  {d:5, fase:'CONTENIDO', tag:'tag-contenido', desc:'🎀 Video Haute Runway emocional "Revive tu gran día". Marca Sonora A. Thumbnail: quinceañera. IG Reel + TikTok.'},
+  {d:6, fase:'CONTENIDO', tag:'tag-contenido', desc:'💍 Post tipo Magazine: "Tendencias vestidos de novia 2026". Enlace al blog. Marca Sonora B. FB + Pinterest + LinkedIn.'},
+  {d:7, fase:'ROSTER', tag:'tag-roster', desc:'📷 2do expositor — Categoría Fotografía/Video. Grid + reel corto de portafolio. IG + FB.'},
+  {d:8, fase:'REGISTRO', tag:'tag-contenido', desc:'📋 Recordatorio registro: "13 días. ¿Ya tienes tu lugar?". Story countdown sticker + link sticker. IG Stories + WhatsApp.'},
+  {d:9, fase:'ROSTER', tag:'tag-roster', desc:'🍽️ 3er expositor — Banquetes/Catering. Story Collab (IG) con el expositor. Audiencia bodas.'},
+  {d:10, fase:'CONTENIDO', tag:'tag-contenido', desc:'🏛️ Video montaje/detrás de cámaras del venue. "El Centro de Convenciones Presidente te espera". IG Reel + YouTube Shorts.'},
+  {d:11, fase:'ROSTER', tag:'tag-roster', desc:'💄 4to expositor — Belleza/Maquillaje. Post individual + #XV2026. IG + TikTok.'},
+  {d:12, fase:'INCENTIVO', tag:'tag-contenido', desc:'🎁 Incentivo registro: "Regístrate antes del 15 y participa en el sorteo". Story + Post. IG + FB.'},
+  {d:13, fase:'CONTENIDO', tag:'tag-contenido', desc:'📝 Guía: "Tips para planear tu boda sin estrés en Morelos". Mención @GrupoPlanea. FB + Blog.'},
+  {d:14, fase:'ROSTER REVEAL', tag:'tag-roster', desc:'🎬 VIDEO REEL COMPLETO: Revelación del roster oficial ya confirmado y completado al 100%. (En publicaciones previas el roster se ha mostrado de forma parcial e incompleta conforme se registraban y actualizaban contenidos. En esta fecha se da a conocer la lista consolidada definitiva). Intro gala + grid animado + CTA. IG + FB + TikTok + YouTube. ⭐ CONTENIDO CRÍTICO'},
+  {d:15, fase:'URGENCIA', tag:'tag-urgencia', desc:'⏳ Cierre registro incentivado: "6 días. Últimos lugares con beneficio sorteo". IG Stories + FB + WhatsApp.'},
+  {d:16, fase:'CONTENIDO', tag:'tag-contenido', desc:'🎥 Video testimonial/aspiracional XV Años. "Esto es lo que vive quien asiste". IG Reel + TikTok.'},
+  {d:17, fase:'URGENCIA', tag:'tag-urgencia', desc:'⚡ "4 días. Esto es lo que encontrarás el 21 de junio". Carrusel expositores destacados. IG + FB.'},
+  {d:18, fase:'LOGÍSTICA', tag:'tag-contenido', desc:'🗺️ Post informativo: "Cómo llegar al Centro de Convenciones Presidente". Mapa + horarios + enlace Google Maps.'},
+  {d:19, fase:'URGENCIA', tag:'tag-urgencia', desc:'⏰ Story countdown "2 días". Recordatorio expositores + performance Haute Runway. IG Stories + TikTok.'},
+  {d:20, fase:'PRE-EVENTO', tag:'tag-urgencia', desc:'🏗️ Story en vivo: montaje del venue. "Mañana es el gran día. ¿Estás lista?". Sticker cuenta regresiva. IG Live Stories.'},
+  {d:21, fase:'EVENTO', tag:'tag-evento', desc:'🎉 COBERTURA EN VIVO: IG Stories, TikTok Live, Facebook Live. Documentación fotográfica Primavera Haute Runway. ¡Es el gran día!'},
+];
+
+const grid = document.getElementById('calGrid');
+const detail = document.getElementById('day-detail');
+const today = new Date();
+const todayDate = today.getDate();
+const todayMonth = today.getMonth() + 1; // 1-indexed
+
+calDays.forEach(day => {
+  const el = document.createElement('div');
+  el.className = 'day-cell';
+  const isToday = (todayMonth === 6 && todayDate === day.d);
+  const isPast = (todayMonth > 6 || (todayMonth === 6 && todayDate > day.d));
+  if (isToday) el.classList.add('active');
+  if (day.d === 14) el.classList.add('rosa');
+  el.innerHTML = `<div class="day-num" style="${isPast?'opacity:0.4':''}">${day.d}</div><div class="day-label" style="${isPast?'opacity:0.4':''}">JUN</div><div class="day-tag ${day.tag}">${day.fase.substring(0,7)}</div>`;
+  el.onclick = () => {
+    document.querySelectorAll('.day-cell').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+    detail.innerHTML = `<strong>Día ${day.d} de Junio — ${day.fase}</strong><br>${day.desc}`;
+  };
+  grid.appendChild(el);
+});
+
+// Show today's detail on load
+const todayDay = calDays.find(d => todayMonth === 6 && d.d === todayDate);
+if (todayDay) {
+  detail.innerHTML = `<strong>HOY — Día ${todayDay.d} de Junio — ${todayDay.fase}</strong><br>${todayDay.desc}`;
+  const todayCell = Array.from(document.querySelectorAll('.day-cell')).find(cell => parseInt(cell.querySelector('.day-num').textContent) === todayDate);
+  if (todayCell) todayCell.classList.add('active');
+} else {
+  detail.innerHTML = '<strong>Selecciona un día para ver el detalle de la acción.</strong>';
+}
+
+// Progress bar
+const pct = todayMonth === 6 ? Math.min(100, Math.round((todayDate / 21) * 100)) : (todayMonth > 6 ? 100 : 0);
+document.getElementById('progress-fill').style.width = pct + '%';
+document.getElementById('prog-label').textContent = pct + '%';
+
+// ── TABS ──
+function switchTab(id) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+
+// ── COPY TEXT ──
+function copyText(id, btn) {
+  const el = document.getElementById(id);
+  const text = el.innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const msg = btn.nextElementSibling;
+    if (msg && msg.classList.contains('copied-msg')) {
+      msg.style.display = 'inline';
+      setTimeout(() => { msg.style.display = 'none'; }, 2000);
+    }
+    const orig = btn.innerHTML;
+    btn.innerHTML = '✅ ¡Copiado!';
+    setTimeout(() => { btn.innerHTML = orig; }, 2000);
+  });
+}
+
+// ── COPY HASHTAG ──
+function copyHashtag(btn) {
+  navigator.clipboard.writeText(btn.textContent).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = '✅ Copiado';
+    setTimeout(() => { btn.textContent = orig; }, 1500);
+  });
+}
+
+// ── FAQ ──
+function toggleFaq(el) {
+  const answer = el.nextElementSibling;
+  const toggle = el.querySelector('.faq-toggle');
+  answer.classList.toggle('open');
+  toggle.classList.toggle('open');
+}
+</script>
+</body>
+</html>

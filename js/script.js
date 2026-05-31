@@ -193,7 +193,8 @@ document.addEventListener('DOMContentLoaded', function() {
         { src: 'assets/logo_new15.png', caption: 'Barra de Postres' },
         { src: 'assets/logo_new16.png', caption: 'Saxofonista Solista' },
         { src: 'assets/logo_new17.png', caption: 'Mía Concept Store' },
-        { src: 'assets/logo_new18.jpeg', caption: 'Pianista & Arpa' }
+        { src: 'assets/logo_new18.jpeg', caption: 'Pianista & Arpa' },
+        { src: 'assets/logo_new19.png', caption: 'Scanner DJ' }
     ];
 
     if (albumTrack) {
