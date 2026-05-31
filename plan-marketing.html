@@ -675,6 +675,11 @@
 </head>
 <body>
 
+<!-- Background Audio -->
+<audio id="bgAudio" loop preload="auto">
+  <source src="assets/marcasonora2.mp3" type="audio/mpeg">
+</audio>
+
 <!-- Password Protection Overlay -->
 <div class="password-overlay" id="passwordOverlay">
   <div class="password-card">
@@ -1256,9 +1261,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitBtn = document.getElementById('passwordSubmit');
     const errorMsg = document.getElementById('passwordError');
 
+    function startMarketingAudio() {
+        const bgAudio = document.getElementById('bgAudio');
+        if (bgAudio) {
+            bgAudio.play().catch(() => {
+                // Si el navegador bloquea el autoplay, esperamos a que haga clic
+                document.addEventListener('click', () => {
+                    bgAudio.play().catch(e => console.log('Audio error:', e));
+                }, { once: true });
+            });
+        }
+    }
+
     // Verificar si ya ha iniciado sesión en esta sesión del navegador
     if (sessionStorage.getItem('exhibitor_authenticated') === 'true') {
         overlay.style.display = 'none';
+        startMarketingAudio();
     }
 
     function checkPassword() {
@@ -1266,6 +1284,7 @@ document.addEventListener('DOMContentLoaded', () => {
             sessionStorage.setItem('exhibitor_authenticated', 'true');
             overlay.classList.add('hidden');
             setTimeout(() => { overlay.style.display = 'none'; }, 500);
+            startMarketingAudio();
         } else {
             errorMsg.style.display = 'block';
             input.style.borderColor = '#e74c3c';

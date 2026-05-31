@@ -1263,6 +1263,11 @@
 </head>
 <body>
 
+<!-- Background Audio -->
+<audio id="bgAudio" loop preload="auto">
+  <source src="assets/marcasonora3.mp3" type="audio/mpeg">
+</audio>
+
     <div class="layout-container">
         
         <!-- Sidebar Navigation -->
@@ -1984,6 +1989,22 @@
 
     <!-- Active Menu Highlight & FAB Toggle Script -->
     <script>
+        // Background Audio logic on first user gesture
+        document.addEventListener('DOMContentLoaded', () => {
+            const bgAudio = document.getElementById('bgAudio');
+            if (bgAudio) {
+                const startAudio = () => {
+                    bgAudio.play().catch(e => console.log('Autoplay blocked:', e));
+                };
+                
+                startAudio();
+                
+                document.addEventListener('click', startAudio, { once: true });
+                document.addEventListener('keydown', startAudio, { once: true });
+                document.addEventListener('touchstart', startAudio, { once: true });
+            }
+        });
+
         // Mobile Drawer Menu Toggle Logic
         const menuToggleBtn = document.getElementById('menuToggleBtn');
         const sidebarMenu = document.getElementById('sidebarMenu');
