@@ -26,9 +26,9 @@
     --rosa-pale: var(--soft-pink);
     --dorado: var(--gold-accent);
     --dorado-light: #F5EDE4;
-    --azul: #121212; /* Cambiado de azul a negro/carbón premium */
-    --azul-light: #eae5e2; /* Cambiado a gris cálido suave */
-    --azul-pale: #FAF6F4; /* Cambiado a crema suave */
+    --negro-deep: #121212; /* Cambiado de azul a negro/carbón premium */
+    --gris-claro: #eae5e2; /* Cambiado a gris cálido suave */
+    --crema-suave: #FAF6F4; /* Cambiado a crema suave */
     --gris: var(--gray-text);
     --gris-light: var(--background-light);
     --negro: var(--primary-dark);
@@ -53,7 +53,7 @@
 
   /* ── HEADER ── */
   header {
-    background: var(--azul);
+    background: var(--negro-deep);
     color: white;
     padding: 0;
     position: sticky; top: 0; z-index: 100;
@@ -111,7 +111,7 @@
 
   /* ── HERO / COUNTDOWN ── */
   .hero {
-    background: linear-gradient(135deg, var(--azul) 0%, #1e1e1e 60%, #292929 100%);
+    background: linear-gradient(135deg, var(--negro-deep) 0%, #1e1e1e 60%, #292929 100%);
     color: white;
     text-align: center;
     padding: 56px 24px 48px;
@@ -192,7 +192,7 @@
     background: var(--rosa); flex-shrink: 0;
   }
   .section-title h3 {
-    font-size: 16px; font-weight: 800; color: var(--azul);
+    font-size: 16px; font-weight: 800; color: var(--negro-deep);
     text-transform: uppercase; letter-spacing: 0.08em;
   }
   .section-title span {
@@ -216,7 +216,7 @@
     display: flex; align-items: center; gap: 12px;
   }
   .card-header-rosa { background: var(--rosa); color: white; }
-  .card-header-azul { background: var(--azul); color: white; }
+  .card-header-dark { background: var(--negro-deep); color: white; }
   .card-header-dorado { background: var(--dorado); color: var(--negro); }
   .card-icon { font-size: 20px; }
   .card-title { font-size: 14px; font-weight: 700; letter-spacing: 0.02em; }
@@ -236,20 +236,20 @@
     .week-grid { grid-template-columns: repeat(3, 1fr); }
   }
   .day-cell {
-    background: var(--azul-pale);
-    border: 1.5px solid var(--azul-light);
+    background: var(--crema-suave);
+    border: 1.5px solid var(--gris-claro);
     border-radius: 10px;
     padding: 12px 8px;
     text-align: center;
     cursor: pointer;
     transition: all 0.2s;
   }
-  .day-cell:hover { background: var(--azul-light); border-color: var(--azul); transform: scale(1.03); }
-  .day-cell.active { background: var(--azul); color: white; border-color: var(--azul); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+  .day-cell:hover { background: var(--gris-claro); border-color: var(--negro-deep); transform: scale(1.03); }
+  .day-cell.active { background: var(--negro-deep); color: white; border-color: var(--negro-deep); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
   .day-cell.active .day-label, .day-cell.active .day-num { color: white; }
   .day-cell.rosa { border-color: var(--rosa); background: var(--rosa-pale); }
   .day-cell.rosa.active { background: var(--rosa); border-color: var(--rosa); box-shadow: 0 4px 12px rgba(240,90,126,0.2); }
-  .day-num { font-size: 22px; font-weight: 900; color: var(--azul); }
+  .day-num { font-size: 22px; font-weight: 900; color: var(--negro-deep); }
   .day-label { font-size: 9px; color: var(--gris); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
   .day-tag {
     font-size: 8px; font-weight: 700;
@@ -257,13 +257,13 @@
     display: inline-block;
     letter-spacing: 0.02em;
   }
-  .tag-lanzamiento { background: var(--azul-light); color: var(--azul); }
+  .tag-lanzamiento-dark { background: var(--gris-claro); color: var(--negro-deep); }
   .tag-roster { background: var(--rosa-pale); color: var(--rosa); }
   .tag-contenido { background: var(--dorado-light); color: #7a5e1a; }
   .tag-urgencia { background: #fee2e2; color: #dc2626; }
   .tag-evento { background: #fef3c7; color: #d97706; }
   
-  .day-cell.active .tag-lanzamiento { background: rgba(255,255,255,0.2); color: white; }
+  .day-cell.active .tag-lanzamiento-dark { background: rgba(255,255,255,0.2); color: white; }
   .day-cell.active .tag-roster { background: rgba(255,255,255,0.2); color: white; }
   .day-cell.active .tag-contenido { background: rgba(255,255,255,0.2); color: white; }
   .day-cell.active .tag-urgencia { background: #b91c1c; color: white; }
@@ -311,7 +311,7 @@
     border-color: var(--rosa);
   }
   .hub-box.upload-box:hover {
-    border-color: var(--azul);
+    border-color: var(--negro-deep);
   }
   .hub-icon {
     font-size: 32px;
@@ -326,8 +326,8 @@
     border-radius: 12px;
   }
   .hub-box.upload-box .hub-icon {
-    color: var(--azul);
-    background: var(--azul-light);
+    color: var(--negro-deep);
+    background: var(--gris-claro);
   }
   .hub-title {
     font-size: 16px;
@@ -359,7 +359,7 @@
     font-weight: bold;
   }
   .hub-box.upload-box .hub-desc li::before {
-    color: var(--azul);
+    color: var(--negro-deep);
   }
   .btn-hub-action {
     display: flex;
@@ -385,7 +385,7 @@
     transform: translateY(-2px);
   }
   .btn-upload-hub {
-    background: var(--azul);
+    background: var(--negro-deep);
     color: white;
     box-shadow: 0 4px 15px rgba(0,0,0,0.15);
   }
@@ -412,18 +412,18 @@
     box-shadow: inset 0 2px 8px rgba(0,0,0,0.02);
   }
   .copy-box.rosa-border { border-color: var(--rosa); background: var(--rosa-pale); }
-  .copy-box.azul-border { border-color: var(--azul); background: var(--azul-pale); }
+  .copy-box.dark-border { border-color: var(--negro-deep); background: var(--crema-suave); }
   .copy-label {
     font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
     text-transform: uppercase; margin-bottom: 8px;
     display: flex; align-items: center; gap: 6px;
   }
   .copy-label.rosa { color: var(--rosa); }
-  .copy-label.azul { color: var(--azul); }
+  .copy-label.dark { color: var(--negro-deep); }
   
   .btn-copy {
     display: inline-flex; align-items: center; gap: 6px;
-    background: var(--azul);
+    background: var(--negro-deep);
     color: white;
     border: none; cursor: pointer;
     padding: 8px 16px;
@@ -447,8 +447,8 @@
   /* ── HASHTAGS ── */
   .hashtag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
   .hashtag {
-    background: var(--azul-light);
-    color: var(--azul);
+    background: var(--gris-claro);
+    color: var(--negro-deep);
     border-radius: 30px;
     padding: 6px 14px;
     font-size: 12px;
@@ -457,7 +457,7 @@
     transition: all 0.15s;
     border: 1px solid transparent;
   }
-  .hashtag:hover { background: var(--azul); color: white; transform: translateY(-1px); }
+  .hashtag:hover { background: var(--negro-deep); color: white; transform: translateY(-1px); }
   .hashtag.rosa { background: var(--rosa-pale); color: var(--rosa); }
   .hashtag.rosa:hover { background: var(--rosa); color: white; }
   .hashtag.dorado-h { background: #fdf2e9; color: #7a5e1a; }
@@ -471,7 +471,7 @@
   }
   .links-table { width: 100%; border-collapse: collapse; font-size: 12.5px; text-align: left; }
   .links-table th {
-    background: var(--azul); color: white;
+    background: var(--negro-deep); color: white;
     padding: 12px 16px; font-size: 11.5px; font-weight: 700;
     letter-spacing: 0.05em;
   }
@@ -534,7 +534,7 @@
 
   /* ── CONTACT FOOTER ── */
   .contact-bar {
-    background: var(--azul);
+    background: var(--negro-deep);
     color: white;
     border-radius: var(--radius);
     padding: 28px 32px;
@@ -740,13 +740,13 @@
   <div class="section-title"><div class="dot"></div><h3>¿Qué pasa esta semana?</h3><span>— Calendario Junio 2026</span></div>
 
   <div class="card">
-    <div class="card-header card-header-azul">
+    <div class="card-header card-header-dark">
       <div class="card-icon"><i class="fa-solid fa-calendar-days"></i></div>
       <div class="card-title">Calendario de Acciones — Días 1 al 21 de Junio</div>
     </div>
     <div class="card-body">
       <div class="week-grid" id="calGrid"></div>
-      <div id="day-detail" style="background:var(--azul-pale);border-radius:10px;border:1px solid var(--azul-light);padding:18px 22px;font-size:13.5px;color:var(--azul);line-height:1.7;min-height:60px;transition: all 0.3s ease;"></div>
+      <div id="day-detail" style="background:var(--crema-suave);border-radius:10px;border:1px solid var(--gris-claro);padding:18px 22px;font-size:13.5px;color:var(--negro-deep);line-height:1.7;min-height:60px;transition: all 0.3s ease;"></div>
     </div>
   </div>
 
@@ -841,14 +841,14 @@
         </div>
 
         <!-- Reels -->
-        <div style="background: var(--azul-pale); border-radius: 10px; padding: 18px; border: 1px solid var(--beige); border-top: 4px solid var(--azul);">
-          <h4 style="color: var(--azul); font-size: 14px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+        <div style="background: var(--crema-suave); border-radius: 10px; padding: 18px; border: 1px solid var(--beige); border-top: 4px solid var(--negro-deep);">
+          <h4 style="color: var(--negro-deep); font-size: 14px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
             <i class="fa-solid fa-circle-play"></i> 🎥 Reels = Descubrimiento y Crecimiento
           </h4>
           <p style="font-size: 12.5px; color: var(--gris); line-height: 1.6; margin-bottom: 8px;">
             <strong>Objetivo:</strong> Atraer audiencias totalmente nuevas, generar alcance masivo local y capturar a clientes que <strong>aún no saben que existes</strong>.
           </p>
-          <p style="font-size: 12.5px; font-style: italic; color: var(--azul); font-weight: 600; margin-bottom: 10px;">
+          <p style="font-size: 12.5px; font-style: italic; color: var(--negro-deep); font-weight: 600; margin-bottom: 10px;">
             "Es como salir a la calle a repartir invitaciones por toda la ciudad."
           </p>
           <ul style="font-size: 12px; color: var(--gris); line-height: 1.6; margin-left: 15px;">
@@ -907,8 +907,8 @@
 
       <!-- FB BODAS -->
       <div class="tab-content active" id="tab-fb-bodas">
-        <div class="copy-label azul"><i class="fa-solid fa-ban"></i> Versión SIN enlaces — Pegar como post en Facebook</div>
-        <div class="copy-box azul-border" id="copy-fb-bodas-sin">✨ El conteo ha comenzado.
+        <div class="copy-label dark"><i class="fa-solid fa-ban"></i> Versión SIN enlaces — Pegar como post en Facebook</div>
+        <div class="copy-box dark-border" id="copy-fb-bodas-sin">✨ El conteo ha comenzado.
 
 El 21 de junio de 2026, el Centro de Convenciones Presidente de Córdoba, Veracruz, se convierte en el escenario más esperado del año: la Expo Boda &amp; XV Años 2026 organizada por Primavera Events Group.
 
@@ -955,8 +955,8 @@ primaveraeventsgroup.com/richard-hernandez-handwedding-planner/
 
       <!-- FB XV -->
       <div class="tab-content" id="tab-fb-xv">
-        <div class="copy-label azul"><i class="fa-solid fa-ban"></i> Versión SIN enlaces — Post en Facebook</div>
-        <div class="copy-box azul-border" id="copy-fb-xv-sin">🌸 Tu gran día merece el escenario más soñado.
+        <div class="copy-label dark"><i class="fa-solid fa-ban"></i> Versión SIN enlaces — Post en Facebook</div>
+        <div class="copy-box dark-border" id="copy-fb-xv-sin">🌸 Tu gran día merece el escenario más soñado.
 
 El 21 de junio, Primavera Events Group presenta la Expo Boda &amp; XV Años 2026 en el Centro de Convenciones Presidente — y con ella, Primavera Haute Runway: el performance más emocionante del año para las que están a punto de vivir su gran día.
 
@@ -1011,8 +1011,8 @@ La Expo Boda &amp; XV Años 2026 de Primavera Events Group llega el 21 de junio 
 #PrimaveraHauteRunway #ReviveTuGranDia #XV2026 #XVMorelos #ExpoBoda15Presidente #PrimaveraEventsGroup</div>
         <button class="btn-copy rosa" onclick="copyText('copy-tiktok-xv', this)"><i class="fa-regular fa-copy"></i> Copiar — XV Años</button>
 
-        <div class="copy-label azul" style="margin-top:20px;"><i class="fa-brands fa-tiktok"></i> TikTok — Línea Bodas</div>
-        <div class="copy-box azul-border" id="copy-tiktok-bodas">💍 El escenario de tu boda soñada está a 21 días.
+        <div class="copy-label dark" style="margin-top:20px;"><i class="fa-brands fa-tiktok"></i> TikTok — Línea Bodas</div>
+        <div class="copy-box dark-border" id="copy-tiktok-bodas">💍 El escenario de tu boda soñada está a 21 días.
 
 Expo Boda &amp; XV Años 2026 | Primavera Events Group
 📅 21 de Junio | 📍 Centro de Convenciones Presidente, Córdoba, Veracruz
@@ -1026,8 +1026,8 @@ Entra al link de la bio y regístrate gratis. ✨
 
       <!-- YOUTUBE -->
       <div class="tab-content" id="tab-youtube">
-        <div class="copy-label azul"><i class="fa-brands fa-youtube"></i> YouTube — Descripción estándar (todos los videos)</div>
-        <div class="copy-box azul-border" id="copy-yt">Expo Boda &amp; XV Años 2026 | Primavera Haute Runway — 21 de Junio, Córdoba, Veracruz
+        <div class="copy-label dark"><i class="fa-brands fa-youtube"></i> YouTube — Descripción estándar (todos los videos)</div>
+        <div class="copy-box dark-border" id="copy-yt">Expo Boda &amp; XV Años 2026 | Primavera Haute Runway — 21 de Junio, Córdoba, Veracruz
 
 En este video encontrarás todo lo que necesitas saber sobre el evento de bodas y XV años más importante de la región, organizado por Primavera Events Group en el Centro de Convenciones Presidente.
 
@@ -1056,8 +1056,8 @@ primaveraeventsgroup.com/primavera-haute-runway
 
       <!-- TWITTER -->
       <div class="tab-content" id="tab-twitter">
-        <div class="copy-label azul"><i class="fa-brands fa-x-twitter"></i> Tweet 1 — Apertura</div>
-        <div class="copy-box azul-border" id="copy-tw1">✨ 21 días para el evento de bodas y XV años más esperado del año.
+        <div class="copy-label dark"><i class="fa-brands fa-x-twitter"></i> Tweet 1 — Apertura</div>
+        <div class="copy-box dark-border" id="copy-tw1">✨ 21 días para el evento de bodas y XV años más esperado del año.
 
 Expo Boda &amp; XV Años 2026 | Primavera Events Group
 📅 21 Jun | 📍 Córdoba, Veracruz
@@ -1078,8 +1078,8 @@ El performance más soñado para quinceañeras. 'Revive tu gran día.'
 #ReviveTuGranDia #XV2026</div>
         <button class="btn-copy rosa" onclick="copyText('copy-tw2', this)"><i class="fa-regular fa-copy"></i> Copiar Tweet 2</button>
 
-        <div class="copy-label azul" style="margin-top:20px;"><i class="fa-brands fa-x-twitter"></i> Tweet 3 — Urgencia (días 15–20)</div>
-        <div class="copy-box azul-border" id="copy-tw3">⏳ Últimos días para registrarte.
+        <div class="copy-label dark" style="margin-top:20px;"><i class="fa-brands fa-x-twitter"></i> Tweet 3 — Urgencia (días 15–20)</div>
+        <div class="copy-box dark-border" id="copy-tw3">⏳ Últimos días para registrarte.
 
 La Expo Boda &amp; XV Años 2026 es el 21 de junio en el Centro de Convenciones Presidente.
 
@@ -1093,8 +1093,8 @@ Registro: primaveraeventsgroup.com/expo-boda-y-quince-anos
 
       <!-- LINKEDIN -->
       <div class="tab-content" id="tab-linkedin">
-        <div class="copy-label azul"><i class="fa-brands fa-linkedin-in"></i> LinkedIn — Post ejecutivo B2B (expositores/aliados)</div>
-        <div class="copy-box azul-border" id="copy-li">Primavera Events Group se complace en anunciar la Expo Boda &amp; XV Años 2026, el evento comercial de bodas y quinceañeras más relevante de la región Córdoba-Veracruz, a realizarse el 21 de junio de 2026 en el Centro de Convenciones Presidente.
+        <div class="copy-label dark"><i class="fa-brands fa-linkedin-in"></i> LinkedIn — Post ejecutivo B2B (expositores/aliados)</div>
+        <div class="copy-box dark-border" id="copy-li">Primavera Events Group se complace en anunciar la Expo Boda &amp; XV Años 2026, el evento comercial de bodas y quinceañeras más relevante de la región Córdoba-Veracruz, a realizarse el 21 de junio de 2026 en el Centro de Convenciones Presidente.
 
 Este año, el evento incorpora Primavera Haute Runway, una pasarela editorial de alta producción diseñada para posicionar a las marcas participantes en el segmento premium del mercado nupcial y de eventos sociales de Morelos y Veracruz.
 
@@ -1119,7 +1119,7 @@ Primavera Events Group
   <div class="section-title"><div class="dot"></div><h3>Sistema de Hashtags</h3><span>— Click para copiar</span></div>
   <div class="card">
     <div class="card-body">
-      <div style="font-size:11.5px;font-weight:700;color:var(--azul);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em;"><i class="fa-solid fa-star"></i> Obligatorios en TODA publicación (Principal: #ExpoBoda15Presidente)</div>
+      <div style="font-size:11.5px;font-weight:700;color:var(--negro-deep);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em;"><i class="fa-solid fa-star"></i> Obligatorios en TODA publicación (Principal: #ExpoBoda15Presidente)</div>
       <div class="hashtag-cloud" style="margin-bottom:18px;">
         <button class="hashtag" onclick="copyHashtag(this)">#ExpoBoda15Presidente</button>
         <button class="hashtag" onclick="copyHashtag(this)">#PrimaveraEventsGroup</button>
@@ -1140,7 +1140,7 @@ Primavera Events Group
         <button class="hashtag rosa" onclick="copyHashtag(this)">#QuinceañeraRunway</button>
       </div>
       
-      <div style="font-size:11.5px;font-weight:700;color:var(--azul);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em;"><i class="fa-solid fa-ring"></i> Bodas</div>
+      <div style="font-size:11.5px;font-weight:700;color:var(--negro-deep);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em;"><i class="fa-solid fa-ring"></i> Bodas</div>
       <div class="hashtag-cloud" style="margin-bottom:18px;">
         <button class="hashtag" onclick="copyHashtag(this)">#BodasCuernavaca</button>
         <button class="hashtag" onclick="copyHashtag(this)">#WeddingPlannerMexico</button>
@@ -1241,7 +1241,7 @@ Primavera Events Group
   <!-- CONTACTO -->
   <style>
     .contact-bar-marketing {
-      background: var(--azul);
+      background: var(--negro-deep);
       color: white;
       border-radius: var(--radius);
       padding: 32px;
@@ -1724,8 +1724,8 @@ updateCountdown();
 
 // ── CALENDAR ──
 const calDays = [
-  {d:1, fase:'LANZAMIENTO', tag:'tag-lanzamiento', desc:'📣 Publicación oficial: "Arranca la cuenta regresiva". Story + Post con póster de campaña azul. Activar campañas pagadas en Meta Ads.'},
-  {d:2, fase:'ADS', tag:'tag-lanzamiento', desc:'💰 Activar campañas pagadas Meta Ads: Campaña XV Años (rosa/Haute Runway) y Campaña Bodas (azul de campaña/dorado). Segmentación Morelos.'},
+  {d:1, fase:'LANZAMIENTO', tag:'tag-lanzamiento-dark', desc:'📣 Publicación oficial: "Arranca la cuenta regresiva". Story + Post con póster de campaña azul. Activar campañas pagadas en Meta Ads.'},
+  {d:2, fase:'ADS', tag:'tag-lanzamiento-dark', desc:'💰 Activar campañas pagadas Meta Ads: Campaña XV Años (rosa/Haute Runway) y Campaña Bodas (azul de campaña/dorado). Segmentación Morelos.'},
   {d:3, fase:'ROSTER', tag:'tag-roster', desc:'🎬 Teaser video: "Pronto revelaremos quiénes estarán el 21 de junio". Grid animado SIN logos. IG Reel + TikTok.'},
   {d:4, fase:'ROSTER', tag:'tag-roster', desc:'👗 1er expositor individual — Categoría Moda/Vestidos. Story con link al registro asistentes.'},
   {d:5, fase:'CONTENIDO', tag:'tag-contenido', desc:'🎀 Video Haute Runway emocional "Revive tu gran día". Identidad Sonora 3 (Lírica/Pasarela). Thumbnail: quinceañera. IG Reel + TikTok.'},
