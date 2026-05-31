@@ -44,6 +44,29 @@
             font-family: 'Playfair Display', serif;
         }
 
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transition: opacity 1.2s ease-out, transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .reveal-left {
+            transform: translateX(-60px);
+        }
+
+        .reveal-right {
+            transform: translateX(60px);
+        }
+
+        .reveal-fade {
+            transform: translateY(30px);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateX(0) translateY(0) scale(1);
+        }
+
         /* Mobile Menu Toggle & Overlay Base Styles */
         .sidebar-header-wrapper {
             display: block;
@@ -787,6 +810,16 @@
             flex-direction: column;
             align-items: flex-end;
             gap: 15px;
+            transform: translateY(120px);
+            opacity: 0;
+            pointer-events: none;
+            transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.8s;
+        }
+
+        .floating-actions-container.show {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
         }
 
         .fab-group {
@@ -2076,6 +2109,74 @@
                 document.addEventListener('click', startAudio, { once: true });
                 document.addEventListener('keydown', startAudio, { once: true });
                 document.addEventListener('touchstart', startAudio, { once: true });
+            }
+
+            // --- PREMIUM SCROLL ANIMATIONS AND REVEALS ---
+            // 1. Inject animation classes dynamically on sections and cards
+            const docSections = document.querySelectorAll('.doc-section');
+            docSections.forEach((section, index) => {
+                section.classList.add('reveal');
+                if (index % 2 === 0) {
+                    section.classList.add('reveal-left');
+                } else {
+                    section.classList.add('reveal-right');
+                }
+            });
+
+            // Hero and Synergy card get a vertical fade-in reveal
+            const manualHero = document.querySelector('.manual-hero');
+            if (manualHero) {
+                manualHero.classList.add('reveal', 'reveal-fade');
+            }
+            const synergyCard = document.querySelector('.synergy-card');
+            if (synergyCard) {
+                synergyCard.classList.add('reveal', 'reveal-fade');
+            }
+
+            // 2. IntersectionObserver setup
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.05,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            // Observe all revealable elements
+            document.querySelectorAll('.reveal').forEach(el => {
+                revealObserver.observe(el);
+            });
+
+            // 3. FAB show-up on scroll
+            const floatingContainer = document.querySelector('.floating-actions-container');
+            if (floatingContainer) {
+                const handleFabScroll = () => {
+                    if (window.scrollY > 300) {
+                        floatingContainer.classList.add('show');
+                    } else {
+                        floatingContainer.classList.remove('show');
+                    }
+                };
+                window.addEventListener('scroll', handleFabScroll);
+                handleFabScroll(); // Initial run
+            }
+
+            // 4. Premium Parallax Background Effect for manual-hero
+            if (manualHero) {
+                window.addEventListener('scroll', () => {
+                    const scrollPos = window.scrollY;
+                    const heroTop = manualHero.offsetTop;
+                    const heroHeight = manualHero.offsetHeight;
+                    
+                    if (scrollPos < heroTop + heroHeight) {
+                        const yPos = -(scrollPos * 0.15);
+                        manualHero.style.backgroundPosition = `center calc(50% + ${yPos}px)`;
+                    }
+                });
             }
         });
 

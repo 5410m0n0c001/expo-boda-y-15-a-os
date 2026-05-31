@@ -20,20 +20,20 @@
     --gold-accent: #C9A96E; 
     --gray-text: #6D6D6D; 
 
-    /* Colores del plan adaptados armónicamente */
+    /* Colores del plan adaptados armónicamente con Negro, Blanco y Rosa */
     --rosa: var(--primary-pink);
     --rosa-light: var(--primary-light);
     --rosa-pale: var(--soft-pink);
     --dorado: var(--gold-accent);
     --dorado-light: #F5EDE4;
-    --azul: #1A3A5C; /* Azul de Campaña para Bodas */
-    --azul-light: #EBF2FA;
-    --azul-pale: #f5f9ff;
+    --azul: #121212; /* Cambiado de azul a negro/carbón premium */
+    --azul-light: #eae5e2; /* Cambiado a gris cálido suave */
+    --azul-pale: #FAF6F4; /* Cambiado a crema suave */
     --gris: var(--gray-text);
     --gris-light: var(--background-light);
     --negro: var(--primary-dark);
     --blanco: var(--white);
-    --shadow: 0 10px 30px rgba(26,58,92,0.06);
+    --shadow: 0 10px 30px rgba(0,0,0,0.06);
     --radius: 16px;
   }
   
@@ -111,7 +111,7 @@
 
   /* ── HERO / COUNTDOWN ── */
   .hero {
-    background: linear-gradient(135deg, var(--azul) 0%, #0f2440 60%, #1a3a5c 100%);
+    background: linear-gradient(135deg, var(--azul) 0%, #1e1e1e 60%, #292929 100%);
     color: white;
     text-align: center;
     padding: 56px 24px 48px;
@@ -120,9 +120,12 @@
   }
   .hero::before {
     content: '';
-    position: absolute; inset: 0;
+    position: absolute; inset: -40px;
     background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     opacity: 0.5;
+    transform: translateY(var(--parallax-y, 0px));
+    will-change: transform;
+    pointer-events: none;
   }
   .hero-eyebrow {
     font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
@@ -242,7 +245,7 @@
     transition: all 0.2s;
   }
   .day-cell:hover { background: var(--azul-light); border-color: var(--azul); transform: scale(1.03); }
-  .day-cell.active { background: var(--azul); color: white; border-color: var(--azul); box-shadow: 0 4px 12px rgba(26,58,92,0.2); }
+  .day-cell.active { background: var(--azul); color: white; border-color: var(--azul); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
   .day-cell.active .day-label, .day-cell.active .day-num { color: white; }
   .day-cell.rosa { border-color: var(--rosa); background: var(--rosa-pale); }
   .day-cell.rosa.active { background: var(--rosa); border-color: var(--rosa); box-shadow: 0 4px 12px rgba(240,90,126,0.2); }
@@ -384,10 +387,10 @@
   .btn-upload-hub {
     background: var(--azul);
     color: white;
-    box-shadow: 0 4px 15px rgba(26,58,92,0.25);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
   }
   .btn-upload-hub:hover {
-    background: #0f2440;
+    background: #2d2d2d;
     transform: translateY(-2px);
   }
 
@@ -431,7 +434,7 @@
     margin-top: 6px;
     margin-right: 6px;
   }
-  .btn-copy:hover { background: #0f2440; transform: translateY(-1px); }
+  .btn-copy:hover { background: #2d2d2d; transform: translateY(-1px); }
   .btn-copy.rosa { background: var(--rosa); }
   .btn-copy.rosa:hover { background: #d94f6f; }
   .btn-copy.dorado { background: var(--dorado); color: var(--negro); }
@@ -538,7 +541,7 @@
     display: flex; flex-wrap: wrap; gap: 24px;
     align-items: center; justify-content: space-between;
     margin-top: 40px;
-    box-shadow: 0 10px 25px rgba(26,58,92,0.15);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
   }
   .contact-bar h4 { font-size: 15px; margin-bottom: 6px; font-weight: 700; letter-spacing: 0.02em; }
   .contact-bar p { font-size: 12.5px; opacity: 0.85; line-height: 1.5; }
@@ -1243,7 +1246,7 @@ Primavera Events Group
       border-radius: var(--radius);
       padding: 32px;
       margin-top: 40px;
-      box-shadow: 0 10px 25px rgba(26,58,92,0.15);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
     .contact-bar-marketing h4 {
       font-size: 16px;
@@ -1315,6 +1318,172 @@ Primavera Events Group
         width: 100%;
       }
     }
+
+    /* ── SCROLL REVEAL ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transition: opacity 1.2s ease-out, transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .reveal-left {
+      transform: translateX(-60px);
+    }
+
+    .reveal-right {
+      transform: translateX(60px);
+    }
+
+    .reveal-fade {
+      transform: translateY(30px);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateX(0) translateY(0) scale(1);
+    }
+
+    /* ── FLOATING ACTIONS FAB ── */
+    .floating-actions-container {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 15px;
+      transform: translateY(120px);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.8s;
+    }
+
+    .floating-actions-container.show {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .fab-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      position: relative;
+    }
+
+    .fab-main {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--white);
+      border: none;
+      color: var(--primary-pink);
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      z-index: 2;
+    }
+
+    .fab-main:hover {
+      transform: scale(1.1) translateY(-5px);
+      background: var(--primary-pink);
+      color: var(--white);
+    }
+
+    .fab-label {
+      position: absolute;
+      right: 75px;
+      background: var(--white);
+      color: var(--primary-dark);
+      padding: 6px 15px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      pointer-events: none;
+    }
+
+    .fab-main:hover .fab-label {
+      opacity: 1;
+      visibility: visible;
+      right: 70px;
+    }
+
+    .fab-menu {
+      display: grid;
+      grid-template-columns: repeat(3, 45px);
+      gap: 12px;
+      position: absolute;
+      bottom: 75px;
+      right: 0px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 15px;
+      border-radius: 24px;
+      border: 1px solid var(--beige);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.8) translateY(20px);
+      transform-origin: bottom right;
+      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .fab-group.active .fab-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1) translateY(0);
+      pointer-events: auto;
+    }
+
+    .fab-item {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: var(--white);
+      color: var(--primary-pink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .fab-item:hover {
+      background: var(--primary-pink);
+      color: var(--white);
+      transform: scale(1.15);
+    }
+
+    .fab-group.active .fab-main {
+      transform: rotate(15deg) scale(0.9);
+      background: var(--primary-pink);
+      color: var(--white);
+    }
+
+    .fab-share {
+      background: var(--white);
+      color: var(--primary-pink);
+    }
+
+    .fab-share:hover {
+      background: var(--primary-pink);
+      color: var(--white);
+    }
   </style>
   <div class="contact-bar-marketing">
     <h4>¿Tienes dudas? Contacta al equipo</h4>
@@ -1336,6 +1505,36 @@ Primavera Events Group
   </div>
 
 </div><!-- /container -->
+
+<!-- Floating Actions Container -->
+<div class="floating-actions-container">
+    
+    <!-- 1. SOCIAL MENU FAB -->
+    <div class="fab-group" id="socialGroup">
+        <div class="fab-menu">
+            <a href="https://www.facebook.com/profile.php?id=61582170571060" target="_blank" class="fab-item" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://instagram.com/primavera.events.group?igsh=Y2g4d3hvZW95dDc5" target="_blank" class="fab-item" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://tiktok.com/@primavera_events_group?_r=1&_t=ZS-94uQ5m4lTyG" class="fab-item" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://mx.pinterest.com/primaveraeventsgroup/" target="_blank" class="fab-item" title="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+            <a href="https://x.com/JessyRichardwp" target="_blank" class="fab-item" title="X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://linkedin.com/in/richard-hernandez-3844ba3b9" target="_blank" class="fab-item" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/@PrimaveraEventsGroup" target="_blank" class="fab-item" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://tripadvisor.com/Profile/PrimaveraEventsGroup" target="_blank" class="fab-item" title="TripAdvisor"><i class="fa-solid fa-binoculars"></i></a>
+            <a href="https://maps.app.goo.gl/Pj63bWfv6hmHr5RR9" target="_blank" class="fab-item" title="Google Maps"><i class="fa-solid fa-map-location-dot"></i></a>
+        </div>
+        <button class="fab-main fab-social" id="btnSocial">
+            <span class="fab-label">Síguenos</span>
+            <i class="fa-solid fa-thumbs-up"></i>
+        </button>
+    </div>
+
+    <!-- 2. NATIVE SHARE FAB -->
+    <button class="fab-main fab-share" id="btnShare" title="Compartir">
+        <span class="fab-label">Compartir</span>
+        <i class="fa-solid fa-share-nodes"></i>
+    </button>
+
+</div>
 
 <script>
 // ── PASSWORD PROTECTION ──
@@ -1388,6 +1587,118 @@ document.addEventListener('DOMContentLoaded', () => {
         errorMsg.style.display = 'none';
         input.style.borderColor = 'var(--beige)';
     });
+
+    // --- PREMIUM SCROLL ANIMATIONS AND REVEALS ---
+    // 1. Inject animation classes dynamically on cards and sections
+    const cards = document.querySelectorAll('.card, .resource-hub-card, .contact-bar-marketing');
+    cards.forEach((card, index) => {
+        card.classList.add('reveal');
+        if (index % 2 === 0) {
+            card.classList.add('reveal-left');
+        } else {
+            card.classList.add('reveal-right');
+        }
+    });
+
+    const titles = document.querySelectorAll('.section-title, .alert');
+    titles.forEach(title => {
+        title.classList.add('reveal', 'reveal-fade');
+    });
+
+    // Hero gets a vertical fade-in reveal
+    const marketingHero = document.querySelector('.hero');
+    if (marketingHero) {
+        marketingHero.classList.add('reveal', 'reveal-fade');
+    }
+
+    // 2. IntersectionObserver setup
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.05,
+        rootMargin: '0px 0px -40px 0px'
+    });
+
+    // Observe all revealable elements
+    document.querySelectorAll('.reveal').forEach(el => {
+        revealObserver.observe(el);
+    });
+
+    // 3. FAB Toggle & Share Logic
+    const fabGroups = document.querySelectorAll('.fab-group');
+    fabGroups.forEach(group => {
+        const btn = group.querySelector('.fab-main');
+        if (btn) {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                fabGroups.forEach(other => {
+                    if (other !== group) other.classList.remove('active');
+                });
+                group.classList.toggle('active');
+            });
+        }
+    });
+
+    // Close menu on click outside
+    document.addEventListener('click', () => {
+        fabGroups.forEach(group => group.classList.remove('active'));
+    });
+
+    // Share Logic
+    const btnShare = document.getElementById('btnShare');
+    if (btnShare) {
+        btnShare.addEventListener('click', async (e) => {
+            e.stopPropagation();
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'Plan de Comunicación | Primavera Events Group',
+                        text: '¡Hola! Te comparto el Plan de Comunicación y Marketing Estratégico de Junio 2026 de Primavera Events Group.',
+                        url: window.location.href
+                    });
+                } catch (err) {
+                    console.log(err);
+                }
+            } else {
+                try {
+                    await navigator.clipboard.writeText(window.location.href);
+                    alert('¡Enlace del plan copiado al portapapeles!');
+                } catch (err) {
+                    console.log(err);
+                }
+            }
+        });
+    }
+
+    // 4. FAB show-up on scroll
+    const floatingContainer = document.querySelector('.floating-actions-container');
+    if (floatingContainer) {
+        const handleFabScroll = () => {
+            if (window.scrollY > 300) {
+                floatingContainer.classList.add('show');
+            } else {
+                floatingContainer.classList.remove('show');
+            }
+        };
+        window.addEventListener('scroll', handleFabScroll);
+        handleFabScroll(); // Initial run
+    }
+
+    // 5. Premium Parallax Background Effect for hero::before via CSS Custom Property
+    if (marketingHero) {
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY;
+            if (scrollPos < marketingHero.offsetHeight) {
+                const yPos = -(scrollPos * 0.15);
+                marketingHero.style.setProperty('--parallax-y', `${yPos}px`);
+            }
+        });
+    }
 });
 
 // ── COUNTDOWN ──
