@@ -152,6 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Tamaño recomendado por imagen: 500x500px o 800x800px (Proporción Cuadrada 1:1) - Formato JPG/PNG.
     // Asegúrate de que las rutas 'src' coincidan con tus archivos en la carpeta 'assets'.
     const galleryImages = [
+        { src: 'assets/banquetes.png', caption: 'Banquetes Primavera' },
         { src: 'assets/expo1.png', caption: 'Montaje de Gala' },
         { src: 'assets/expo2.png', caption: 'Decoración Floral' },
         { src: 'assets/expo3.png', caption: 'Iluminación Ambiental' },
@@ -176,6 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // [EDITABLE - GALERÍA DE LOGOS] Agrega, elimina o reemplaza las imágenes de logotipos.
     const logoImages = [
+        { src: 'assets/vcm.png', caption: 'Viajando con la Música (VCM)' },
         { src: 'assets/logo_new1.png', caption: 'La Princesa Paletería' },
         { src: 'assets/logo_new2.png', caption: 'Florería La Orquídea' },
         { src: 'assets/logo_new3.png', caption: 'Joyería Brillante' },
