@@ -9,8 +9,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const indexPasswordInput = document.getElementById('indexPasswordInput');
     const indexPasswordError = document.getElementById('indexPasswordError');
     
+    // Check if already authenticated in this session
+    if (sessionStorage.getItem('exhibitor_authenticated') === 'true') {
+        if (preloader) {
+            preloader.classList.add('fade-out');
+        }
+        // Attempt to play audio
+        startAudio();
+    }
+    
     function attemptEnter() {
         if (indexPasswordInput && indexPasswordInput.value.trim() === 'PrimaveraVIP') {
+            sessionStorage.setItem('exhibitor_authenticated', 'true');
             preloader.classList.add('fade-out');
             startAudio();
         } else if (indexPasswordInput) {
@@ -20,12 +30,15 @@ document.addEventListener('DOMContentLoaded', function() {
             indexPasswordInput.focus();
         } else {
             // Fallback en caso de que no exista el input (no debería pasar)
+            sessionStorage.setItem('exhibitor_authenticated', 'true');
             preloader.classList.add('fade-out');
             startAudio();
         }
     }
 
-    btnEnter.addEventListener('click', attemptEnter);
+    if (btnEnter) {
+        btnEnter.addEventListener('click', attemptEnter);
+    }
     
     if (indexPasswordInput) {
         indexPasswordInput.addEventListener('keypress', (e) => {

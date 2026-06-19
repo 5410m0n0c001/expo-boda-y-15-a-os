@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa de Actividades — Expo Boda y 15 Años | Centro de Convenciones Presidente</title>
+    <meta name="description" content="Cronograma oficial y horarios de las actividades, shows, pasarelas y presentaciones musicales en vivo de la Expo Boda y 15 Años.">
+    
+    <!-- Open Graph / Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Programa de Actividades — Expo Boda y 15 Años">
+    <meta property="og:description" content="Consulta el cronograma oficial de presentaciones en vivo, marimba, pasarelas de modas y mariachi.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/5410m0n0c001/expo-boda-y-15-a-os/main/assets/expo.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css?v=4">
+    <link rel="stylesheet" href="css/cronograma.css?v=2">
+</head>
+<body>
+
+    <!-- Password Protection Overlay -->
+    <div class="password-overlay" id="passwordOverlay">
+        <div class="password-card">
+            <h2>Acceso Restringido</h2>
+            <p>Por favor, ingresa la contraseña de expositor para visualizar el programa de actividades oficial.</p>
+            <input type="password" id="passwordInput" class="password-input" placeholder="Contraseña de Expositor" autocomplete="off">
+            <div id="passwordError" class="password-error">Contraseña incorrecta. Inténtalo de nuevo.</div>
+            <button id="passwordSubmit" class="password-btn">Acceder al Programa</button>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="header-top">
+            21 de Junio | Centro de Convenciones Presidente
+        </div>
+        <div class="header-main">
+            <div class="logo-area">
+                <div class="logo-circle">P</div>
+                <div class="logo-text">
+                    <h1>Primavera Events Group</h1>
+                    <p>Expo Boda & XV Años 2026</p>
+                </div>
+            </div>
+            <a href="index.html" class="btn-dashboard-nav">
+                <i class="fa-solid fa-house"></i> Volver al Dashboard
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Header -->
+    <section class="schedule-hero">
+        <h2>Programa de Actividades</h2>
+        <p>Alinea tu agenda y prepárate para los momentos más destacados de la Expo. Utiliza el simulador de tiempo para revisar qué eventos estarán activos durante el día.</p>
+    </section>
+
+    <!-- Time Simulation & Controls -->
+    <div class="controls-container">
+        <div class="control-card">
+            <!-- Simulated Clock Widget -->
+            <div class="clock-widget">
+                <div class="clock-icon">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+                <div class="clock-time-display">
+                    <span class="clock-time" id="clockTimeDisplay">12:00 PM</span>
+                    <span class="clock-mode" id="clockModeText">
+                        <span class="pulse-dot" id="pulseDot"></span> Tiempo Real
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Slider Controls -->
+            <div class="simulator-controls">
+                <div class="simulator-header">
+                    <label for="timeSlider">Control del Simulador</label>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 0.8rem; font-weight: 500; color: var(--gray-text);">Simulador</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggleRealtime">
+                            <span class="slider-round"></span>
+                        </label>
+                    </div>
+                </div>
+                <!-- Slider from 11:30 AM (690m) to 8:30 PM (1230m). Default 12:00 PM (720m) -->
+                <input type="range" id="timeSlider" class="slider-time-control" min="690" max="1230" step="5" value="720" disabled>
+                <div class="slider-labels">
+                    <span>11:30 AM</span>
+                    <span>4:00 PM</span>
+                    <span>8:30 PM</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Filter Tabs -->
+    <div class="filters-wrapper">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="musica">Música en Vivo</button>
+        <button class="filter-btn" data-filter="pasarela">Pasarela de Moda</button>
+        <button class="filter-btn" data-filter="protocolo">Protocolo e Inauguración</button>
+        <button class="filter-btn" data-filter="networking">Exhibición y Networking</button>
+    </div>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        
+        <!-- Activity 1: Corte de listón -->
+        <div class="timeline-item timeline-left" data-start="12:00" data-end="12:15" data-category="protocolo">
+            <div class="timeline-img">
+                <i class="fa-solid fa-ribbon"></i>
+            </div>
+            <div class="timeline-content">
+                <div class="time-tag">
+                    <i class="fa-regular fa-clock"></i> 12:00 PM
+                </div>
+                <h3 class="timeline-title">Inicio y Corte de Listón</h3>
+                <p class="timeline-desc">Ceremonia de inauguración oficial del evento con palabras de bienvenida por parte de los organizadores y patrocinadores oficiales.</p>
+                <div class="timeline-badges">
+                    <span class="badge-cat protocolo">Protocolo</span>
+                    <span class="status-badge upcoming"><i class="fa-regular fa-clock"></i> Siguiente</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity 2: Recorrido / Stands -->
+        <div class="timeline-item timeline-right" data-start="12:00" data-end="13:30" data-category="networking">
+            <div class="timeline-img">
+                <i class="fa-solid fa-store"></i>
+            </div>
+            <div class="timeline-content">
+                <div class="time-tag">
+                    <i class="fa-regular fa-clock"></i> 12:00 PM - 01:30 PM
+                </div>
+                <h3 class="timeline-title">Apertura y Recorrido de Stands</h3>
+                <p class="timeline-desc">Apertura general de la zona de exhibición. Tiempo ideal para que los visitantes conozcan a los proveedores, coticen y participen en las dinámicas de los stands.</p>
+                <div class="timeline-badges">
+                    <span class="badge-cat networking">Networking</span>
+                    <span class="status-badge upcoming"><i class="fa-regular fa-clock"></i> Siguiente</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity 3: Saxofonista -->
+        <div class="timeline-item timeline-left" data-start="13:30" data-end="14:00" data-category="musica">
+            <div class="timeline-img">
+                <i class="fa-solid fa-music"></i>
+            </div>
+            <div class="timeline-content">
+                <div class="time-tag">
+                    <i class="fa-regular fa-clock"></i> 01:30 PM - 02:00 PM
+                </div>
+                <h3 class="timeline-title">Saxofonista en Vivo</h3>
+                <p class="timeline-desc">Presentación musical elegante en el escenario principal, perfecta para dar una atmósfera sofisticada a cócteles y banquetes.</p>
+                <div class="timeline-badges">
+                    <span class="badge-cat musica">Música</span>
+                    <span class="status-badge upcoming"><i class="fa-regular fa-clock"></i> Siguiente</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity 4: Marimba -->
+        <div class="timeline-item timeline-right" data-start="14:00" data-end="14:30" data-category="musica">
+            <div class="timeline-img">
+                <i class="fa-solid fa-drum"></i>
+            </div>
+            <div class="timeline-content">
+                <div class="time-tag">
+                    <i class="fa-regular fa-clock"></i> 02:00 PM - 02:30 PM
+                </div>
+                <h3 class="timeline-title">Espectáculo de Marimba</h3>
+                <p class="timeline-desc">Interpretaciones acústicas folclóricas llenas de alegría y tradición para amenizar la tarde de todos los asistentes.</p>
+                <div class="timeline-badges">
+                    <span class="badge-cat musica">Música</span>
+                    <span class="status-badge upcoming"><i class="fa-regular fa-clock"></i> Siguiente</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity 5: Banda -->
+        <div class="timeline-item timeline-left" data-start="14:30" data-end="15:00" data-category="musica">
+            <div class="timeline-img">
+                <i class="fa-solid fa-drum-steelpan"></i>
+            </div>
+            <div class="timeline-content">
+                <div class="time-tag">
+                    <i class="fa-regular fa-clock"></i> 02:30 PM - 03:00 PM
+                </div>
+                <h3 class="timeline-title">Presentación de Banda</h3>
+                <p class="timeline-desc">Música de banda instrumental e interpretativa para levantar los ánimos en el recinto.</p>
+                <div class="timeline-badges">
+                    <span class="badge-cat musica">Música</span>
+                    <span class="status-badge upcoming"><i class="fa-regular fa-clock"></i> Siguiente</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity 6: Grupo Bonanza -->
+        <div class="timeline-item timeline-right" data-start="15:00" data-end="16:00" data-category="musica">
+            <div class="timeline-img">
+                <i class="fa-solid fa-microphone-lines"></i>
+            </div>
+            <div class="timeline-content">
+                <div class="time-tag">
+                    <i class="fa-regular fa-clock"></i> 03:00 PM - 04:00 PM
+                </div>
+                <h3 class="timeline-title">Grupo Bonanza</h3>
+                <p class="timeline-desc">Presentación estelar de Grupo Bonanza con un repertorio espectacular y bailable que hará cantar a todos en la Expo.</p>
+                <div class="timeline-badges">
+                    <span class="badge-cat musica">Música</span>
+                    <span class="status-badge upcoming"><i class="fa-regular fa-clock"></i> Siguiente</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity 7: Banda Lago Negro -->
+        <div class="timeline-item timeline-left" data-start="16:00" data-end="17:00" data-category="musica">
+            <div class="timeline-img">
+                <i class="fa-solid fa-guitar"></i>
+            </div>
+            <div class="timeline-content">
+                <div class="time-tag">
+                    <i class="fa-regular fa-clock"></i> 04:00 PM - 05:00 PM
+                </div>
+                <h3 class="timeline-title">Banda Lago Negro</h3>
+                <p class="timeline-desc">Una hora llena de ritmo y energía musical bailable con la popular Banda Lago Negro.</p>
+                <div class="timeline-badges">
+                    <span class="badge-cat musica">Música</span>
+                    <span class="status-badge upcoming"><i class="fa-regular fa-clock"></i> Siguiente</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity 8: Paola -->
+        <div class="timeline-item timeline-right" data-start="17:00" data-end="18:00" data-category="musica">
+            <div class="timeline-img">
+                <i class="fa-solid fa-microphone-halflength"></i>
+            </div>
+            <div class="timeline-content">
+                <div class="time-tag">
+                    <i class="fa-regular fa-clock"></i> 05:00 PM - 06:00 PM
+                </div>
+                <h3 class="timeline-title">Paola en Escenario</h3>
+                <p class="timeline-desc">Disfruta de la voz romántica de Paola cantando los mejores covers y baladas para acompañar el atardecer.</p>
+                <div class="timeline-badges">
+                    <span class="badge-cat musica">Música</span>
+                    <span class="status-badge upcoming"><i class="fa-regular fa-clock"></i> Siguiente</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity 9: Haute Runway -->
+        <div class="timeline-item timeline-left" data-start="18:00" data-end="18:30" data-category="pasarela">
+            <div class="timeline-img">
+                <i class="fa-solid fa-shoe-prints"></i>
+            </div>
+            <div class="timeline-content">
+                <div class="time-tag">
+                    <i class="fa-regular fa-clock"></i> 06:00 PM - 06:30 PM
+                </div>
+                <h3 class="timeline-title">Primavera Haute Runway</h3>
+                <p class="timeline-desc">La pasarela estelar de moda de primavera. Conoce las últimas tendencias de vestidos de novia, vestidos de 15 años y trajes formales con alta costura exclusiva.</p>
+                <div class="timeline-badges">
+                    <span class="badge-cat pasarela">Pasarela</span>
+                    <span class="status-badge upcoming"><i class="fa-regular fa-clock"></i> Siguiente</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity 10: Foto Grupal -->
+        <div class="timeline-item timeline-right" data-start="18:30" data-end="19:00" data-category="protocolo">
+            <div class="timeline-img">
+                <i class="fa-solid fa-camera"></i>
+            </div>
+            <div class="timeline-content">
+                <div class="time-tag">
+                    <i class="fa-regular fa-clock"></i> 06:30 PM - 07:00 PM
+                </div>
+                <h3 class="timeline-title">Foto Grupal de Proveedores</h3>
+                <p class="timeline-desc">Reunión de todos los expositores en el escenario principal para capturar la fotografía oficial del recuerdo de la Expo Boda y 15 Años.</p>
+                <div class="timeline-badges">
+                    <span class="badge-cat protocolo">Protocolo</span>
+                    <span class="status-badge upcoming"><i class="fa-regular fa-clock"></i> Siguiente</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity 11: Mariachi -->
+        <div class="timeline-item timeline-left" data-start="19:00" data-end="20:00" data-category="musica">
+            <div class="timeline-img">
+                <i class="fa-solid fa-music"></i>
+            </div>
+            <div class="timeline-content">
+                <div class="time-tag">
+                    <i class="fa-regular fa-clock"></i> 07:00 PM en adelante
+                </div>
+                <h3 class="timeline-title">Cierre con Mariachi</h3>
+                <p class="timeline-desc">Gran cierre folclórico del evento con música tradicional mexicana del Mariachi en vivo para despedir la Expo con broche de oro.</p>
+                <div class="timeline-badges">
+                    <span class="badge-cat musica">Música</span>
+                    <span class="status-badge upcoming"><i class="fa-regular fa-clock"></i> Siguiente</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions-container">
+        <!-- 1. SHARE PROGRAM BUTTON -->
+        <button class="fab-main fab-share-sched" id="btnShareSched" title="Compartir Horarios">
+            <span class="fab-label">Compartir Horarios</span>
+            <i class="fa-solid fa-share-nodes"></i>
+        </button>
+        <!-- 2. WHATSAPP CHAT BUTTON -->
+        <a href="https://chat.whatsapp.com/HKyoYREahK05hbKQthlsJq" target="_blank" class="fab-main fab-whatsapp" title="Grupo de WhatsApp">
+            <span class="fab-label">Chat del Evento</span>
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Background Audio -->
+    <audio id="bgAudio" loop preload="auto">
+        <source src="assets/identidadsonora1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Primavera Events Group. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/cronograma.js?v=2"></script>
+</body>
+</html>
