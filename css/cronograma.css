@@ -840,3 +840,137 @@ footer {
     font-size: 0.85rem;
     border-top: 1px solid rgba(255,255,255,0.05);
 }
+
+.fab-print {
+    background: var(--dorado);
+    box-shadow: 0 10px 25px rgba(201, 169, 110, 0.3);
+}
+
+.fab-print:hover {
+    background: #b8985c;
+    box-shadow: 0 12px 30px rgba(201, 169, 110, 0.45);
+}
+
+/* ==========================================================================
+   PRINT MEDIA STYLES (Single Page Layout)
+   ========================================================================== */
+@media print {
+    @page {
+        size: portrait;
+        margin: 8mm 10mm;
+    }
+
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-size: 9pt !important;
+        line-height: 1.3 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    header,
+    .controls-container,
+    .filters-wrapper,
+    .floating-actions-container,
+    footer,
+    .password-overlay {
+        display: none !important;
+    }
+
+    .schedule-hero {
+        padding: 5px 0 !important;
+        margin: 0 0 10px 0 !important;
+        text-align: center !important;
+    }
+
+    .schedule-hero h2 {
+        font-size: 18pt !important;
+        margin-bottom: 2px !important;
+        color: #000000 !important;
+    }
+
+    .schedule-hero h2::after {
+        display: none !important;
+    }
+
+    .schedule-hero p {
+        font-size: 8.5pt !important;
+        margin-top: 2px !important;
+        color: #444444 !important;
+    }
+
+    .timeline-section {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .timeline-section::before {
+        display: none !important;
+    }
+
+    .timeline-item {
+        margin-bottom: 8px !important;
+        display: block !important;
+        width: 100% !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+
+    .timeline-img {
+        display: none !important;
+    }
+
+    .timeline-content {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 8px 12px !important;
+        border: 1px solid #dddddd !important;
+        border-radius: 6px !important;
+        background: #ffffff !important;
+        box-shadow: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .timeline-content::before {
+        display: none !important;
+    }
+
+    .time-tag {
+        background: #f0f0f0 !important;
+        border: 1px solid #cccccc !important;
+        color: #333333 !important;
+        padding: 2px 8px !important;
+        margin-bottom: 4px !important;
+        font-size: 8pt !important;
+        display: inline-block !important;
+    }
+
+    .timeline-title {
+        font-size: 10.5pt !important;
+        margin-bottom: 2px !important;
+        color: #000000 !important;
+        font-weight: 700 !important;
+        display: inline-block !important;
+        margin-left: 8px !important;
+        vertical-align: middle !important;
+    }
+
+    .time-tag i {
+        display: none !important; /* Hide clock icon in print */
+    }
+
+    .timeline-desc {
+        font-size: 8pt !important;
+        color: #333333 !important;
+        margin: 0 !important;
+        line-height: 1.25 !important;
+    }
+
+    .timeline-badges {
+        display: none !important;
+    }
+}
+

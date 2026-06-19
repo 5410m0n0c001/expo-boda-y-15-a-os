@@ -257,5 +257,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }
+
+        // Print Schedule
+        const btnPrintSched = document.getElementById('btnPrintSched');
+        if (btnPrintSched) {
+            btnPrintSched.addEventListener('click', () => {
+                window.print();
+            });
+        }
     }
 });
