@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Vendedores | Expo Boda y 15 Años</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/vendedores.css">
+    
+    <!-- Camera QR Code Scanner Library -->
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <!-- Leads Database -->
+    <script src="js/leads-data.js"></script>
+</head>
+<body>
+
+    <!-- 1. Lock Screen Overlay -->
+    <div id="lockScreen">
+        <div class="lock-container">
+            <img src="assets/logo_presidente.png" class="lock-logo" alt="Logo Presidente" style="object-fit: contain; padding: 10px; background: #fff; border-radius: 15px; margin-bottom: 20px;">
+            <h2>Panel de Vendedores</h2>
+            <p>Ingresa la contraseña de seguridad para acceder a las herramientas de control e invitaciones.</p>
+            <input type="password" id="passcodeInput" class="lock-input" placeholder="Contraseña">
+            <button id="btnUnlock" class="btn-lock">Acceder al Dashboard</button>
+            <div id="lockErrorMsg" class="lock-error">Contraseña incorrecta. Por favor intente de nuevo.</div>
+        </div>
+    </div>
+
+    <!-- 2. Dashboard App (Visible when authenticated) -->
+    <div id="dashboardApp" style="display: none;">
+        
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-title-area">
+                <h1>Panel de Vendedores</h1>
+                <p><i class="fa-solid fa-gem" style="color: var(--gold-accent);"></i> Primavera Events Group | Expo Boda & 15 Años</p>
+            </div>
+            <button class="btn-logout" id="btnLogout"><i class="fa-solid fa-lock"></i> Cerrar Sesión</button>
+        </header>
+
+        <div class="dashboard-container">
+            
+            <!-- Statistics Cards -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon total"><i class="fa-solid fa-users"></i></div>
+                    <div class="stat-details">
+                        <h3>Prospectos Totales</h3>
+                        <strong id="statTotal">0</strong>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon pending"><i class="fa-solid fa-clock"></i></div>
+                    <div class="stat-details">
+                        <h3>Pendientes</h3>
+                        <strong id="statPending">0</strong>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon confirmed"><i class="fa-solid fa-check"></i></div>
+                    <div class="stat-details">
+                        <h3>Confirmados</h3>
+                        <strong id="statConfirmed">0</strong>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon checkedin"><i class="fa-solid fa-circle-check"></i></div>
+                    <div class="stat-details">
+                        <h3>Ingresados</h3>
+                        <strong id="statCheckedIn">0</strong>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navigation Tabs -->
+            <div class="tabs-container">
+                <button class="tab-btn active" data-tab="tabLeads"><i class="fa-solid fa-list"></i> Lista de Leads</button>
+                <button class="tab-btn" data-tab="tabScanner" id="tabScannerBtn"><i class="fa-solid fa-qrcode"></i> Escáner QR</button>
+                <button class="tab-btn" data-tab="tabStats"><i class="fa-solid fa-chart-pie"></i> Estadísticas</button>
+            </div>
+
+            <!-- TAB 1: Leads List -->
+            <div class="tab-panel active" id="tabLeads">
+                <!-- Filter Bar -->
+                <div class="filter-bar">
+                    <div class="search-wrapper">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="searchInput" class="search-input" placeholder="Buscar por nombre, teléfono o correo...">
+                    </div>
+                    <select id="statusFilter" class="filter-select">
+                        <option value="all">Estado: Todos</option>
+                        <option value="Pending">Pendiente</option>
+                        <option value="Confirmed">Confirmado</option>
+                        <option value="Checked-In">Ingresado (Check-In)</option>
+                    </select>
+                    <select id="eventFilter" class="filter-select">
+                        <option value="all">Evento: Todos</option>
+                        <option value="boda">Bodas</option>
+                        <option value="15 años">15 años</option>
+                    </select>
+                </div>
+
+                <!-- Leads Grid -->
+                <div class="leads-card-grid" id="leadsContainer">
+                    <!-- Leads will be injected by JavaScript -->
+                </div>
+            </div>
+
+            <!-- TAB 2: QR Scanner -->
+            <div class="tab-panel" id="tabScanner">
+                <div class="scanner-card">
+                    <h2>Escaneo de Invitación</h2>
+                    <p>Usa la cámara del dispositivo para escanear el código QR de la invitación digital del cliente potencial para registrar su llegada rápidamente.</p>
+                    <div id="reader"></div>
+                    <button class="btn-scanner-ctrl" id="btnToggleScanner">Iniciar Cámara</button>
+                </div>
+            </div>
+
+            <!-- TAB 3: Statistics Section -->
+            <div class="tab-panel" id="tabStats">
+                <div class="stats-tab-content">
+                    <h2 class="chart-title">Desempeño del Evento y Asistencias</h2>
+                    <div class="bar-chart-container">
+                        <div class="chart-row">
+                            <div class="chart-row-header">
+                                <span>Tasa de Confirmación (Confirmados + Ingresados)</span>
+                                <span id="confirmRateVal">0%</span>
+                            </div>
+                            <div class="chart-bar-bg">
+                                <div class="chart-bar-fill" id="confirmRateBar" style="background: var(--color-confirmed);"></div>
+                            </div>
+                        </div>
+                        <div class="chart-row">
+                            <div class="chart-row-header">
+                                <span>Tasa de Asistencia Física (Ingresados en Entrada)</span>
+                                <span id="checkinRateVal">0%</span>
+                            </div>
+                            <div class="chart-bar-bg">
+                                <div class="chart-bar-fill" id="checkinRateBar" style="background: var(--color-checkedin);"></div>
+                            </div>
+                        </div>
+                        <div class="chart-row">
+                            <div class="chart-row-header">
+                                <span>Distribución por Evento: Bodas</span>
+                                <span id="weddingCountVal">0 leads</span>
+                            </div>
+                            <div class="chart-bar-bg">
+                                <div class="chart-bar-fill" id="weddingBar" style="background: var(--primary-pink); width: 0%;"></div>
+                            </div>
+                        </div>
+                        <div class="chart-row">
+                            <div class="chart-row-header">
+                                <span>Distribución por Evento: 15 Años</span>
+                                <span id="quinceCountVal">0 leads</span>
+                            </div>
+                            <div class="chart-bar-bg">
+                                <div class="chart-bar-fill" id="quinceBar" style="background: var(--gold-accent); width: 0%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 3. Modal QR Checkin confirmation -->
+    <div class="checkin-modal" id="checkinModal">
+        <div class="modal-content">
+            <span class="close-modal" id="btnCloseModal">&times;</span>
+            <div class="modal-icon-success" id="modalIcon"><i class="fa-solid fa-qrcode"></i></div>
+            <h2 id="modalLeadName" style="font-family: 'Playfair Display', serif; margin-bottom: 10px;">Nombre del Invitado</h2>
+            <p id="modalLeadDetails" style="color: var(--gray-text); margin-bottom: 20px;">Detalles de la invitación</p>
+            <div id="modalActionArea">
+                <button class="action-dashboard-btn btn-checkin" id="btnModalCheckIn" style="font-size: 1rem; padding: 14px 20px;">Registrar Ingreso (Check-In)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Floating Toast Notifications -->
+    <div class="toast-msg" id="toastMessage">Enlace copiado al portapapeles</div>
+
+    <!-- Core App Logic JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check auth status
+            const lockScreen = document.getElementById('lockScreen');
+            const dashboardApp = document.getElementById('dashboardApp');
+            const passcodeInput = document.getElementById('passcodeInput');
+            const btnUnlock = document.getElementById('btnUnlock');
+            const lockErrorMsg = document.getElementById('lockErrorMsg');
+            const btnLogout = document.getElementById('btnLogout');
+
+            const searchInput = document.getElementById('searchInput');
+            const statusFilter = document.getElementById('statusFilter');
+            const eventFilter = document.getElementById('eventFilter');
+            const leadsContainer = document.getElementById('leadsContainer');
+
+            // Modal elements
+            const checkinModal = document.getElementById('checkinModal');
+            const btnCloseModal = document.getElementById('btnCloseModal');
+            const modalLeadName = document.getElementById('modalLeadName');
+            const modalLeadDetails = document.getElementById('modalLeadDetails');
+            const btnModalCheckIn = document.getElementById('btnModalCheckIn');
+            const modalIcon = document.getElementById('modalIcon');
+
+            // Tabs elements
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabPanels = document.querySelectorAll('.tab-panel');
+
+            // State management
+            let leads = [];
+
+            // Password Unlock Handler
+            function attemptUnlock() {
+                const pass = passcodeInput.value.trim();
+                if (pass === 'PrimaveraVIP') {
+                    sessionStorage.setItem('seller_authenticated', 'true');
+                    lockScreen.classList.add('hidden');
+                    dashboardApp.style.display = 'block';
+                    initializeDashboard();
+                } else {
+                    lockErrorMsg.style.display = 'block';
+                    passcodeInput.style.border = '1px solid #ff6b6b';
+                    passcodeInput.value = '';
+                    passcodeInput.focus();
+                }
+            }
+
+            btnUnlock.addEventListener('click', attemptUnlock);
+            passcodeInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') attemptUnlock();
+            });
+            passcodeInput.addEventListener('input', () => {
+                lockErrorMsg.style.display = 'none';
+                passcodeInput.style.border = '1px solid rgba(255,255,255,0.2)';
+            });
+
+            // Logout Handler
+            btnLogout.addEventListener('click', () => {
+                sessionStorage.removeItem('seller_authenticated');
+                // Stop camera scanner if running
+                if (html5QrcodeScanner) {
+                    stopScanner();
+                }
+                lockScreen.classList.remove('hidden');
+                dashboardApp.style.display = 'none';
+                passcodeInput.value = '';
+            });
+
+            // Check if already authenticated
+            if (sessionStorage.getItem('seller_authenticated') === 'true') {
+                lockScreen.classList.add('hidden');
+                dashboardApp.style.display = 'block';
+                initializeDashboard();
+            }
+
+            // Initialize Dashboard Core
+            function initializeDashboard() {
+                // Initialize Leads database storage locally
+                const storedLeads = localStorage.getItem('meta_leads_status_store');
+                if (storedLeads) {
+                    leads = JSON.parse(storedLeads);
+                } else if (window.metaLeadsData) {
+                    leads = window.metaLeadsData;
+                    localStorage.setItem('meta_leads_status_store', JSON.stringify(leads));
+                }
+                
+                // Set initial stats
+                updateStats();
+                
+                // Render leads list
+                renderLeadsList();
+            }
+
+            // Update Stats Display & Tab Statistics
+            function updateStats() {
+                const total = leads.length;
+                const pending = leads.filter(l => l.status === 'Pending').length;
+                const confirmed = leads.filter(l => l.status === 'Confirmed').length;
+                const checkedIn = leads.filter(l => l.status === 'Checked-In').length;
+
+                document.getElementById('statTotal').innerText = total;
+                document.getElementById('statPending').innerText = pending;
+                document.getElementById('statConfirmed').innerText = confirmed;
+                document.getElementById('statCheckedIn').innerText = checkedIn;
+
+                // Tab 3 Stats Calculations
+                const confirmRate = total > 0 ? Math.round(((confirmed + checkedIn) / total) * 100) : 0;
+                const checkinRate = total > 0 ? Math.round((checkedIn / total) * 100) : 0;
+                
+                const weddings = leads.filter(l => l.eventType.toLowerCase().includes('boda')).length;
+                const quince = leads.filter(l => l.eventType.toLowerCase().includes('15 años')).length;
+
+                document.getElementById('confirmRateVal').innerText = `${confirmRate}%`;
+                document.getElementById('confirmRateBar').style.width = `${confirmRate}%`;
+
+                document.getElementById('checkinRateVal').innerText = `${checkinRate}%`;
+                document.getElementById('checkinRateBar').style.width = `${checkinRate}%`;
+
+                document.getElementById('weddingCountVal').innerText = `${weddings} de ${total}`;
+                const weddingPercent = total > 0 ? (weddings / total) * 100 : 0;
+                document.getElementById('weddingBar').style.width = `${weddingPercent}%`;
+
+                document.getElementById('quinceCountVal').innerText = `${quince} de ${total}`;
+                const quincePercent = total > 0 ? (quince / total) * 100 : 0;
+                document.getElementById('quinceBar').style.width = `${quincePercent}%`;
+            }
+
+            // Save leads array to LocalStorage
+            function saveLeadsData() {
+                localStorage.setItem('meta_leads_status_store', JSON.stringify(leads));
+                updateStats();
+            }
+
+            // Render Leads Cards
+            function renderLeadsList() {
+                const searchVal = searchInput.value.toLowerCase().trim();
+                const statusVal = statusFilter.value;
+                const eventVal = eventFilter.value;
+
+                leadsContainer.innerHTML = '';
+
+                // Filter logic
+                const filteredLeads = leads.filter(lead => {
+                    // Search criteria
+                    const matchesSearch = lead.name.toLowerCase().includes(searchVal) || 
+                                          lead.phone.toLowerCase().includes(searchVal) || 
+                                          lead.email.toLowerCase().includes(searchVal) ||
+                                          lead.id.toLowerCase().includes(searchVal);
+                    // Status criteria
+                    const matchesStatus = (statusVal === 'all') || (lead.status === statusVal);
+                    
+                    // Event type criteria
+                    let matchesEvent = true;
+                    if (eventVal !== 'all') {
+                        matchesEvent = lead.eventType.toLowerCase().includes(eventVal);
+                    }
+
+                    return matchesSearch && matchesStatus && matchesEvent;
+                });
+
+                if (filteredLeads.length === 0) {
+                    leadsContainer.innerHTML = `
+                        <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--gray-text);">
+                            <i class="fa-solid fa-users-slash" style="font-size: 2.5rem; margin-bottom: 10px; color: var(--gold-accent);"></i>
+                            <p>No se encontraron prospectos con los filtros actuales.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                filteredLeads.forEach(lead => {
+                    const card = document.createElement('div');
+                    card.className = `lead-row-card ${lead.status === 'Checked-In' ? 'checked-in-state' : ''}`;
+                    
+                    let statusLabel = 'Pendiente';
+                    if (lead.status === 'Confirmed') statusLabel = 'Confirmado';
+                    if (lead.status === 'Checked-In') statusLabel = 'Ingresado';
+
+                    const detailsHtml = `
+                        <div class="lead-card-header">
+                            <span class="lead-name-text">${lead.name}</span>
+                            <span class="lead-id-badge">${lead.id}</span>
+                        </div>
+                        <div class="lead-detail-list">
+                            <div class="lead-detail-item">
+                                <i class="fa-solid fa-sparkles"></i>
+                                <span>${lead.eventType}</span>
+                            </div>
+                            ${lead.phone ? `
+                            <div class="lead-detail-item">
+                                <i class="fa-solid fa-phone"></i>
+                                <span>${lead.phone}</span>
+                            </div>
+                            ` : ''}
+                            ${lead.email ? `
+                            <div class="lead-detail-item">
+                                <i class="fa-solid fa-envelope"></i>
+                                <span>${lead.email}</span>
+                            </div>
+                            ` : ''}
+                            ${lead.location ? `
+                            <div class="lead-detail-item">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>${lead.location}</span>
+                            </div>
+                            ` : ''}
+                            <div class="lead-detail-item" style="margin-top: 10px;">
+                                <span class="status-badge ${lead.status.toLowerCase()}">${statusLabel}</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="action-dashboard-btn btn-copy" onclick="copyInvitationLink('${lead.id}')">
+                                <i class="fa-solid fa-link"></i> Link
+                            </button>
+                            <button class="action-dashboard-btn btn-whatsapp" onclick="sendWhatsappLead('${lead.id}')">
+                                <i class="fa-brands fa-whatsapp"></i> Enviar
+                            </button>
+                            ${lead.status === 'Checked-In' ? `
+                                <button class="action-dashboard-btn btn-undo" onclick="updateLeadStatus('${lead.id}', 'Confirmed')">
+                                    <i class="fa-solid fa-rotate-left"></i> Deshacer Check-In
+                                </button>
+                            ` : `
+                                <button class="action-dashboard-btn btn-checkin" onclick="updateLeadStatus('${lead.id}', 'Checked-In')">
+                                    <i class="fa-solid fa-circle-check"></i> Registrar Ingreso
+                                </button>
+                            `}
+                        </div>
+                    `;
+
+                    card.innerHTML = detailsHtml;
+                    leadsContainer.appendChild(card);
+                });
+            }
+
+            // Global handlers bound to window so onclick attributes can call them
+            window.updateLeadStatus = function(leadId, newStatus) {
+                const leadIndex = leads.findIndex(l => l.id === leadId);
+                if (leadIndex !== -1) {
+                    leads[leadIndex].status = newStatus;
+                    saveLeadsData();
+                    renderLeadsList();
+                    showToast(newStatus === 'Checked-In' ? 'Check-in registrado con éxito' : 'Estado del lead actualizado');
+                }
+            };
+
+            window.copyInvitationLink = function(leadId) {
+                // Generate absolute path to invitation.html
+                const currentUrl = window.location.href;
+                const invUrl = currentUrl.replace('vendedores.html', 'invitacion.html') + `?code=${leadId}`;
+                
+                navigator.clipboard.writeText(invUrl).then(() => {
+                    showToast('Link copiado al portapapeles');
+                }).catch(err => {
+                    console.error('Error copying link:', err);
+                });
+            };
+
+            window.sendWhatsappLead = function(leadId) {
+                const lead = leads.find(l => l.id === leadId);
+                if (!lead) return;
+
+                if (!lead.phone) {
+                    showToast('Este lead no tiene número telefónico registrado');
+                    return;
+                }
+
+                const currentUrl = window.location.href;
+                const invUrl = currentUrl.replace('vendedores.html', 'invitacion.html') + `?code=${leadId}`;
+                
+                const customMessage = `¡Hola ${lead.name}! Te compartimos tu invitación oficial de gala para la Expo Boda y 15 Años de Primavera Events Group en el Centro de Convenciones Presidente. Accede en este enlace para confirmar tu asistencia: ${invUrl}`;
+                
+                // Format phone number
+                let cleanPhone = lead.phone.replace(/\D/g, '');
+                if (cleanPhone.length === 10) {
+                    cleanPhone = '52' + cleanPhone; // Add Mexico prefix
+                }
+
+                window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(customMessage)}`, '_blank');
+            };
+
+            // Trigger Search & Filters
+            searchInput.addEventListener('input', renderLeadsList);
+            statusFilter.addEventListener('change', renderLeadsList);
+            eventFilter.addEventListener('change', renderLeadsList);
+
+            // Toast Messaging
+            const toastMessage = document.getElementById('toastMessage');
+            let toastTimeout;
+            function showToast(message) {
+                toastMessage.innerText = message;
+                toastMessage.classList.add('show');
+                clearTimeout(toastTimeout);
+                toastTimeout = setTimeout(() => {
+                    toastMessage.classList.remove('show');
+                }, 3000);
+            }
+
+            // Tab Switching
+            tabButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabButtons.forEach(b => b.classList.remove('active'));
+                    tabPanels.forEach(p => p.classList.remove('active'));
+
+                    btn.classList.add('active');
+                    const targetPanel = document.getElementById(btn.getAttribute('data-tab'));
+                    targetPanel.classList.add('active');
+
+                    // If switching away from Scanner, stop scanner
+                    if (btn.getAttribute('data-tab') !== 'tabScanner') {
+                        stopScanner();
+                    }
+                });
+            });
+
+            // ==========================================
+            // QR CAMERA SCANNING LOGIC (HTML5-QRCODE)
+            // ==========================================
+            let html5QrcodeScanner = null;
+            const btnToggleScanner = document.getElementById('btnToggleScanner');
+            let isScanning = false;
+
+            function onScanSuccess(decodedText, decodedResult) {
+                console.log(`Scan result: ${decodedText}`);
+                
+                // Find code in scanned text (could be a full URL, e.g. ...invitacion.html?code=L001)
+                let scannedCode = null;
+                if (decodedText.toLowerCase().includes('code=')) {
+                    const match = decodedText.match(/code=([a-zA-Z0-9]+)/i);
+                    if (match && match[1]) {
+                        scannedCode = match[1].toUpperCase();
+                    }
+                } else {
+                    // Direct scan of plain text code
+                    scannedCode = decodedText.trim().toUpperCase();
+                }
+
+                if (scannedCode) {
+                    const lead = leads.find(l => l.id.toUpperCase() === scannedCode);
+                    if (lead) {
+                        // Sound beep or visual alert
+                        stopScanner();
+                        openCheckinModal(lead);
+                    } else {
+                        showToast(`Código QR no reconocido: ${scannedCode}`);
+                    }
+                }
+            }
+
+            function onScanError(errorMessage) {
+                // Ignore scanner refresh errors
+            }
+
+            function startScanner() {
+                isScanning = true;
+                btnToggleScanner.innerText = 'Detener Cámara';
+                btnToggleScanner.style.background = '#ff6b6b';
+
+                html5QrcodeScanner = new Html5Qrcode("reader");
+                html5QrcodeScanner.start(
+                    { facingMode: "environment" }, 
+                    {
+                        fps: 10,
+                        qrbox: { width: 250, height: 250 }
+                    },
+                    onScanSuccess,
+                    onScanError
+                ).catch(err => {
+                    console.error("Camera access failed: ", err);
+                    showToast("No se pudo acceder a la cámara del dispositivo");
+                    stopScanner();
+                });
+            }
+
+            function stopScanner() {
+                isScanning = false;
+                btnToggleScanner.innerText = 'Iniciar Cámara';
+                btnToggleScanner.style.background = 'var(--primary-pink)';
+
+                if (html5QrcodeScanner) {
+                    html5QrcodeScanner.stop().then(() => {
+                        html5QrcodeScanner.clear();
+                        html5QrcodeScanner = null;
+                    }).catch(err => {
+                        console.warn("Error stopping scanner: ", err);
+                    });
+                }
+            }
+
+            btnToggleScanner.addEventListener('click', () => {
+                if (isScanning) {
+                    stopScanner();
+                } else {
+                    startScanner();
+                }
+            });
+
+            // Modal Checkin Actions
+            let currentModalLead = null;
+
+            function openCheckinModal(lead) {
+                currentModalLead = lead;
+                modalLeadName.innerText = lead.name;
+                
+                let detailsText = `Interés: ${lead.eventType} | Código: ${lead.id}`;
+                if (lead.phone) detailsText += `\nTel: ${lead.phone}`;
+                
+                modalLeadDetails.innerText = detailsText;
+
+                // Adjust icon based on current status
+                if (lead.status === 'Checked-In') {
+                    modalIcon.className = "modal-icon-success";
+                    modalIcon.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
+                    modalIcon.style.color = "var(--color-checkedin)";
+                    modalIcon.style.background = "#e8f8ee";
+                    
+                    btnModalCheckIn.innerText = "Ya Ingresado (Volver a Escanear)";
+                    btnModalCheckIn.className = "action-dashboard-btn btn-undo";
+                    btnModalCheckIn.onclick = function() {
+                        checkinModal.classList.remove('show');
+                        startScanner();
+                    };
+                } else {
+                    modalIcon.className = "modal-icon-success";
+                    modalIcon.innerHTML = `<i class="fa-solid fa-qrcode"></i>`;
+                    modalIcon.style.color = "var(--gold-accent)";
+                    modalIcon.style.background = "#fff9eb";
+                    
+                    btnModalCheckIn.innerText = "Confirmar Ingreso (Check-In)";
+                    btnModalCheckIn.className = "action-dashboard-btn btn-checkin";
+                    btnModalCheckIn.onclick = function() {
+                        confirmModalCheckin();
+                    };
+                }
+
+                checkinModal.classList.add('show');
+            }
+
+            function confirmModalCheckin() {
+                if (currentModalLead) {
+                    window.updateLeadStatus(currentModalLead.id, 'Checked-In');
+                    checkinModal.classList.remove('show');
+                    // Automatically restart camera scanner after a short delay
+                    setTimeout(() => {
+                        startScanner();
+                    }, 1000);
+                }
+            }
+
+            btnCloseModal.addEventListener('click', () => {
+                checkinModal.classList.remove('show');
+                // Restart scanner if scanner tab is still active
+                const activeTab = document.querySelector('.tab-btn.active').getAttribute('data-tab');
+                if (activeTab === 'tabScanner') {
+                    startScanner();
+                }
+            });
+
+            // Close modal when clicking outside content
+            checkinModal.addEventListener('click', (e) => {
+                if (e.target === checkinModal) {
+                    checkinModal.classList.remove('show');
+                    const activeTab = document.querySelector('.tab-btn.active').getAttribute('data-tab');
+                    if (activeTab === 'tabScanner') {
+                        startScanner();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

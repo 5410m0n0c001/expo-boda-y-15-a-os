@@ -1,0 +1,358 @@
+/* Custom Styles for Personalized Guest Invitation */
+:root {
+    --primary-pink: #f05a7e;
+    --primary-light: #f78da7;
+    --primary-dark: #1F1F1F;
+    --background-light: #F8F6F4;
+    --white: #FFFFFF;
+    --soft-pink: #FFF0F2;
+    --beige: #EFE7E1;
+    --gold-accent: #C9A96E;
+    --gray-text: #6D6D6D;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-light);
+    color: var(--primary-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-image: linear-gradient(135deg, #fcebec 0%, #f6f0eb 100%);
+    overflow-x: hidden;
+}
+
+/* Container Card */
+.invitation-container {
+    background: var(--white);
+    max-width: 500px;
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(240, 90, 126, 0.15);
+    border: 1px solid var(--beige);
+    padding: 40px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative Gold Borders */
+.invitation-container::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 1px solid var(--gold-accent);
+    border-radius: 20px;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Corners for design */
+.corner-decor {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--gold-accent);
+    pointer-events: none;
+}
+
+.corner-top-left {
+    top: 25px;
+    left: 25px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.corner-top-right {
+    top: 25px;
+    right: 25px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.corner-bottom-left {
+    bottom: 25px;
+    left: 25px;
+    border-right: none;
+    border-top: none;
+}
+
+.corner-bottom-right {
+    bottom: 25px;
+    right: 25px;
+    border-left: none;
+    border-top: none;
+}
+
+/* Header & Logos */
+.brand-header {
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+.brand-logo {
+    max-width: 120px;
+    margin-bottom: 10px;
+}
+
+.event-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray-text);
+    font-weight: 600;
+}
+
+/* Content Details */
+.invitation-content {
+    position: relative;
+    z-index: 2;
+}
+
+.guest-greeting {
+    font-size: 0.95rem;
+    color: var(--gold-accent);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+.guest-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    line-height: 1.2;
+    margin-bottom: 20px;
+    word-break: break-word;
+}
+
+.invitation-text {
+    font-size: 0.95rem;
+    color: var(--gray-text);
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Event Info Box */
+.event-info-box {
+    background: var(--soft-pink);
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    border: 1px dashed var(--primary-light);
+}
+
+.info-item {
+    margin-bottom: 10px;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-item i {
+    color: var(--primary-pink);
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+.info-item span {
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+/* QR Code Section */
+.qr-section {
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.qr-frame {
+    background: var(--white);
+    padding: 15px;
+    border-radius: 20px;
+    border: 2px solid var(--gold-accent);
+    box-shadow: 0 10px 25px rgba(201, 169, 110, 0.2);
+    display: inline-block;
+    position: relative;
+}
+
+.qr-frame canvas {
+    display: block;
+}
+
+.qr-instruction {
+    font-size: 0.85rem;
+    color: var(--gray-text);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Confirmation Code Badge */
+.code-badge {
+    background: var(--primary-dark);
+    color: var(--white);
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+/* CTA Buttons */
+.btn-confirm {
+    background: #25D366;
+    color: var(--white);
+    border: none;
+    padding: 16px 30px;
+    border-radius: 50px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+.btn-confirm:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
+    background: #20ba59;
+}
+
+.btn-confirm i {
+    font-size: 1.3rem;
+}
+
+/* Music Control Widget */
+.music-widget {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 8px;
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--beige);
+    transition: all 0.3s ease;
+}
+
+.music-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--primary-pink);
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.music-btn:hover {
+    background: var(--primary-light);
+    transform: scale(1.05);
+}
+
+.music-disc {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #333;
+    border: 2px solid var(--gold-accent);
+    position: relative;
+    animation: spin 3s linear infinite;
+    animation-play-state: paused;
+}
+
+.music-disc::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background: var(--white);
+    border-radius: 50%;
+}
+
+.playing .music-disc {
+    animation-play-state: running;
+}
+
+.music-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding-right: 12px;
+    color: var(--primary-dark);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .invitation-container {
+        padding: 30px 20px;
+    }
+    
+    .guest-name {
+        font-size: 1.8rem;
+    }
+    
+    body {
+        padding: 10px;
+    }
+}
