@@ -65,7 +65,8 @@ document.addEventListener('DOMContentLoaded', function() {
             { src: 'assets/logo_new16.png', caption: 'Saxofonista Solista' },
             { src: 'assets/logo_new17.png', caption: 'Mía Concept Store' },
             { src: 'assets/logo_new18.jpeg', caption: 'Coreografías Bailes y Vals David' },
-            { src: 'assets/logo_new19.png', caption: 'Scanner DJ' }
+            { src: 'assets/logo_new19.png', caption: 'Scanner DJ' },
+            { src: 'assets/logo_andrea_lozano.jpg', caption: 'Andrea Lozano Beauty Salon' }
         ];
 
         const logosTrack = document.getElementById('logosTrack');
