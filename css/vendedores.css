@@ -492,6 +492,18 @@ body {
     background: #ffdbe3;
 }
 
+.action-dashboard-btn.btn-missing-data {
+    grid-column: span 2;
+    background: #FFF3E0;
+    color: #E65100;
+    border: 1px solid #FFE0B2;
+}
+
+.action-dashboard-btn.btn-missing-data:hover {
+    background: #FFE0B2;
+    color: #E65100;
+}
+
 /* Scanner Tab Styling */
 .scanner-card {
     background: var(--white);

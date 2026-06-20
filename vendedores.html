@@ -273,7 +273,17 @@
                 // Initialize Leads database storage locally
                 const storedLeads = localStorage.getItem('meta_leads_status_store');
                 if (storedLeads) {
-                    leads = JSON.parse(storedLeads);
+                    const localLeads = JSON.parse(storedLeads);
+                    if (window.metaLeadsData) {
+                        const localIds = new Set(localLeads.map(l => l.id));
+                        window.metaLeadsData.forEach(lead => {
+                            if (!localIds.has(lead.id)) {
+                                localLeads.push(lead);
+                            }
+                        });
+                    }
+                    leads = localLeads;
+                    localStorage.setItem('meta_leads_status_store', JSON.stringify(leads));
                 } else if (window.metaLeadsData) {
                     leads = window.metaLeadsData;
                     localStorage.setItem('meta_leads_status_store', JSON.stringify(leads));
@@ -413,6 +423,9 @@
                             <button class="action-dashboard-btn btn-sent ${lead.passSent ? 'sent-active' : ''}" onclick="togglePassSent('${lead.id}')">
                                 <i class="fa-solid ${lead.passSent ? 'fa-envelope-open-text' : 'fa-envelope'}"></i> ${lead.passSent ? 'Pase Enviado ✓' : 'Marcar Pase Enviado'}
                             </button>
+                            <button class="action-dashboard-btn btn-missing-data" onclick="sendMissingDataMessage('${lead.id}')">
+                                <i class="fa-solid fa-triangle-exclamation"></i> Falta de Datos
+                            </button>
                             ${lead.status === 'Checked-In' ? `
                                 <button class="action-dashboard-btn btn-undo" onclick="updateLeadStatus('${lead.id}', 'Confirmed')">
                                     <i class="fa-solid fa-rotate-left"></i> Deshacer Check-In
@@ -492,6 +505,28 @@
 
                 window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(customMessage)}`, '_blank');
                 renderLeadsList();
+            };
+
+            window.sendMissingDataMessage = function(leadId) {
+                const lead = leads.find(l => l.id === leadId);
+                if (!lead) return;
+
+                const customMessage = `¡Hola ${lead.name}! Te saludamos de Primavera Events Group. Agradecemos tu interés en la Expo Boda y 15 Años. Notamos que tu registro en nuestro sistema está incompleto y nos hacen falta algunos datos de contacto o detalles de tu evento. ¿Podrías ayudarnos a completarlos respondiendo a este mensaje? ¡Muchas gracias!`;
+
+                if (lead.phone) {
+                    let cleanPhone = lead.phone.replace(/\D/g, '');
+                    if (cleanPhone.length === 10) {
+                        cleanPhone = '52' + cleanPhone;
+                    }
+                    window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(customMessage)}`, '_blank');
+                } else {
+                    navigator.clipboard.writeText(customMessage).then(() => {
+                        showToast('Mensaje de solicitud de datos copiado al portapapeles');
+                    }).catch(err => {
+                        console.error('Error copying text:', err);
+                        showToast('No se cuenta con teléfono registrado para este prospecto');
+                    });
+                }
             };
 
             // Trigger Search & Filters
