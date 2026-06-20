@@ -24,17 +24,6 @@
 </head>
 <body>
 
-    <!-- Password Protection Overlay -->
-    <div class="password-overlay" id="passwordOverlay">
-        <div class="password-card">
-            <h2>Acceso Restringido</h2>
-            <p>Por favor, ingresa la contraseña de expositor para visualizar el programa de actividades oficial.</p>
-            <input type="password" id="passwordInput" class="password-input" placeholder="Contraseña de Expositor" autocomplete="off">
-            <div id="passwordError" class="password-error">Contraseña incorrecta. Inténtalo de nuevo.</div>
-            <button id="passwordSubmit" class="password-btn">Acceder al Programa</button>
-        </div>
-    </div>
-
     <!-- Navigation Header -->
     <header>
         <div class="header-top">
@@ -48,9 +37,17 @@
                     <p>Expo Boda & XV Años 2026</p>
                 </div>
             </div>
-            <a href="index.html" class="btn-dashboard-nav">
-                <i class="fa-solid fa-house"></i> Volver al Dashboard
-            </a>
+            <div class="header-nav-actions" style="display: flex; gap: 10px; align-items: center;">
+                <a href="https://5410m0n0c001.github.io/centro-de-convenciones-presidente-croquis/render.html" target="_blank" class="btn-dashboard-nav" style="background: #10b981; border-color: #10b981; color: white;">
+                    <i class="fa-solid fa-map-location-dot"></i> Ver Croquis 3D
+                </a>
+                <a href="directorio.html" class="btn-dashboard-nav" style="background: var(--rosa); border-color: var(--rosa); color: white;">
+                    <i class="fa-solid fa-address-book"></i> Directorio de Proveedores
+                </a>
+                <a href="index.html" class="btn-dashboard-nav">
+                    <i class="fa-solid fa-house"></i> Volver al Dashboard
+                </a>
+            </div>
         </div>
     </header>
 

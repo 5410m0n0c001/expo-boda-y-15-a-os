@@ -1,44 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // DOM Elements
-    const overlay = document.getElementById('passwordOverlay');
-    const passwordInput = document.getElementById('passwordInput');
-    const passwordSubmit = document.getElementById('passwordSubmit');
-    const passwordError = document.getElementById('passwordError');
-    
-    // Auth Check
-    if (sessionStorage.getItem('exhibitor_authenticated') === 'true') {
-        if (overlay) overlay.style.display = 'none';
-        initSchedule();
-    } else {
-        if (passwordSubmit) {
-            passwordSubmit.addEventListener('click', checkPassword);
-        }
-        if (passwordInput) {
-            passwordInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') checkPassword();
-            });
-            passwordInput.addEventListener('input', () => {
-                passwordError.style.display = 'none';
-                passwordInput.style.borderColor = 'var(--beige)';
-            });
-        }
-    }
-
-    function checkPassword() {
-        if (passwordInput && passwordInput.value.trim() === 'PrimaveraVIP') {
-            sessionStorage.setItem('exhibitor_authenticated', 'true');
-            if (overlay) {
-                overlay.classList.add('hidden');
-                setTimeout(() => { overlay.style.display = 'none'; }, 500);
-            }
-            initSchedule();
-        } else if (passwordInput) {
-            passwordError.style.display = 'block';
-            passwordInput.style.borderColor = '#e74c3c';
-            passwordInput.value = '';
-            passwordInput.focus();
-        }
-    }
+    // Schedule page is now public
+    initSchedule();
 
     // Schedule Initialization
     function initSchedule() {
