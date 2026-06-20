@@ -67,15 +67,168 @@
         </section>
 
         <!-- Catalog Section -->
-        <section class="catalog-section" style="text-align: center; padding: 50px 40px; background: var(--white); border-radius: 20px; border: 1px solid var(--beige); margin-top: 40px;">
-            <i class="fa-solid fa-file-pdf" style="font-size: 4rem; color: #F05A7E; margin-bottom: 20px;"></i>
-            <h3>Catálogo de Productos</h3>
-            <p style="color: var(--gray-text); margin-top: 10px; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Descubre nuestra variedad de botellas personalizadas con corte diamante. Consulta el catálogo completo de Tequila Don Ramón Personalizado para conocer diseños, opciones de botellas y detalles de personalización.
-            </p>
-            <a href="../assets/catalogo_tequila_don_ramon.pdf" target="_blank" class="btn-action-primary" style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; font-size: 1.1rem; text-decoration: none;">
-                <i class="fa-solid fa-download"></i> Descargar Catálogo PDF
-            </a>
+        <section class="catalog-section" style="margin-top: 40px;">
+            <h2 style="margin-bottom: 20px;"><i class="fa-solid fa-gem"></i> Catálogo de Productos y Precios</h2>
+            
+            <!-- Catalog Tabs -->
+            <div class="catalog-tabs" style="display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap;">
+                <button class="tab-btn active" onclick="switchCatalogTab('interactive')" style="padding: 12px 25px; border-radius: 30px; border: 1px solid var(--primary-pink); background: var(--primary-pink); font-family: 'Poppins', sans-serif; font-weight: 600; cursor: pointer; color: var(--white); transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-list-ul"></i> Lista de Precios
+                </button>
+                <button class="tab-btn" onclick="switchCatalogTab('visual')" style="padding: 12px 25px; border-radius: 30px; border: 1px solid var(--beige); background: var(--white); font-family: 'Poppins', sans-serif; font-weight: 600; cursor: pointer; color: var(--gray-text); transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-file-image"></i> Catálogo Visual (Imagen PDF)
+                </button>
+            </div>
+
+            <!-- Tab 1: Interactive view -->
+            <div id="tab-interactive" class="catalog-tab-content">
+                <div class="catalog-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px;">
+                    <!-- Line 1: Arte Legendario de México -->
+                    <div class="catalog-card" style="padding: 30px; background: var(--white); border-radius: 20px; border: 1px solid var(--beige); display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow-premium);">
+                        <div>
+                            <span class="variant-badge" style="display: inline-block; padding: 4px 10px; background: #FFF5D6; color: var(--gold-accent); border-radius: 12px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">Arte Legendario</span>
+                            <h3 style="font-size: 1.3rem; margin-top: 10px; margin-bottom: 10px; font-weight: 700; font-family: 'Playfair Display', serif;">Arte Legendario de México</h3>
+                            <p style="font-size: 0.9rem; color: var(--gray-text); line-height: 1.5; margin-bottom: 15px;">Botellas exclusivas decoradas artesanalmente: Tierra, Fuego, Éter, Alma, Aire y Agua.</p>
+                            <span style="font-size: 0.9rem; color: var(--gray-text);">Presentación: <strong>750 ml</strong></span>
+                        </div>
+                        <div class="price-row" style="margin-top: 20px; border-top: 1px solid var(--beige); padding-top: 15px; display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.9rem; color: var(--gray-text);">Precio Especial</span>
+                            <strong style="font-size: 1.4rem; color: var(--primary-pink); font-family: 'Playfair Display', serif;">$7,515.00 MXN</strong>
+                        </div>
+                    </div>
+
+                    <!-- Line 2: Cerámica Luis Miguel -->
+                    <div class="catalog-card" style="padding: 30px; background: var(--white); border-radius: 20px; border: 1px solid var(--beige); display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow-premium);">
+                        <div>
+                            <span class="variant-badge" style="display: inline-block; padding: 4px 10px; background: #FFF5D6; color: var(--gold-accent); border-radius: 12px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">Cerámica Premium</span>
+                            <h3 style="font-size: 1.3rem; margin-top: 10px; margin-bottom: 10px; font-weight: 700; font-family: 'Playfair Display', serif;">Línea Cerámica Luis Miguel</h3>
+                            <p style="font-size: 0.9rem; color: var(--gray-text); line-height: 1.5; margin-bottom: 15px;">Diseño de gala en cerámica fina:</p>
+                            <ul style="font-size: 0.9rem; color: var(--primary-dark); list-style: none; padding: 0; line-height: 1.8;">
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Plata: <strong>$5,500.00 MXN</strong></li>
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Reposado: <strong>$6,380.00 MXN</strong></li>
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Añejo: <strong>$7,480.00 MXN</strong></li>
+                            </ul>
+                        </div>
+                        <span style="font-size: 0.9rem; color: var(--gray-text); display: block; border-top: 1px solid var(--beige); padding-top: 15px; margin-top: 20px;">Presentación: <strong>750 ml</strong></span>
+                    </div>
+
+                    <!-- Line 3: Swarovski -->
+                    <div class="catalog-card" style="padding: 30px; background: var(--white); border-radius: 20px; border: 1px solid var(--beige); display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow-premium);">
+                        <div>
+                            <span class="variant-badge" style="display: inline-block; padding: 4px 10px; background: #FFF5D6; color: var(--gold-accent); border-radius: 12px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">Cristales Genuinos</span>
+                            <h3 style="font-size: 1.3rem; margin-top: 10px; margin-bottom: 10px; font-weight: 700; font-family: 'Playfair Display', serif;">Edición Limitada Swarovski</h3>
+                            <p style="font-size: 0.9rem; color: var(--gray-text); line-height: 1.5; margin-bottom: 15px;">Decoradas con auténticos cristales Swarovski:</p>
+                            <ul style="font-size: 0.9rem; color: var(--primary-dark); list-style: none; padding: 0; line-height: 1.8;">
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Plata: <strong>$8,175.00 MXN</strong></li>
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Añejo: <strong>$9,165.00 MXN</strong></li>
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Extra Añejo: <strong>$10,705.00 MXN</strong></li>
+                            </ul>
+                        </div>
+                        <span style="font-size: 0.9rem; color: var(--gray-text); display: block; border-top: 1px solid var(--beige); padding-top: 15px; margin-top: 20px;">Presentación: <strong>750 ml</strong></span>
+                    </div>
+
+                    <!-- Line 4: Edición Limitada -->
+                    <div class="catalog-card" style="padding: 30px; background: var(--white); border-radius: 20px; border: 1px solid var(--beige); display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow-premium);">
+                        <div>
+                            <span class="variant-badge" style="display: inline-block; padding: 4px 10px; background: #FFF5D6; color: var(--gold-accent); border-radius: 12px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">Edición Limitada</span>
+                            <h3 style="font-size: 1.3rem; margin-top: 10px; margin-bottom: 10px; font-weight: 700; font-family: 'Playfair Display', serif;">Línea Edición Limitada</h3>
+                            <p style="font-size: 0.9rem; color: var(--gray-text); line-height: 1.5; margin-bottom: 15px;">Colecciones exclusivas y añejados únicos:</p>
+                            <ul style="font-size: 0.9rem; color: var(--primary-dark); list-style: none; padding: 0; line-height: 1.8;">
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Añejo "Dark": <strong>$4,235.00 MXN</strong></li>
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Plata: <strong>$4,970.00 MXN</strong></li>
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Añejo: <strong>$6,120.00 MXN</strong></li>
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Extra Añejo: <strong>$7,270.00 MXN</strong></li>
+                            </ul>
+                        </div>
+                        <span style="font-size: 0.9rem; color: var(--gray-text); display: block; border-top: 1px solid var(--beige); padding-top: 15px; margin-top: 20px;">Presentación: <strong>750 ml</strong></span>
+                    </div>
+
+                    <!-- Line 5: Platinium -->
+                    <div class="catalog-card" style="padding: 30px; background: var(--white); border-radius: 20px; border: 1px solid var(--beige); display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow-premium);">
+                        <div>
+                            <span class="variant-badge" style="display: inline-block; padding: 4px 10px; background: #FFF5D6; color: var(--gold-accent); border-radius: 12px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">Platinium</span>
+                            <h3 style="font-size: 1.3rem; margin-top: 10px; margin-bottom: 10px; font-weight: 700; font-family: 'Playfair Display', serif;">Línea Platinium</h3>
+                            <p style="font-size: 0.9rem; color: var(--gray-text); line-height: 1.5; margin-bottom: 15px;">Botellas estilizadas y de gran elegancia:</p>
+                            <ul style="font-size: 0.9rem; color: var(--primary-dark); list-style: none; padding: 0; line-height: 1.8;">
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Plata (700 ml): <strong>$750.00 MXN</strong></li>
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Reposado (700 ml): <strong>$865.00 MXN</strong></li>
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Añejo (700 ml): <strong>$1,040.00 MXN</strong></li>
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Añejo Cristalino (1.75 L): <strong>$2,185.00 MXN</strong></li>
+                            </ul>
+                        </div>
+                        <span style="font-size: 0.9rem; color: var(--gray-text); display: block; border-top: 1px solid var(--beige); padding-top: 15px; margin-top: 20px;">Varios Tamaños</span>
+                    </div>
+
+                    <!-- Line 6: Punta Diamante -->
+                    <div class="catalog-card" style="padding: 30px; background: var(--white); border-radius: 20px; border: 1px solid var(--beige); display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow-premium);">
+                        <div>
+                            <span class="variant-badge" style="display: inline-block; padding: 4px 10px; background: #FFF5D6; color: var(--gold-accent); border-radius: 12px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">Punta Diamante</span>
+                            <h3 style="font-size: 1.3rem; margin-top: 10px; margin-bottom: 10px; font-weight: 700; font-family: 'Playfair Display', serif;">Línea Punta Diamante</h3>
+                            <p style="font-size: 0.9rem; color: var(--gray-text); line-height: 1.5; margin-bottom: 15px;">La línea insignia de corte diamante:</p>
+                            <ul style="font-size: 0.9rem; color: var(--primary-dark); list-style: none; padding: 0; line-height: 1.8; max-height: 200px; overflow-y: auto;">
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Plata/Reposado (50 ml): <strong>$155.00 MXN</strong></li>
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Plata/Reposado (200 ml): <strong>$285.00 MXN</strong></li>
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Añejo Cristalino (200 ml): <strong>$320.00 MXN</strong></li>
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Plata (750 ml): <strong>$445.00 MXN</strong></li>
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Reposado (750 ml): <strong>$465.00 MXN</strong></li>
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Añejo Cristalino (750 ml): <strong>$740.00 MXN</strong></li>
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Tahona (750 ml): <strong>$638.00 MXN</strong></li>
+                            </ul>
+                        </div>
+                        <span style="font-size: 0.9rem; color: var(--gray-text); display: block; border-top: 1px solid var(--beige); padding-top: 15px; margin-top: 20px;">Varios Tamaños</span>
+                    </div>
+
+                    <!-- Line 7: Clásica -->
+                    <div class="catalog-card" style="padding: 30px; background: var(--white); border-radius: 20px; border: 1px solid var(--beige); display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow-premium);">
+                        <div>
+                            <span class="variant-badge" style="display: inline-block; padding: 4px 10px; background: #FFF5D6; color: var(--gold-accent); border-radius: 12px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">Tradicional</span>
+                            <h3 style="font-size: 1.3rem; margin-top: 10px; margin-bottom: 10px; font-weight: 700; font-family: 'Playfair Display', serif;">Línea Clásica</h3>
+                            <p style="font-size: 0.9rem; color: var(--gray-text); line-height: 1.5; margin-bottom: 15px;">El sabor original en todas sus presentaciones:</p>
+                            <ul style="font-size: 0.9rem; color: var(--primary-dark); list-style: none; padding: 0; line-height: 1.8;">
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Tamarindo (750 ml): <strong>$405.00 MXN</strong></li>
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Reposado (750 ml): <strong>$445.00 MXN</strong></li>
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Reposado (1 L): <strong>$530.00 MXN</strong></li>
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Plata (1.75 L): <strong>$925.00 MXN</strong></li>
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Reposado (1.75 L): <strong>$940.00 MXN</strong></li>
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Reposado (3 L): <strong>$1,610.00 MXN</strong></li>
+                            </ul>
+                        </div>
+                        <span style="font-size: 0.9rem; color: var(--gray-text); display: block; border-top: 1px solid var(--beige); padding-top: 15px; margin-top: 20px;">Varios Tamaños</span>
+                    </div>
+
+                    <!-- Line 8: Mezcales -->
+                    <div class="catalog-card" style="padding: 30px; background: var(--white); border-radius: 20px; border: 1px solid var(--beige); display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow-premium);">
+                        <div>
+                            <span class="variant-badge" style="display: inline-block; padding: 4px 10px; background: #FFF5D6; color: var(--gold-accent); border-radius: 12px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">Mezcal Artesanal</span>
+                            <h3 style="font-size: 1.3rem; margin-top: 10px; margin-bottom: 10px; font-weight: 700; font-family: 'Playfair Display', serif;">Línea Mezcales</h3>
+                            <p style="font-size: 0.9rem; color: var(--gray-text); line-height: 1.5; margin-bottom: 15px;">Mezcales premium de agaves selectos:</p>
+                            <ul style="font-size: 0.9rem; color: var(--primary-dark); list-style: none; padding: 0; line-height: 1.8;">
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Salmiana (750 ml): <strong>$1,040.00 MXN</strong></li>
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Espadín (750 ml): <strong>$1,090.00 MXN</strong></li>
+                                <li><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 8px;"></i> Tobalá (750 ml): <strong>$1,145.00 MXN</strong></li>
+                            </ul>
+                        </div>
+                        <span style="font-size: 0.9rem; color: var(--gray-text); display: block; border-top: 1px solid var(--beige); padding-top: 15px; margin-top: 20px;">Presentación: <strong>750 ml</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 2: Visual PDF page view -->
+            <div id="tab-visual" class="catalog-tab-content" style="display: none; text-align: center;">
+                <div class="visual-catalog-wrapper" style="position: relative; max-width: 800px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-premium); border: 1px solid var(--beige); background: #fdfdfd; padding: 15px;">
+                    <img src="../assets/tequila_catalogo_page_1.png" alt="Tequila Don Ramón Catálogo Completo" style="width: 100%; max-height: 80vh; object-fit: contain; cursor: zoom-in;" onclick="openCatalogLightbox(this.src)">
+                    <div style="padding: 15px 0 0 0; font-size: 0.9rem; color: var(--gray-text);">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i> Haz clic sobre la imagen para expandir en tamaño completo.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Download button at bottom of section -->
+            <div style="text-align: center; margin-top: 40px; border-top: 1px solid var(--beige); padding-top: 30px;">
+                <a href="../assets/catalogo_tequila_don_ramon.pdf" target="_blank" class="btn-action-primary" style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; font-size: 1.1rem; text-decoration: none;">
+                    <i class="fa-solid fa-file-pdf"></i> Descargar Catálogo PDF Completo
+                </a>
+            </div>
         </section>
 
     <!-- Floating Social Sticky Dock -->
@@ -86,7 +239,7 @@
         <a href="../directorio.html" class="sticky-item back-dir" title="Volver al Directorio"><i class="fa-solid fa-address-book"></i></a>
     </div>
 
-    <!-- JavaScript dynamic vCard generation -->
+    <!-- JavaScript dynamic vCard generation and Catalog controller -->
     <script>
         function downloadVCard() {
             const contact = {
@@ -113,6 +266,43 @@
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
+        }
+
+        function switchCatalogTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.catalog-tab-content').forEach(tab => {
+                tab.style.display = 'none';
+            });
+            // Show selected tab content
+            const activeTab = document.getElementById('tab-' + tabId);
+            if (activeTab) {
+                if (tabId === 'interactive') {
+                    activeTab.style.display = 'grid';
+                } else {
+                    activeTab.style.display = 'block';
+                }
+            }
+            
+            // Toggle active class on buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.background = 'var(--white)';
+                btn.style.color = 'var(--gray-text)';
+                btn.style.borderColor = 'var(--beige)';
+            });
+            
+            // Set active button styles
+            const activeBtn = event.currentTarget;
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+                activeBtn.style.background = 'var(--primary-pink)';
+                activeBtn.style.color = 'var(--white)';
+                activeBtn.style.borderColor = 'var(--primary-pink)';
+            }
+        }
+
+        function openCatalogLightbox(src) {
+            window.open(src, '_blank');
         }
     </script>
 </body>
