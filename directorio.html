@@ -232,11 +232,7 @@
     <!-- Filter & Swiper Control Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Auth check
-            if (sessionStorage.getItem('exhibitor_authenticated') !== 'true') {
-                window.location.href = 'index.html';
-                return;
-            }
+
 
             const searchInput = document.getElementById('searchInput');
             const filterButtons = document.querySelectorAll('.cat-btn');
