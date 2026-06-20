@@ -3,19 +3,19 @@
    ========================================================================== */
 
 :root {
-    --primary-pink: #f05a7e;
-    --primary-light: #f78da7;
-    --primary-dark: #1F1F1F;
+    --primary-pink: #F65C7A;     /* Rosa Principal */
+    --primary-light: #FF8FA3;    /* Rosa Claro */
+    --primary-dark: #1F1F1F;     /* Negro Profundo */
     --background-light: #F8F6F4;
     --white: #FFFFFF;
     --soft-pink: #FFF0F2;
     --beige: #EFE7E1;
-    --gold-accent: #C9A96E;
-    --gray-text: #6D6D6D;
+    --gold-accent: #C9A96E;      /* Oro Noble */
+    --gray-text: #6D6D6D;        /* Gris Suave */
     
     --rosa: var(--primary-pink);
     --dorado: var(--gold-accent);
-    --negro-deep: #121212;
+    --negro-deep: #1F1F1F;       /* Negro Profundo */
     --shadow-premium: 0 15px 35px rgba(0,0,0,0.06);
     --radius-premium: 20px;
 }
@@ -849,6 +849,175 @@ footer {
 .fab-print:hover {
     background: #b8985c;
     box-shadow: 0 12px 30px rgba(201, 169, 110, 0.45);
+}
+
+/* ==========================================================================
+   Sound Providers Logos, Swiper Carousel, & Animations
+   ========================================================================== */
+
+/* Sound Providers Logos Styling */
+.sound-providers-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+.provider-logo-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 12px 24px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;
+    cursor: default;
+}
+.provider-logo-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-light);
+    box-shadow: 0 10px 20px rgba(246, 92, 122, 0.15);
+}
+.provider-logo-card img {
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: white;
+    padding: 2px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.provider-logo-card span {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 0.03em;
+}
+
+/* Timeline Logo Styling */
+.timeline-logo-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+    border-top: 1px dashed var(--beige);
+    padding-top: 15px;
+}
+.timeline-logo-img {
+    height: 45px;
+    max-width: 150px;
+    object-fit: contain;
+    border-radius: 8px;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.06));
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.timeline-logo-img:hover {
+    transform: scale(1.08) rotate(2deg);
+}
+
+/* Pulse Live Glow Animation */
+.timeline-item.item-live .timeline-content {
+    animation: livePulse 2s infinite ease-in-out;
+}
+@keyframes livePulse {
+    0% {
+        box-shadow: 0 15px 35px rgba(246, 92, 122, 0.05);
+        border-color: var(--primary-pink);
+    }
+    50% {
+        box-shadow: 0 15px 35px rgba(246, 92, 122, 0.2);
+        border-color: var(--primary-light);
+    }
+    100% {
+        box-shadow: 0 15px 35px rgba(246, 92, 122, 0.05);
+        border-color: var(--primary-pink);
+    }
+}
+
+/* Hero text fade-in-up animation */
+.schedule-hero h2 {
+    animation: fadeInUp 0.8s ease forwards;
+}
+.schedule-hero p {
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Swiper Styles for Providers Roster */
+.gallery-section {
+    margin-top: 60px;
+    margin-bottom: 80px;
+    overflow: hidden;
+}
+.album-container {
+    padding: 30px 0;
+}
+.swiper {
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+.swiper-slide {
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    width: 250px;
+    height: 310px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #121212;
+}
+.slide-blur-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 1;
+}
+.swiper-slide img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 2;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+.swiper-slide:hover img {
+    transform: scale(1.03);
+}
+.swiper-button-next, .swiper-button-prev {
+    color: var(--primary-pink);
+}
+.swiper-pagination-bullet-active {
+    background: var(--primary-pink);
+}
+@media (max-width: 768px) {
+    .swiper-slide {
+        width: 180px;
+        height: 230px;
+    }
 }
 
 /* ==========================================================================

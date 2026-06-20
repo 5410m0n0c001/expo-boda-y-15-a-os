@@ -44,6 +44,68 @@ document.addEventListener('DOMContentLoaded', function() {
     function initSchedule() {
         console.log("Schedule initialized");
         
+        // Roster de Proveedores Swiper Data
+        const logoImages = [
+            { src: 'assets/vcm.png', caption: 'Viajando con la Música (VCM)' },
+            { src: 'assets/logo_new1.png', caption: 'La Princesa Paletería' },
+            { src: 'assets/logo_new2.png', caption: 'Florería La Orquídea' },
+            { src: 'assets/logo_new3.png', caption: 'Joyería Brillante' },
+            { src: 'assets/logo_new4.png', caption: 'Pastelería Sweet Dream' },
+            { src: 'assets/logo_new5.png', caption: 'Alta Costura Novias' },
+            { src: 'assets/logo_new6.png', caption: 'Banquetes Delicatessen' },
+            { src: 'assets/logo_new7.png', caption: 'DJ & Proyecciones (Corona Music)' },
+            { src: 'assets/logo_new8.png', caption: 'Fotografía & Cine' },
+            { src: 'assets/logo_new9.png', caption: 'Coctelería Fina' },
+            { src: 'assets/logo_new10.png', caption: 'Arreglos Florales' },
+            { src: 'assets/logo_new11.png', caption: 'Invitaciones Elegantes' },
+            { src: 'assets/logo_new12.jpeg', caption: 'Renta de Trajes' },
+            { src: 'assets/logo_new13.png', caption: 'Iluminación Led' },
+            { src: 'assets/logo_new14.png', caption: 'Cabina de Fotos' },
+            { src: 'assets/logo_new15.png', caption: 'Barra de Postres' },
+            { src: 'assets/logo_new16.png', caption: 'Saxofonista Solista' },
+            { src: 'assets/logo_new17.png', caption: 'Mía Concept Store' },
+            { src: 'assets/logo_new18.jpeg', caption: 'Pianista & Arpa' },
+            { src: 'assets/logo_new19.png', caption: 'Scanner DJ' }
+        ];
+
+        const logosTrack = document.getElementById('logosTrack');
+        if (logosTrack) {
+            logoImages.forEach((img, index) => {
+                const slide = document.createElement('div');
+                slide.classList.add('swiper-slide');
+                slide.style.backgroundImage = `url('${img.src}')`;
+                slide.innerHTML = `<div class="slide-blur-overlay"></div><img src="${img.src}" alt="${img.caption}" data-index="${index}">`;
+                logosTrack.appendChild(slide);
+            });
+
+            // Initialize Swiper
+            const logosSwiper = new Swiper(".myLogosSwiper", {
+                effect: "coverflow",
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: "auto",
+                coverflowEffect: {
+                    rotate: 30,
+                    stretch: 0,
+                    depth: 80,
+                    modifier: 1,
+                    slideShadows: true,
+                },
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".myLogosSwiper .swiper-pagination",
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: ".myLogosSwiper .swiper-button-next",
+                    prevEl: ".myLogosSwiper .swiper-button-prev",
+                },
+            });
+        }
+        
         // Background Audio Playback
         const bgAudio = document.getElementById('bgAudio');
         if (bgAudio) {
