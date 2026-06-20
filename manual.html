@@ -2268,19 +2268,23 @@
         if (btnShare) {
             btnShare.addEventListener('click', async (e) => {
                 e.stopPropagation();
+                let shareUrl = window.location.href;
+                if (shareUrl.startsWith('file://') || shareUrl.includes('localhost') || shareUrl.includes('127.0.0.1')) {
+                    shareUrl = 'https://5410m0n0c001.github.io/expo-boda-y-15-a-os/manual.html';
+                }
                 if (navigator.share) {
                     try {
                         await navigator.share({
                             title: 'Manual de Colaboración | Primavera Events Group',
                             text: '¡Hola! Te comparto el Manual de Marca y Lineamientos de Colaboración Oficial de Primavera Events Group.',
-                            url: window.location.href
+                            url: shareUrl
                         });
                     } catch (err) {
                         console.log(err);
                     }
                 } else {
                     try {
-                        await navigator.clipboard.writeText(window.location.href);
+                        await navigator.clipboard.writeText(shareUrl);
                         alert('¡Enlace del manual copiado al portapapeles!');
                     } catch (err) {
                         console.log(err);

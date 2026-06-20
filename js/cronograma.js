@@ -260,10 +260,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const btnShareSched = document.getElementById('btnShareSched');
         if (btnShareSched) {
             btnShareSched.addEventListener('click', async () => {
+                let shareUrl = window.location.href;
+                if (shareUrl.startsWith('file://') || shareUrl.includes('localhost') || shareUrl.includes('127.0.0.1')) {
+                    shareUrl = 'https://5410m0n0c001.github.io/expo-boda-y-15-a-os/cronograma.html';
+                }
                 const shareData = {
                     title: 'Programa de Actividades: Expo Boda y 15 Años',
                     text: 'Revisa los horarios oficiales de las presentaciones en vivo, marimba, pasarelas y mariachi de la Expo.',
-                    url: window.location.href
+                    url: shareUrl
                 };
 
                 if (navigator.share) {
@@ -274,7 +278,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 } else {
                     try {
-                        await navigator.clipboard.writeText(window.location.href);
+                        await navigator.clipboard.writeText(shareUrl);
                         alert('¡Enlace del programa copiado al portapapeles!');
                     } catch (err) {
                         console.error('Clipboard failed:', err);

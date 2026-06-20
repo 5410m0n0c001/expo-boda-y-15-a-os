@@ -466,7 +466,10 @@
 
             window.copyInvitationLink = function(leadId) {
                 // Generate absolute path to invitation.html
-                const currentUrl = window.location.href;
+                let currentUrl = window.location.href;
+                if (currentUrl.startsWith('file://') || currentUrl.includes('localhost') || currentUrl.includes('127.0.0.1')) {
+                    currentUrl = 'https://5410m0n0c001.github.io/expo-boda-y-15-a-os/vendedores.html';
+                }
                 const invUrl = currentUrl.replace('vendedores.html', 'invitacion.html') + `?code=${leadId}`;
                 
                 navigator.clipboard.writeText(invUrl).then(() => {
@@ -492,7 +495,10 @@
                     saveLeadsData();
                 }
 
-                const currentUrl = window.location.href;
+                let currentUrl = window.location.href;
+                if (currentUrl.startsWith('file://') || currentUrl.includes('localhost') || currentUrl.includes('127.0.0.1')) {
+                    currentUrl = 'https://5410m0n0c001.github.io/expo-boda-y-15-a-os/vendedores.html';
+                }
                 const invUrl = currentUrl.replace('vendedores.html', 'invitacion.html') + `?code=${leadId}`;
                 
                 const customMessage = `¡Hola ${lead.name}! Te compartimos tu invitación oficial de gala para la Expo Boda y 15 Años de Primavera Events Group en el Centro de Convenciones Presidente. Accede en este enlace para confirmar tu asistencia: ${invUrl}`;

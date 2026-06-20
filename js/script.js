@@ -111,10 +111,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Share Logic
     const btnShare = document.getElementById('btnShare');
     // [EDITABLE - TEXTOS COMPARTIR] Estos son los textos predeterminados que aparecen cuando alguien toca el botón "Compartir" en dispositivos móviles.
+    let shareUrl = window.location.href;
+    if (shareUrl.startsWith('file://') || shareUrl.includes('localhost') || shareUrl.includes('127.0.0.1')) {
+        shareUrl = 'https://5410m0n0c001.github.io/expo-boda-y-15-a-os/';
+    }
     const shareData = {
         title: 'Expositores: Expo Boda y 15 Años | Centro de Convenciones Presidente',
         text: '¡Hola! Te comparto la información exclusiva para expositores de la Expo Boda y 15 Años. Únete a la exhibición más prestigiosa.',
-        url: window.location.href
+        url: shareUrl
     };
 
     if (btnShare) {
@@ -131,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 // Fallback: Copy to Clipboard
                 try {
-                    await navigator.clipboard.writeText(window.location.href);
+                    await navigator.clipboard.writeText(shareUrl);
                     alert('¡Enlace copiado al portapapeles! Ya puedes compartirlo.');
                 } catch (err) {
                     console.error('Clipboard failed:', err);
@@ -324,15 +328,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Share Action for Lightbox
         document.getElementById('btnShareImg').addEventListener('click', async () => {
+            let shareUrl = window.location.href;
+            if (shareUrl.startsWith('file://') || shareUrl.includes('localhost') || shareUrl.includes('127.0.0.1')) {
+                shareUrl = 'https://5410m0n0c001.github.io/expo-boda-y-15-a-os/';
+            }
+            const shareData = {
+                title: 'Mira este momento de la Expo Boda',
+                text: captionText.innerHTML,
+                url: shareUrl
+            };
             if (navigator.share) {
                 try {
-                    await navigator.share({
-                        title: 'Mira este momento de la Expo Boda',
-                        text: captionText.innerHTML,
-                        url: window.location.href
-                    });
+                    await navigator.share(shareData);
                 } catch (err) {
-                    console.error('Error sharing image:', err);
+                    if (err.name !== 'AbortError') console.error('Error sharing image:', err);
+                }
+            } else {
+                try {
+                    await navigator.clipboard.writeText(shareUrl);
+                    alert('¡Enlace copiado al portapapeles!');
+                } catch (err) {
+                    console.error('Clipboard failed:', err);
                 }
             }
         });
