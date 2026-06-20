@@ -410,6 +410,9 @@
                             <button class="action-dashboard-btn btn-whatsapp" onclick="sendWhatsappLead('${lead.id}')">
                                 <i class="fa-brands fa-whatsapp"></i> Enviar
                             </button>
+                            <button class="action-dashboard-btn btn-sent ${lead.passSent ? 'sent-active' : ''}" onclick="togglePassSent('${lead.id}')">
+                                <i class="fa-solid ${lead.passSent ? 'fa-envelope-open-text' : 'fa-envelope'}"></i> ${lead.passSent ? 'Pase Enviado ✓' : 'Marcar Pase Enviado'}
+                            </button>
                             ${lead.status === 'Checked-In' ? `
                                 <button class="action-dashboard-btn btn-undo" onclick="updateLeadStatus('${lead.id}', 'Confirmed')">
                                     <i class="fa-solid fa-rotate-left"></i> Deshacer Check-In
@@ -438,6 +441,16 @@
                 }
             };
 
+            window.togglePassSent = function(leadId) {
+                const leadIndex = leads.findIndex(l => l.id === leadId);
+                if (leadIndex !== -1) {
+                    leads[leadIndex].passSent = !leads[leadIndex].passSent;
+                    saveLeadsData();
+                    renderLeadsList();
+                    showToast(leads[leadIndex].passSent ? 'Pase marcado como enviado' : 'Pase marcado como pendiente');
+                }
+            };
+
             window.copyInvitationLink = function(leadId) {
                 // Generate absolute path to invitation.html
                 const currentUrl = window.location.href;
@@ -459,6 +472,13 @@
                     return;
                 }
 
+                // Automatically mark as sent when WhatsApp is clicked
+                const leadIndex = leads.findIndex(l => l.id === leadId);
+                if (leadIndex !== -1) {
+                    leads[leadIndex].passSent = true;
+                    saveLeadsData();
+                }
+
                 const currentUrl = window.location.href;
                 const invUrl = currentUrl.replace('vendedores.html', 'invitacion.html') + `?code=${leadId}`;
                 
@@ -471,6 +491,7 @@
                 }
 
                 window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(customMessage)}`, '_blank');
+                renderLeadsList();
             };
 
             // Trigger Search & Filters

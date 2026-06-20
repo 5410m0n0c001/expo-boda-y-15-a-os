@@ -471,6 +471,27 @@ body {
     color: var(--primary-dark);
 }
 
+.action-dashboard-btn.btn-sent {
+    grid-column: span 2;
+    background: var(--background-light);
+    color: var(--gray-text);
+    border: 1px dashed var(--beige);
+}
+
+.action-dashboard-btn.btn-sent:hover {
+    background: var(--beige);
+}
+
+.action-dashboard-btn.btn-sent.sent-active {
+    background: var(--soft-pink);
+    color: var(--primary-pink);
+    border: 1px solid var(--primary-light);
+}
+
+.action-dashboard-btn.btn-sent.sent-active:hover {
+    background: #ffdbe3;
+}
+
 /* Scanner Tab Styling */
 .scanner-card {
     background: var(--white);
