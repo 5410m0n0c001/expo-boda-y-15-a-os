@@ -898,24 +898,28 @@ footer {
     letter-spacing: 0.03em;
 }
 
-/* Timeline Logo Styling */
-.timeline-logo-container {
+/* Timeline Header & Inline Logo Styling */
+.timeline-header {
     display: flex;
-    justify-content: flex-end;
-    margin-top: 15px;
-    border-top: 1px dashed var(--beige);
-    padding-top: 15px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 15px;
+    flex-wrap: wrap;
 }
-.timeline-logo-img {
-    height: 45px;
-    max-width: 150px;
+.timeline-header .timeline-title {
+    margin-bottom: 0;
+}
+.timeline-card-logo {
+    height: 30px;
+    max-width: 90px;
     object-fit: contain;
-    border-radius: 8px;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.06));
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 4px;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.05));
+    transition: transform 0.2s ease;
 }
-.timeline-logo-img:hover {
-    transform: scale(1.08) rotate(2deg);
+.timeline-card-logo:hover {
+    transform: scale(1.08);
 }
 
 /* Pulse Live Glow Animation */
