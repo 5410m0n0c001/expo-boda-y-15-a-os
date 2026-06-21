@@ -368,6 +368,13 @@
                     return matchesSearch && matchesStatus && matchesEvent;
                 });
 
+                // Sort: Priority leads first
+                filteredLeads.sort((a, b) => {
+                    const aPri = a.priority ? 1 : 0;
+                    const bPri = b.priority ? 1 : 0;
+                    return bPri - aPri;
+                });
+
                 if (filteredLeads.length === 0) {
                     leadsContainer.innerHTML = `
                         <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--gray-text);">
@@ -380,7 +387,7 @@
 
                 filteredLeads.forEach(lead => {
                     const card = document.createElement('div');
-                    card.className = `lead-row-card ${lead.status === 'Checked-In' ? 'checked-in-state' : ''}`;
+                    card.className = `lead-row-card ${lead.status === 'Checked-In' ? 'checked-in-state' : ''} ${lead.priority ? 'priority-state' : ''}`;
                     
                     let statusLabel = 'Pendiente';
                     if (lead.status === 'Confirmed') statusLabel = 'Confirmado';
@@ -389,13 +396,28 @@
                     const detailsHtml = `
                         <div class="lead-card-header">
                             <span class="lead-name-text">${lead.name}</span>
-                            <span class="lead-id-badge">${lead.id}</span>
+                            <div style="display: flex; gap: 5px; align-items: center;">
+                                ${lead.priority ? `<span class="priority-badge"><i class="fa-solid fa-star"></i> Prioridad</span>` : ''}
+                                <span class="lead-id-badge">${lead.id}</span>
+                            </div>
                         </div>
                         <div class="lead-detail-list">
                             <div class="lead-detail-item">
                                 <i class="fa-solid fa-sparkles"></i>
                                 <span>${lead.eventType}</span>
                             </div>
+                            ${lead.eventDate ? `
+                            <div class="lead-detail-item">
+                                <i class="fa-solid fa-calendar-days"></i>
+                                <span>Fecha: ${lead.eventDate}</span>
+                            </div>
+                            ` : ''}
+                            ${lead.guests ? `
+                            <div class="lead-detail-item">
+                                <i class="fa-solid fa-users"></i>
+                                <span>Invitados: ${lead.guests}</span>
+                            </div>
+                            ` : ''}
                             ${lead.phone ? `
                             <div class="lead-detail-item">
                                 <i class="fa-solid fa-phone"></i>
@@ -412,6 +434,12 @@
                             <div class="lead-detail-item">
                                 <i class="fa-solid fa-location-dot"></i>
                                 <span>${lead.location}</span>
+                            </div>
+                            ` : ''}
+                            ${lead.services ? `
+                            <div class="lead-detail-item" style="margin-top: 5px; flex-wrap: wrap;">
+                                <i class="fa-solid fa-gift"></i>
+                                <span><strong>Servicios:</strong> ${lead.services}</span>
                             </div>
                             ` : ''}
                             <div class="lead-detail-item" style="margin-top: 10px;">

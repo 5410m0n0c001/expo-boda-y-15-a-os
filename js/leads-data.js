@@ -467,5 +467,31 @@ window.metaLeadsData = [
         eventType: "Boda / 15 Años",
         location: "",
         status: "Pending"
+    },
+    {
+        id: "L053",
+        name: "Silvia Fiorella Perez Heredia",
+        email: "fperezheredia94@gmail.com",
+        phone: "5565117755",
+        eventType: "Boda",
+        eventDate: "27-02-27",
+        services: "Pastel, dj, foto, maquillaje, comida, decoración",
+        guests: 120,
+        priority: true,
+        location: "",
+        status: "Pending"
+    },
+    {
+        id: "L054",
+        name: "Mayra Reyes",
+        email: "mayra_reyesh@hotmail.com",
+        phone: "525624244222",
+        eventType: "Boda",
+        eventDate: "27-02-27",
+        services: "Todo",
+        guests: 120,
+        priority: true,
+        location: "",
+        status: "Pending"
     }
 ];
