@@ -241,7 +241,6 @@ window.metaLeadsData = [
         phone: "",
         eventType: "Boda / 15 Años",
         location: "",
-        passSent: true,
         status: "Pending"
     },
     {
@@ -447,6 +446,24 @@ window.metaLeadsData = [
         name: "Gustavo Garduño",
         email: "",
         phone: "",
+        eventType: "Boda / 15 Años",
+        location: "",
+        status: "Pending"
+    },
+    {
+        id: "L051",
+        name: "José De Jesús González Zepeda",
+        email: "",
+        phone: "",
+        eventType: "Boda / 15 Años",
+        location: "",
+        status: "Pending"
+    },
+    {
+        id: "L052",
+        name: "Yuriana Calleja",
+        email: "yeseniayuriana5@hotmail.com",
+        phone: "7774516311",
         eventType: "Boda / 15 Años",
         location: "",
         status: "Pending"
