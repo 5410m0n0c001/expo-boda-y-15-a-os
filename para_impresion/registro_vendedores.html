@@ -24,27 +24,33 @@
             box-sizing: border-box;
         }
 
+        @page {
+            size: letter;
+            margin: 8mm 12mm;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             color: var(--primary-dark);
             background-color: #FDFDFD;
-            padding: 40px 20px;
+            padding: 20px 10px;
+            font-size: 0.82rem;
         }
 
         .no-print-bar {
             max-width: 850px;
-            margin: 0 auto 30px auto;
+            margin: 0 auto 15px auto;
             background: #FFF9EC;
             border: 1px solid rgba(201, 169, 110, 0.3);
-            border-radius: 12px;
-            padding: 15px 25px;
+            border-radius: 8px;
+            padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .no-print-bar p {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: #8A6D3B;
             font-weight: 500;
         }
@@ -53,15 +59,15 @@
             background-color: var(--gold-accent);
             color: var(--white);
             border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 0.9rem;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.8rem;
             font-weight: 600;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 10px rgba(201, 169, 110, 0.3);
+            gap: 6px;
+            box-shadow: 0 4px 10px rgba(201, 169, 110, 0.2);
             transition: all 0.2s ease;
         }
 
@@ -75,47 +81,47 @@
             margin: 0 auto;
             background: var(--white);
             border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border-radius: 12px;
+            padding: 25px 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.01);
             position: relative;
         }
 
         .header-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
 
         .header-logo-cell {
-            width: 25%;
+            width: 30%;
             vertical-align: middle;
-            padding-right: 20px;
         }
 
         .header-logo-cell img {
-            max-width: 100%;
-            height: auto;
+            max-height: 40px; /* Small and elegant */
+            width: auto;
+            display: block;
             object-fit: contain;
         }
 
         .header-title-cell {
-            width: 75%;
+            width: 70%;
             text-align: right;
             vertical-align: middle;
         }
 
         .header-title-cell h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: var(--primary-dark);
             font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 5px;
+            line-height: 1.1;
+            margin-bottom: 3px;
         }
 
         .header-title-cell p {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             color: var(--gold-accent);
             letter-spacing: 1px;
             font-weight: 600;
@@ -123,74 +129,74 @@
         }
 
         .form-section-title {
-            font-size: 0.9rem;
+            font-size: 0.78rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
             color: var(--gold-accent);
-            border-bottom: 2px solid var(--gold-accent);
-            padding-bottom: 4px;
-            margin-bottom: 15px;
+            border-bottom: 1.5px solid var(--gold-accent);
+            padding-bottom: 3px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .form-section {
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
 
         .grid-2 {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+            gap: 12px;
         }
 
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
+            gap: 12px;
         }
 
         .form-field {
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             position: relative;
         }
 
         .form-field label {
             display: block;
-            font-size: 0.78rem;
+            font-size: 0.7rem;
             font-weight: 600;
             color: var(--primary-dark);
             text-transform: uppercase;
-            margin-bottom: 6px;
-            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+            letter-spacing: 0.3px;
         }
 
         .form-field .write-line {
             width: 100%;
-            height: 30px;
-            border-bottom: 1px solid #A89F95;
+            height: 25px;
+            border-bottom: 1px solid #B0A69B;
             background: transparent;
         }
 
         .checkbox-group {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-top: 5px;
+            gap: 8px;
+            margin-top: 3px;
         }
 
         .checkbox-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.82rem;
+            gap: 6px;
+            font-size: 0.78rem;
         }
 
         .checkbox-box {
-            width: 14px;
-            height: 14px;
+            width: 12px;
+            height: 12px;
             border: 1px solid #7a6e60;
             border-radius: 2px;
             flex-shrink: 0;
@@ -200,25 +206,25 @@
         .grid-checkbox-vertical {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            gap: 6px;
         }
 
         .signatures-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 50px;
-            margin-top: 30px;
+            gap: 40px;
+            margin-top: 15px;
             text-align: center;
         }
 
         .signature-line {
             border-bottom: 1px solid var(--primary-dark);
-            height: 50px;
-            margin-bottom: 8px;
+            height: 35px;
+            margin-bottom: 5px;
         }
 
         .signature-label {
-            font-size: 0.8rem;
+            font-size: 0.72rem;
             font-weight: 600;
             color: var(--primary-dark);
             text-transform: uppercase;
@@ -226,10 +232,10 @@
 
         .footer-note {
             text-align: center;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--text-muted);
-            margin-top: 30px;
-            padding-top: 15px;
+            margin-top: 15px;
+            padding-top: 8px;
             border-top: 1px dashed var(--border-color);
         }
 
@@ -266,7 +272,7 @@
 
     <!-- Header bar hidden during print -->
     <div class="no-print-bar">
-        <p><i class="fa-solid fa-circle-info"></i> Formato listo para impresión. Haz clic en el botón para imprimir o guardar como PDF.</p>
+        <p><i class="fa-solid fa-circle-info"></i> Formato optimizado para 1 sola página. Haz clic en imprimir o guardar como PDF.</p>
         <button class="btn-print" onclick="window.print()"><i class="fa-solid fa-print"></i> Imprimir Ficha</button>
     </div>
 
@@ -275,7 +281,7 @@
         <table class="header-table">
             <tr>
                 <td class="header-logo-cell">
-                    <img src="../assets/logo_presidente.png" alt="Logo Primavera Events Group">
+                    <img src="../assets/primaveralogo.jpg" alt="Logo Primavera Events Group">
                 </td>
                 <td class="header-title-cell">
                     <h1>FICHA DE REGISTRO, COTIZACIÓN Y CIERRE</h1>
@@ -318,7 +324,7 @@
             <div class="grid-3">
                 <div class="form-field">
                     <label>Fecha del Evento:</label>
-                    <div style="display: flex; gap: 15px; margin-top: 5px;">
+                    <div style="display: flex; gap: 15px; margin-top: 3px;">
                         <div class="checkbox-item"><div class="checkbox-box"></div> Conf.</div>
                         <div class="checkbox-item"><div class="checkbox-box"></div> Tent.</div>
                     </div>
@@ -336,7 +342,7 @@
             <div class="grid-2">
                 <div class="form-field">
                     <label>Tipo de Evento:</label>
-                    <div class="checkbox-group" style="grid-template-columns: repeat(2, 1fr); margin-top: 5px;">
+                    <div class="checkbox-group" style="grid-template-columns: repeat(2, 1fr); margin-top: 3px;">
                         <div class="checkbox-item"><div class="checkbox-box"></div> Boda</div>
                         <div class="checkbox-item"><div class="checkbox-box"></div> XV Años</div>
                         <div class="checkbox-item"><div class="checkbox-box"></div> Graduación</div>
@@ -345,7 +351,7 @@
                 </div>
                 <div class="form-field">
                     <label>Locación de Interés / Contratada:</label>
-                    <div class="write-line" style="margin-top: 10px;"></div>
+                    <div class="write-line" style="margin-top: 5px;"></div>
                 </div>
             </div>
         </div>
@@ -354,40 +360,44 @@
         <div class="form-section">
             <h2 class="form-section-title"><i class="fa-solid fa-file-invoice-dollar"></i> II. Propuesta y Contratación Comercial</h2>
             
-            <div class="form-field" style="margin-bottom: 15px;">
+            <div class="form-field" style="margin-bottom: 10px;">
                 <label>Paquete Contratado:</label>
-                <div class="checkbox-group" style="grid-template-columns: repeat(5, 1fr); margin-top: 5px;">
+                <div class="checkbox-group" style="grid-template-columns: repeat(5, 1fr); margin-top: 3px;">
                     <div class="checkbox-item"><div class="checkbox-box"></div> Armonía</div>
                     <div class="checkbox-item"><div class="checkbox-box"></div> V. Esmeralda</div>
                     <div class="checkbox-item"><div class="checkbox-box"></div> N. Majesty</div>
                     <div class="checkbox-item"><div class="checkbox-box"></div> E. Floral</div>
                     <div class="checkbox-item"><div class="checkbox-box"></div> Elementos</div>
                 </div>
-                <div style="display: flex; align-items: center; gap: 8px; margin-top: 10px;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-top: 5px;">
                     <div class="checkbox-item"><div class="checkbox-box"></div> Otro:</div>
-                    <div class="write-line" style="flex-grow: 1; height: 25px;"></div>
+                    <div class="write-line" style="flex-grow: 1; height: 20px;"></div>
                 </div>
             </div>
 
-            <div class="form-field">
+            <div class="form-field" style="margin-bottom: 5px;">
                 <label>Servicios Extra / Adicionales Contratados:</label>
-                <div class="grid-checkbox-vertical" style="margin-top: 5px;">
-                    <div class="checkbox-item"><div class="checkbox-box"></div> DJ, Audio e Iluminación Premium</div>
-                    <div class="checkbox-item"><div class="checkbox-box"></div> Pista LED Inteligente</div>
-                    <div class="checkbox-item"><div class="checkbox-box"></div> Cabina de Video 360° / Fotografía</div>
-                    <div class="checkbox-item"><div class="checkbox-box"></div> Hospedaje Adicional (Cabañas/Villas)</div>
-                    <div class="checkbox-item"><div class="checkbox-box"></div> Transportación de Invitados</div>
-                    <div class="checkbox-item"><div class="checkbox-box"></div> Horas Extras (Barra Libre/Música)</div>
-                    <div class="checkbox-item"><div class="checkbox-box"></div> Menú Trasnochador (Chilaquiles/Esquites)</div>
-                    <div class="checkbox-item"><div class="checkbox-box"></div> Decoración Temática Exclusiva</div>
+                <div class="grid-checkbox-vertical" style="margin-top: 3px;">
+                    <div class="checkbox-item"><div class="checkbox-box"></div> DJ, Sonorización e Iluminación (Scanner/Corona)</div>
+                    <div class="checkbox-item"><div class="checkbox-box"></div> Pista LED Inteligente (Primavera)</div>
+                    <div class="checkbox-item"><div class="checkbox-box"></div> Cine, Video y Fotografía (Licky Baut Photo)</div>
+                    <div class="checkbox-item"><div class="checkbox-box"></div> Florería y Arreglos Decorativos (Kataleya)</div>
+                    <div class="checkbox-item"><div class="checkbox-box"></div> Decoración Temática de Globos (Aby Decora)</div>
+                    <div class="checkbox-item"><div class="checkbox-box"></div> Coreografía y Performance (Dance Queens)</div>
+                    <div class="checkbox-item"><div class="checkbox-box"></div> Mariachi y Música en Vivo (Xiuhtepetl)</div>
+                    <div class="checkbox-item"><div class="checkbox-box"></div> Maquillaje y Peinado Novias (Andrea Lozano)</div>
+                    <div class="checkbox-item"><div class="checkbox-box"></div> Barra Libre de Helados y Helados (La Princesa)</div>
+                    <div class="checkbox-item"><div class="checkbox-box"></div> Botella Grabada Don Ramón (Recuerdos)</div>
+                    <div class="checkbox-item"><div class="checkbox-box"></div> Hospedaje en Cabañas / Villas</div>
+                    <div class="checkbox-item"><div class="checkbox-box"></div> Traslado y Transportación redonda</div>
                 </div>
-                <div style="display: flex; align-items: center; gap: 8px; margin-top: 8px;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-top: 5px;">
                     <div class="checkbox-item"><div class="checkbox-box"></div> Otro(s) especificar:</div>
-                    <div class="write-line" style="flex-grow: 1; height: 25px;"></div>
+                    <div class="write-line" style="flex-grow: 1; height: 20px;"></div>
                 </div>
             </div>
 
-            <div class="grid-3" style="margin-top: 15px;">
+            <div class="grid-3" style="margin-top: 10px;">
                 <div class="form-field">
                     <label>Precio Base del Paquete:</label>
                     <div class="write-line"></div>
@@ -410,7 +420,7 @@
             <div class="grid-3">
                 <div class="form-field">
                     <label>¿Deja Adelanto / Depósito?</label>
-                    <div style="display: flex; gap: 15px; margin-top: 5px;">
+                    <div style="display: flex; gap: 15px; margin-top: 3px;">
                         <div class="checkbox-item"><div class="checkbox-box"></div> Sí</div>
                         <div class="checkbox-item"><div class="checkbox-box"></div> No</div>
                     </div>
@@ -425,17 +435,17 @@
                 </div>
             </div>
 
-            <div class="grid-2" style="margin-top: 10px;">
+            <div class="grid-2" style="margin-top: 5px;">
                 <div class="form-field">
                     <label>¿Se firmó Contrato o Pre-Contrato hoy?:</label>
-                    <div style="display: flex; gap: 15px; margin-top: 5px;">
+                    <div style="display: flex; gap: 15px; margin-top: 3px;">
                         <div class="checkbox-item"><div class="checkbox-box"></div> Sí</div>
                         <div class="checkbox-item"><div class="checkbox-box"></div> No (Fecha compromiso: ____/____/____)</div>
                     </div>
                 </div>
                 <div class="form-field">
                     <label>Estado Comercial del Lead:</label>
-                    <div class="checkbox-group" style="grid-template-columns: repeat(2, 1fr); margin-top: 5px;">
+                    <div class="checkbox-group" style="grid-template-columns: repeat(2, 1fr); margin-top: 3px;">
                         <div class="checkbox-item"><div class="checkbox-box"></div> Cerrado Ganado</div>
                         <div class="checkbox-item"><div class="checkbox-box"></div> Seguimiento Post-Expo</div>
                     </div>
@@ -444,7 +454,7 @@
         </div>
 
         <!-- Section IV: Firmas -->
-        <div class="form-section">
+        <div class="form-section" style="margin-bottom: 5px;">
             <h2 class="form-section-title"><i class="fa-solid fa-signature"></i> IV. Conformidad y Firmas</h2>
             
             <div class="signatures-grid">

@@ -24,27 +24,33 @@
             box-sizing: border-box;
         }
 
+        @page {
+            size: letter;
+            margin: 8mm 12mm;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             color: var(--primary-dark);
             background-color: #FDFDFD;
-            padding: 40px 20px;
+            padding: 20px 10px;
+            font-size: 0.85rem;
         }
 
         .no-print-bar {
             max-width: 800px;
-            margin: 0 auto 30px auto;
+            margin: 0 auto 15px auto;
             background: #FFF9EC;
             border: 1px solid rgba(201, 169, 110, 0.3);
-            border-radius: 12px;
-            padding: 15px 25px;
+            border-radius: 8px;
+            padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .no-print-bar p {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: #8A6D3B;
             font-weight: 500;
         }
@@ -53,15 +59,15 @@
             background-color: var(--gold-accent);
             color: var(--white);
             border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 0.9rem;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.8rem;
             font-weight: 600;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 10px rgba(201, 169, 110, 0.3);
+            gap: 6px;
+            box-shadow: 0 4px 10px rgba(201, 169, 110, 0.2);
             transition: all 0.2s ease;
         }
 
@@ -75,155 +81,155 @@
             margin: 0 auto;
             background: var(--white);
             border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border-radius: 12px;
+            padding: 25px 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.01);
             position: relative;
         }
 
         .header-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
         }
 
         .header-logo-cell {
-            width: 25%;
+            width: 30%;
             vertical-align: middle;
-            padding-right: 20px;
         }
 
         .header-logo-cell img {
-            max-width: 100%;
-            height: auto;
+            max-height: 40px; /* Small and elegant */
+            width: auto;
+            display: block;
             object-fit: contain;
         }
 
         .header-title-cell {
-            width: 75%;
+            width: 70%;
             text-align: right;
             vertical-align: middle;
         }
 
         .header-title-cell h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
+            font-size: 1.6rem;
             color: var(--primary-dark);
             font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 5px;
+            line-height: 1.1;
+            margin-bottom: 3px;
         }
 
         .header-title-cell p {
-            font-size: 0.9rem;
+            font-size: 0.75rem;
             color: var(--gold-accent);
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             font-weight: 600;
             text-transform: uppercase;
         }
 
         .form-section-title {
-            font-size: 0.95rem;
+            font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
             color: var(--gold-accent);
-            border-bottom: 2px solid var(--gold-accent);
-            padding-bottom: 6px;
-            margin-bottom: 20px;
+            border-bottom: 1.5px solid var(--gold-accent);
+            padding-bottom: 4px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .form-section {
-            margin-bottom: 35px;
+            margin-bottom: 18px;
         }
 
         .grid-2 {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 15px;
         }
 
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 15px;
         }
 
         .form-field {
-            margin-bottom: 18px;
+            margin-bottom: 10px;
             position: relative;
         }
 
         .form-field label {
             display: block;
-            font-size: 0.8rem;
+            font-size: 0.72rem;
             font-weight: 600;
             color: var(--primary-dark);
             text-transform: uppercase;
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+            letter-spacing: 0.3px;
         }
 
         .form-field .write-line {
             width: 100%;
-            height: 35px;
-            border-bottom: 1px solid #A89F95;
+            height: 26px;
+            border-bottom: 1px solid #B0A69B;
             background: transparent;
         }
 
         .checkbox-group {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-top: 10px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-top: 5px;
         }
 
         .checkbox-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 0.9rem;
+            gap: 8px;
+            font-size: 0.8rem;
         }
 
         .checkbox-box {
-            width: 16px;
-            height: 16px;
+            width: 13px;
+            height: 13px;
             border: 1px solid #7a6e60;
-            border-radius: 3px;
+            border-radius: 2px;
             flex-shrink: 0;
             background: #fff;
         }
 
         .textarea-field {
-            margin-top: 15px;
+            margin-top: 10px;
         }
 
         .textarea-field label {
             display: block;
-            font-size: 0.8rem;
+            font-size: 0.72rem;
             font-weight: 600;
             color: var(--primary-dark);
             text-transform: uppercase;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .textarea-lines {
             width: 100%;
-            height: 70px;
-            background-image: linear-gradient(to bottom, transparent 34px, #A89F95 34px, #A89F95 35px, transparent 35px);
-            background-size: 100% 35px;
-            line-height: 35px;
+            height: 52px;
+            background-image: linear-gradient(to bottom, transparent 25px, #B0A69B 25px, #B0A69B 26px, transparent 26px);
+            background-size: 100% 26px;
+            line-height: 26px;
         }
 
         .footer-note {
             text-align: center;
-            font-size: 0.75rem;
+            font-size: 0.68rem;
             color: var(--text-muted);
-            margin-top: 40px;
-            padding-top: 20px;
+            margin-top: 20px;
+            padding-top: 10px;
             border-top: 1px dashed var(--border-color);
         }
 
@@ -251,7 +257,7 @@
                 border-bottom-color: #000 !important;
             }
             .textarea-lines {
-                background-image: linear-gradient(to bottom, transparent 34px, #000 34px, #000 35px, transparent 35px) !important;
+                background-image: linear-gradient(to bottom, transparent 25px, #000 25px, #000 26px, transparent 26px) !important;
             }
         }
     </style>
@@ -260,7 +266,7 @@
 
     <!-- Header bar hidden during print -->
     <div class="no-print-bar">
-        <p><i class="fa-solid fa-circle-info"></i> Formato listo para impresión. Haz clic en el botón para imprimir o guardar como PDF.</p>
+        <p><i class="fa-solid fa-circle-info"></i> Formato optimizado para 1 sola página. Haz clic en imprimir o guardar como PDF.</p>
         <button class="btn-print" onclick="window.print()"><i class="fa-solid fa-print"></i> Imprimir Formato</button>
     </div>
 
@@ -269,7 +275,7 @@
         <table class="header-table">
             <tr>
                 <td class="header-logo-cell">
-                    <img src="../assets/logo_presidente.png" alt="Logo Primavera Events Group">
+                    <img src="../assets/primaveralogo.jpg" alt="Logo Primavera Events Group">
                 </td>
                 <td class="header-title-cell">
                     <h1>REGISTRO DE ASISTENTES</h1>
@@ -305,7 +311,7 @@
             <div class="grid-3">
                 <div class="form-field">
                     <label>Tipo de Evento:</label>
-                    <div class="checkbox-group" style="grid-template-columns: 1fr; gap: 8px;">
+                    <div class="checkbox-group" style="grid-template-columns: 1fr; gap: 5px;">
                         <div class="checkbox-item"><div class="checkbox-box"></div> Boda</div>
                         <div class="checkbox-item"><div class="checkbox-box"></div> XV Años</div>
                         <div class="checkbox-item"><div class="checkbox-box"></div> Graduación / Otro</div>
@@ -314,33 +320,34 @@
                 
                 <div class="form-field">
                     <label>Fecha Estimada:</label>
-                    <div class="write-line" style="margin-top: 5px;"></div>
-                    <div style="font-size: 0.65rem; color: var(--text-muted); margin-top: 5px;">DÍA / MES / AÑO</div>
+                    <div class="write-line" style="margin-top: 3px;"></div>
+                    <div style="font-size: 0.6rem; color: var(--text-muted); margin-top: 3px; font-weight: 500;">DÍA / MES / AÑO</div>
                 </div>
 
                 <div class="form-field">
                     <label>Número de Invitados:</label>
-                    <div class="write-line" style="margin-top: 5px;"></div>
-                    <div style="font-size: 0.65rem; color: var(--text-muted); margin-top: 5px;">EJ. 100, 150, 200, 300+</div>
+                    <div class="write-line" style="margin-top: 3px;"></div>
+                    <div style="font-size: 0.6rem; color: var(--text-muted); margin-top: 3px; font-weight: 500;">EJ. 100, 150, 200, 300+</div>
                 </div>
             </div>
         </div>
 
         <!-- Section III: Interests -->
-        <div class="form-section">
+        <div class="form-section" style="margin-bottom: 5px;">
             <h2 class="form-section-title"><i class="fa-solid fa-gift"></i> III. Servicios y Productos de Interés</h2>
-            <label style="font-size: 0.8rem; font-weight: 600; color: var(--primary-dark); text-transform: uppercase;">Marque los elementos que le agradaría encontrar:</label>
+            <label style="font-size: 0.72rem; font-weight: 600; color: var(--primary-dark); text-transform: uppercase; margin-bottom: 5px; display: block;">Marque los elementos que desea cotizar con nuestros expositores oficiales:</label>
             
             <div class="checkbox-group">
-                <div class="checkbox-item"><div class="checkbox-box"></div> Banquete / Alta Cocina</div>
-                <div class="checkbox-item"><div class="checkbox-box"></div> Locación / Jardín / Salón</div>
-                <div class="checkbox-item"><div class="checkbox-box"></div> DJ, Audio e Iluminación</div>
-                <div class="checkbox-item"><div class="checkbox-box"></div> Pista LED Inteligente</div>
-                <div class="checkbox-item"><div class="checkbox-box"></div> Fotografías y Video 360°</div>
-                <div class="checkbox-item"><div class="checkbox-box"></div> Maquillaje y Estilismo</div>
-                <div class="checkbox-item"><div class="checkbox-box"></div> Decoración y Ambientación</div>
-                <div class="checkbox-item"><div class="checkbox-box"></div> Hospedaje / Villas</div>
-                <div class="checkbox-item"><div class="checkbox-box"></div> Coctelería de Bienvenida</div>
+                <div class="checkbox-item"><div class="checkbox-box"></div> Banquete y Locación (Primavera Events)</div>
+                <div class="checkbox-item"><div class="checkbox-box"></div> Música, DJ e Iluminación (Scanner / Corona)</div>
+                <div class="checkbox-item"><div class="checkbox-box"></div> Pista LED Inteligente (Primavera Events)</div>
+                <div class="checkbox-item"><div class="checkbox-box"></div> Cine, Video y Fotografía (Licky Baut Photo)</div>
+                <div class="checkbox-item"><div class="checkbox-box"></div> Florería y Decoración (Kataleya / Aby Decora)</div>
+                <div class="checkbox-item"><div class="checkbox-box"></div> Coreografía y Performance (Dance Queens)</div>
+                <div class="checkbox-item"><div class="checkbox-box"></div> Mariachi y Música en Vivo (Xiuhtepetl)</div>
+                <div class="checkbox-item"><div class="checkbox-box"></div> Maquillaje y Peinado Novias (Andrea Lozano)</div>
+                <div class="checkbox-item"><div class="checkbox-box"></div> Heladería y Paletería Móvil (La Princesa)</div>
+                <div class="checkbox-item"><div class="checkbox-box"></div> Tequila Don Ramón Personalizado (Recuerdos)</div>
             </div>
 
             <div class="textarea-field">
@@ -352,7 +359,7 @@
         <!-- Footer -->
         <div class="footer-note">
             <p>Gracias por registrarte. Primavera Events Group se compromete a proteger sus datos personales conforme a la ley de privacidad vigente.</p>
-            <p style="margin-top: 5px; font-weight: 600;">Centro de Convenciones Presidente · Cuernavaca, Morelos</p>
+            <p style="margin-top: 3px; font-weight: 600;">Centro de Convenciones Presidente · Cuernavaca, Morelos</p>
         </div>
     </div>
 
