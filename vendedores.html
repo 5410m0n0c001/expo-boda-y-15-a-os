@@ -280,10 +280,17 @@
                 if (storedLeads) {
                     const localLeads = JSON.parse(storedLeads);
                     if (window.metaLeadsData) {
-                        const localIds = new Set(localLeads.map(l => l.id));
+                        const localLeadsMap = new Map(localLeads.map(l => [l.id, l]));
                         window.metaLeadsData.forEach(lead => {
-                            if (!localIds.has(lead.id)) {
+                            if (!localLeadsMap.has(lead.id)) {
                                 localLeads.push(lead);
+                            } else {
+                                const localLead = localLeadsMap.get(lead.id);
+                                // Merge properties that might have been updated/enriched
+                                if (lead.services && !localLead.services) localLead.services = lead.services;
+                                if (lead.priority && !localLead.priority) localLead.priority = lead.priority;
+                                if (lead.eventDate && !localLead.eventDate) localLead.eventDate = lead.eventDate;
+                                if (lead.guests && !localLead.guests) localLead.guests = lead.guests;
                             }
                         });
                     }

@@ -160,6 +160,7 @@ window.metaLeadsData = [
         phone: "7772724610",
         eventType: "15 años",
         location: "Jiutepec",
+        services: "DJ & Proyecciones (D&DP)",
         status: "Pending"
     },
     {
