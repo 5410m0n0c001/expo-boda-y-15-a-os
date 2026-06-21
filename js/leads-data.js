@@ -494,5 +494,14 @@ window.metaLeadsData = [
         priority: true,
         location: "",
         status: "Pending"
+    },
+    {
+        id: "L055",
+        name: "Yazmin Montesinos",
+        email: "yazminmontesinos88@gmail.com",
+        phone: "6648234936",
+        eventType: "Boda",
+        location: "Cuernavaca",
+        status: "Pending"
     }
 ];
