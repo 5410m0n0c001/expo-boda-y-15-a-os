@@ -146,15 +146,14 @@
             eventTypeLabelEl.innerHTML = `<i class="fa-solid fa-sparkles" style="color: var(--gold-accent);"></i> Interés: ${eventTypeText}`;
             guestCodeBadgeEl.innerText = `CÓDIGO: ${inviteCode}`;
 
-            // Generate QR Code pointing to the current invitation URL
-            const invitationUrl = window.location.href;
+            // Generate QR Code pointing to the invite code (low density for instant scanning)
             const qr = new QRious({
                 element: document.getElementById('qrCodeCanvas'),
-                value: invitationUrl,
+                value: inviteCode,
                 size: 200,
                 background: '#ffffff',
-                foreground: '#C9A96E', // Gold color for premium look
-                level: 'H' // High correction level
+                foreground: '#000000', // Classic black for maximum contrast
+                level: 'M' // Medium correction level (optimal block size, less saturated)
             });
 
             // Configure WhatsApp Confirmation Button
