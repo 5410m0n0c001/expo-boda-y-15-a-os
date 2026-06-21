@@ -259,6 +259,8 @@
                     grabCursor: true,
                     centeredSlides: true,
                     slidesPerView: 'auto',
+                    observer: true,
+                    observeParents: true,
                     coverflowEffect: {
                         rotate: 20,
                         stretch: -10,
@@ -339,6 +341,25 @@
                     filterCards();
                 });
             });
+        });
+    </script>
+
+    <!-- Background Audio -->
+    <audio id="bgAudio" loop preload="auto">
+        <source src="assets/identidadsonora1.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const bgAudio = document.getElementById('bgAudio');
+            if (bgAudio) {
+                const startAudio = () => {
+                    bgAudio.play().catch(e => console.log('Audio playback blocked:', e));
+                };
+                startAudio();
+                document.addEventListener('click', startAudio, { once: true });
+                document.addEventListener('keydown', startAudio, { once: true });
+                document.addEventListener('touchstart', startAudio, { once: true });
+            }
         });
     </script>
 </body>

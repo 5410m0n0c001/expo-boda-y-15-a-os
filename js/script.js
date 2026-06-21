@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Audio Logic
     function startAudio() {
+        if (!bgAudio) return;
         const playPromise = bgAudio.play();
         if (playPromise !== undefined) {
             playPromise.then(() => {
@@ -65,13 +66,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Fallback interaction listeners for autoplay blocks
+    const playOnInteraction = () => {
+        startAudio();
+        document.removeEventListener('click', playOnInteraction);
+        document.removeEventListener('keydown', playOnInteraction);
+        document.removeEventListener('touchstart', playOnInteraction);
+    };
+    document.addEventListener('click', playOnInteraction);
+    document.addEventListener('keydown', playOnInteraction);
+    document.addEventListener('touchstart', playOnInteraction);
+
     // Robust Hack: If a video "steals" the audio focus and the browser pauses it,
     // we force it to resume immediately.
-    bgAudio.addEventListener('pause', function() {
-        if (!bgAudio.ended) {
-            bgAudio.play().catch(e => console.log('Could not resume audio:', e));
-        }
-    });
+    if (bgAudio) {
+        bgAudio.addEventListener('pause', function() {
+            if (!bgAudio.ended) {
+                bgAudio.play().catch(e => console.log('Could not resume audio:', e));
+            }
+        });
+    }
 
     // Intersection Observer for Animations
     const observerOptions = {
@@ -244,6 +258,8 @@ document.addEventListener('DOMContentLoaded', function() {
             grabCursor: true,
             centeredSlides: true,
             slidesPerView: "auto",
+            observer: true,
+            observeParents: true,
             coverflowEffect: {
                 rotate: 50,
                 stretch: 0,
@@ -272,6 +288,8 @@ document.addEventListener('DOMContentLoaded', function() {
             grabCursor: true,
             centeredSlides: true,
             slidesPerView: "auto",
+            observer: true,
+            observeParents: true,
             coverflowEffect: {
                 rotate: 50,
                 stretch: 0,
