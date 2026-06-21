@@ -32,81 +32,90 @@ body {
 
 /* Container Card */
 .invitation-container {
-    background: var(--white);
+    background: url('../assets/fondo_invitaciones_limpio.png') no-repeat center top;
+    background-size: cover;
     max-width: 500px;
     width: 100%;
     border-radius: 30px;
-    box-shadow: 0 20px 50px rgba(240, 90, 126, 0.15);
-    border: 1px solid var(--beige);
-    padding: 40px 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
+    border: 1px solid var(--gold-accent);
+    padding: 30px 20px;
     text-align: center;
     position: relative;
     overflow: hidden;
+    min-height: 980px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-/* Decorative Gold Borders */
-.invitation-container::before {
-    content: '';
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
-    border: 1px solid var(--gold-accent);
-    border-radius: 20px;
-    pointer-events: none;
-    opacity: 0.5;
-}
-
-/* Corners for design */
-.corner-decor {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    border: 2px solid var(--gold-accent);
-    pointer-events: none;
-}
-
-.corner-top-left {
-    top: 25px;
-    left: 25px;
-    border-right: none;
-    border-bottom: none;
-}
-
-.corner-top-right {
-    top: 25px;
-    right: 25px;
-    border-left: none;
-    border-bottom: none;
-}
-
-.corner-bottom-left {
-    bottom: 25px;
-    left: 25px;
-    border-right: none;
-    border-top: none;
-}
-
-.corner-bottom-right {
-    bottom: 25px;
-    right: 25px;
-    border-left: none;
-    border-top: none;
-}
-
-/* Header & Logos */
-.brand-header {
-    margin-bottom: 25px;
+/* Glassmorphic inner card */
+.invitation-card-panel {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 30px 20px;
+    margin-top: 310px; /* Leaves the top EXPO header and bride face fully visible */
+    margin-bottom: 90px; /* Leaves space for the bottom runway text */
+    border: 1px solid rgba(201, 169, 110, 0.35);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     position: relative;
     z-index: 2;
 }
 
-.brand-logo {
-    max-width: 120px;
-    margin-bottom: 10px;
+/* Gala Badge */
+.badge-gala {
+    display: inline-block;
+    border: 1px solid var(--gold-accent);
+    color: var(--gold-accent);
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
+/* Actions wrapper */
+.actions-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Location Button */
+.btn-location {
+    background: var(--gold-accent);
+    color: var(--primary-dark);
+    border: none;
+    padding: 16px 30px;
+    border-radius: 50px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(201, 169, 110, 0.25);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    width: 100%;
+    justify-content: center;
+}
+
+.btn-location:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(201, 169, 110, 0.35);
+    background: #b2935d;
+}
+
+.btn-location i {
+    font-size: 1.3rem;
+}
 .event-subtitle {
     font-size: 0.8rem;
     letter-spacing: 2px;
@@ -345,7 +354,14 @@ body {
 /* Responsive adjustments */
 @media (max-width: 480px) {
     .invitation-container {
-        padding: 30px 20px;
+        padding: 20px 12px;
+        min-height: 860px;
+    }
+    
+    .invitation-card-panel {
+        margin-top: 260px; /* Adjusted to keep header and bride visible on smaller mobile screens */
+        margin-bottom: 70px;
+        padding: 24px 15px;
     }
     
     .guest-name {

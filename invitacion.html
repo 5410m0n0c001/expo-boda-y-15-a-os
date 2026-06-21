@@ -28,21 +28,10 @@
 <body>
 
     <div class="invitation-container fade-in" id="invitationContainer">
-        <!-- Gold borders corners -->
-        <div class="corner-decor corner-top-left"></div>
-        <div class="corner-decor corner-top-right"></div>
-        <div class="corner-decor corner-bottom-left"></div>
-        <div class="corner-decor corner-bottom-right"></div>
-
-        <!-- Header -->
-        <div class="brand-header">
-            <!-- Badges -->
-            <p class="event-subtitle">Expo Boda & 15 Años</p>
-            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold-accent); margin-top: 5px; letter-spacing: 1px;">PASE DE GALA EXCLUSIVO</h3>
-        </div>
-
-        <!-- Invitation Body -->
-        <div class="invitation-content">
+        <!-- Glassmorphic Card Panel -->
+        <div class="invitation-card-panel">
+            <div class="badge-gala">PASE DE GALA EXCLUSIVO</div>
+            
             <p class="guest-greeting">Pase Especial Para</p>
             <h1 class="guest-name" id="guestName">Invitado de Honor</h1>
             
@@ -79,10 +68,15 @@
                 <div class="code-badge" id="guestCodeBadge">CÓDIGO: EXPO-INV</div>
             </div>
 
-            <!-- Confirmation WhatsApp Button -->
-            <a href="#" class="btn-confirm" id="btnConfirmWhatsApp" target="_blank">
-                <i class="fa-brands fa-whatsapp"></i> Confirmar Hora de Llegada
-            </a>
+            <!-- CTA Buttons -->
+            <div class="actions-section">
+                <a href="https://maps.app.goo.gl/LXYr4cTediTorwEP9" class="btn-location" target="_blank">
+                    <i class="fa-solid fa-map-location-dot"></i> Ver Ubicación del Evento
+                </a>
+                <a href="#" class="btn-confirm" id="btnConfirmWhatsApp" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> Confirmar Hora de Llegada
+                </a>
+            </div>
         </div>
     </div>
 
