@@ -170,7 +170,12 @@ window.metaLeadsData = [
         location: "",
         status: "Pending"
     },
-    72774610",
+    {
+        id: "L018",
+        origin: "Meta Ads",
+        name: "Guadalupe Acevedo",
+        email: "",
+        phone: "7772774610",
         eventType: "15 años",
         location: "Jiutepec",
         services: "DJ & Proyecciones (D&DP)",
