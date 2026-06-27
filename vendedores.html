@@ -48,7 +48,13 @@
                 <h1>Panel de Vendedores</h1>
                 <p><i class="fa-solid fa-gem" style="color: var(--gold-accent);"></i> Primavera Events Group | Expo Boda & 15 Años</p>
             </div>
-            <div class="header-actions">
+            <div class="header-actions" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                <a href="assets/Smart_Event_Planner_Pro.xlsx" class="btn-quick-register" style="background: #10b981; border-color: #10b981; text-decoration: none;" download>
+                    <i class="fa-solid fa-file-excel"></i> Descargar Excel Kit
+                </a>
+                <a href="assets/Guia_Maestra_Primavera_Events.pdf" class="btn-quick-register" style="background: #ef4444; border-color: #ef4444; text-decoration: none;" download>
+                    <i class="fa-solid fa-file-pdf"></i> Descargar Guía PDF
+                </a>
                 <a href="https://primaveraeventsgroup.com/expo-boda-y-quince-anos-centro-de-convenciones-presidente/" class="btn-quick-register" target="_blank">
                     <i class="fa-solid fa-user-plus"></i> Registro Rápido
                 </a>
@@ -117,6 +123,11 @@
                         <option value="boda">Bodas</option>
                         <option value="15 años">15 años</option>
                     </select>
+                    <select id="originFilter" class="filter-select">
+                        <option value="all">Origen: Todos</option>
+                        <option value="Meta Ads">Campaña Meta Ads</option>
+                        <option value="Registro en Sitio">Registro en Sitio</option>
+                    </select>
                 </div>
 
                 <!-- Leads Grid -->
@@ -138,7 +149,7 @@
             <!-- TAB 3: Statistics Section -->
             <div class="tab-panel" id="tabStats">
                 <div class="stats-tab-content">
-                    <h2 class="chart-title">Desempeño del Evento y Asistencias</h2>
+                    <h2 class="chart-title"><i class="fa-solid fa-chart-line" style="color: var(--gold-accent);"></i> Desempeño del Evento y Asistencias</h2>
                     <div class="bar-chart-container">
                         <div class="chart-row">
                             <div class="chart-row-header">
@@ -174,6 +185,37 @@
                             </div>
                             <div class="chart-bar-bg">
                                 <div class="chart-bar-fill" id="quinceBar" style="background: var(--gold-accent); width: 0%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="chart-title" style="margin-top: 30px;"><i class="fa-solid fa-shuffle" style="color: var(--gold-accent);"></i> Cruce de Datos y Origen de Registro</h2>
+                    <div class="bar-chart-container">
+                        <div class="chart-row">
+                            <div class="chart-row-header">
+                                <span>Pre-registrados Digitales (Campaña Meta Ads)</span>
+                                <span id="metaCountVal">0 leads</span>
+                            </div>
+                            <div class="chart-bar-bg">
+                                <div class="chart-bar-fill" id="metaBar" style="background: #8b5cf6; width: 0%;"></div>
+                            </div>
+                        </div>
+                        <div class="chart-row">
+                            <div class="chart-row-header">
+                                <span>Registrados en Sitio (Mesa de Control - Expo)</span>
+                                <span id="onsiteCountVal">0 leads</span>
+                            </div>
+                            <div class="chart-bar-bg">
+                                <div class="chart-bar-fill" id="onsiteBar" style="background: #3b82f6; width: 0%;"></div>
+                            </div>
+                        </div>
+                        <div class="chart-row">
+                            <div class="chart-row-header">
+                                <span>Tasa de Asistencia de Pre-registrados (Check-In)</span>
+                                <span id="preRegCheckinVal">0 de 55 (0%)</span>
+                            </div>
+                            <div class="chart-bar-bg">
+                                <div class="chart-bar-fill" id="preRegCheckinBar" style="background: #10b981; width: 0%;"></div>
                             </div>
                         </div>
                     </div>
@@ -354,6 +396,23 @@
                 document.getElementById('quinceCountVal').innerText = `${quince} de ${total}`;
                 const quincePercent = total > 0 ? (quince / total) * 100 : 0;
                 document.getElementById('quinceBar').style.width = `${quincePercent}%`;
+
+                // Crossed stats calculations
+                const metaLeads = leads.filter(l => l.origin !== 'Registro en Sitio');
+                const onsiteLeads = leads.filter(l => l.origin === 'Registro en Sitio');
+                const preRegCheckin = metaLeads.filter(l => l.status === 'Checked-In').length;
+                
+                document.getElementById('metaCountVal').innerText = `${metaLeads.length} leads`;
+                const metaPercent = total > 0 ? (metaLeads.length / total) * 100 : 0;
+                document.getElementById('metaBar').style.width = `${metaPercent}%`;
+                
+                document.getElementById('onsiteCountVal').innerText = `${onsiteLeads.length} leads`;
+                const onsitePercent = total > 0 ? (onsiteLeads.length / total) * 100 : 0;
+                document.getElementById('onsiteBar').style.width = `${onsitePercent}%`;
+                
+                document.getElementById('preRegCheckinVal').innerText = `${preRegCheckin} de ${metaLeads.length} (${metaLeads.length > 0 ? Math.round((preRegCheckin / metaLeads.length) * 100) : 0}%)`;
+                const preRegCheckinPercent = metaLeads.length > 0 ? (preRegCheckin / metaLeads.length) * 100 : 0;
+                document.getElementById('preRegCheckinBar').style.width = `${preRegCheckinPercent}%`;
             }
 
             // Save leads array to LocalStorage
@@ -367,6 +426,8 @@
                 const searchVal = searchInput.value.toLowerCase().trim();
                 const statusVal = statusFilter.value;
                 const eventVal = eventFilter.value;
+                const originFilter = document.getElementById('originFilter');
+                const originVal = originFilter ? originFilter.value : 'all';
 
                 leadsContainer.innerHTML = '';
 
@@ -374,8 +435,8 @@
                 const filteredLeads = leads.filter(lead => {
                     // Search criteria
                     const matchesSearch = lead.name.toLowerCase().includes(searchVal) || 
-                                          lead.phone.toLowerCase().includes(searchVal) || 
-                                          lead.email.toLowerCase().includes(searchVal) ||
+                                          (lead.phone && lead.phone.toLowerCase().includes(searchVal)) || 
+                                          (lead.email && lead.email.toLowerCase().includes(searchVal)) ||
                                           lead.id.toLowerCase().includes(searchVal);
                     // Status criteria
                     const matchesStatus = (statusVal === 'all') || (lead.status === statusVal);
@@ -383,10 +444,13 @@
                     // Event type criteria
                     let matchesEvent = true;
                     if (eventVal !== 'all') {
-                        matchesEvent = lead.eventType.toLowerCase().includes(eventVal);
+                        matchesEvent = lead.eventType && lead.eventType.toLowerCase().includes(eventVal);
                     }
+                    
+                    // Origin criteria
+                    const matchesOrigin = (originVal === 'all') || (lead.origin === originVal);
 
-                    return matchesSearch && matchesStatus && matchesEvent;
+                    return matchesSearch && matchesStatus && matchesEvent && matchesOrigin;
                 });
 
                 // Sort: Priority leads first
@@ -414,11 +478,19 @@
                     if (lead.status === 'Confirmed') statusLabel = 'Confirmado';
                     if (lead.status === 'Checked-In') statusLabel = 'Ingresado';
 
+                    let originBadge = '';
+                    if (lead.origin === 'Registro en Sitio') {
+                        originBadge = `<span class="priority-badge" style="background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd;"><i class="fa-solid fa-location-dot"></i> En Sitio</span>`;
+                    } else {
+                        originBadge = `<span class="priority-badge" style="background: #f3e8ff; color: #7e22ce; border: 1px solid #e9d5ff;"><i class="fa-brands fa-facebook"></i> Meta Ads</span>`;
+                    }
+
                     const detailsHtml = `
                         <div class="lead-card-header">
                             <span class="lead-name-text">${lead.name}</span>
-                            <div style="display: flex; gap: 5px; align-items: center;">
+                            <div style="display: flex; gap: 5px; align-items: center; flex-wrap: wrap;">
                                 ${lead.priority ? `<span class="priority-badge"><i class="fa-solid fa-star"></i> Prioridad</span>` : ''}
+                                ${originBadge}
                                 <span class="lead-id-badge">${lead.id}</span>
                             </div>
                         </div>
@@ -604,6 +676,10 @@
             searchInput.addEventListener('input', renderLeadsList);
             statusFilter.addEventListener('change', renderLeadsList);
             eventFilter.addEventListener('change', renderLeadsList);
+            const originFilterEl = document.getElementById('originFilter');
+            if (originFilterEl) {
+                originFilterEl.addEventListener('change', renderLeadsList);
+            }
 
             // Toast Messaging
             const toastMessage = document.getElementById('toastMessage');
