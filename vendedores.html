@@ -530,7 +530,7 @@
                             ${lead.email ? `
                             <div class="lead-detail-item">
                                 <i class="fa-solid fa-envelope"></i>
-                                <span>${lead.email}</span>
+                                <span style="cursor: pointer; text-decoration: underline; color: var(--gold-accent);" onclick="sendEmailLead('${lead.id}')">${lead.email}</span>
                             </div>
                             ` : ''}
                             ${lead.location ? `
@@ -556,6 +556,11 @@
                             <button class="action-dashboard-btn btn-whatsapp" onclick="sendWhatsappLead('${lead.id}')">
                                 <i class="fa-brands fa-whatsapp"></i> Enviar
                             </button>
+                            ${lead.email ? `
+                            <button class="action-dashboard-btn btn-email" onclick="sendEmailLead('${lead.id}')">
+                                <i class="fa-solid fa-envelope"></i> Correo
+                            </button>
+                            ` : ''}
                             <button class="action-dashboard-btn btn-sent ${lead.passSent ? 'sent-active' : ''}" onclick="togglePassSent('${lead.id}')">
                                 <i class="fa-solid ${lead.passSent ? 'fa-envelope-open-text' : 'fa-envelope'}"></i> ${lead.passSent ? 'Pase Enviado ✓' : 'Marcar Pase Enviado'}
                             </button>
@@ -657,6 +662,45 @@
                 }
 
                 window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(customMessage)}`, '_blank');
+                renderLeadsList();
+            };
+
+            function getMailBody(lead) {
+                let currentUrl = window.location.href;
+                if (currentUrl.startsWith('file://') || currentUrl.includes('localhost') || currentUrl.includes('127.0.0.1')) {
+                    currentUrl = 'https://5410m0n0c001.github.io/expo-boda-y-15-a-os/vendedores.html';
+                }
+                
+                const baseRepoUrl = currentUrl.replace('vendedores.html', '');
+                const plannerUrl = baseRepoUrl + 'assets/Smart_Event_Planner_Pro.xlsx';
+                const guideUrl = baseRepoUrl + 'assets/Guia_Maestra_Primavera_Events.pdf';
+                const demoInvitationsUrl = 'https://5410m0n0c001.github.io/INIT-IDEA/invitaciones.html';
+                
+                if (lead.status === 'Checked-In') {
+                    return `Hola ${lead.name},\n\nTe saluda tu asesor de Primavera Events Group.\n\nFue un placer tenerte con nosotros en la Expo Boda y 15 Años. Como agradecimiento, queremos obsequiarte tu Smart Event Planner Kit™ para apoyarte a organizar tu gran día sin estrés ni imprevistos.\n\nDescarga el Excel de Presupuesto aquí: ${plannerUrl}\nDescarga la Guía de Planeación Maestra en PDF aquí: ${guideUrl}\n\n🎁 BENEFICIO EXCLUSIVO: Si contratas la coordinación o banquetes con nosotros, ¡tu INVITACIÓN WEB DIGITAL premium interactiva con música es COMPLETAMENTE GRATIS! Ver demos: ${demoInvitationsUrl}\n\nQuedamos a tu disposición para ayudarte a cotizar con precios especiales.\n\nSaludos cordiales,\nPrimavera Events Group`;
+                } else {
+                    return `Hola ${lead.name},\n\nTe saludamos de Primavera Events Group.\n\nNotamos que no pudiste acompañarnos en la Expo Boda y 15 Años el pasado fin de semana, ¡te extrañamos! De todas maneras, queremos obsequiarte tu Smart Event Planner Kit™ para apoyarte a organizar tu gran día sin estrés.\n\nDescarga el Excel de Presupuesto aquí: ${plannerUrl}\nDescarga la Guía de Planeación Maestra en PDF aquí: ${guideUrl}\n\n🎁 Aún puedes aprovechar los beneficios de la Expo: si contratas la coordinación o banquetes con nosotros, ¡tu INVITACIÓN WEB DIGITAL de gala es COMPLETAMENTE GRATIS! Ver demos: ${demoInvitationsUrl}\n\n¿Platicamos 5 minutos para ver qué promociones de proveedores siguen vigentes para tu fecha?\n\nSaludos cordiales,\nPrimavera Events Group`;
+                }
+            }
+
+            window.sendEmailLead = function(leadId) {
+                const lead = leads.find(l => l.id === leadId);
+                if (!lead || !lead.email) return;
+
+                // Mark as sent
+                const leadIndex = leads.findIndex(l => l.id === leadId);
+                if (leadIndex !== -1) {
+                    leads[leadIndex].passSent = true;
+                    saveLeadsData();
+                }
+
+                const subject = lead.status === 'Checked-In' 
+                    ? 'Tu Smart Event Planner Kit™ de Regalo - Primavera Events Group'
+                    : 'Te extrañamos en la Expo + Tu Smart Event Planner Kit™ de Regalo';
+                    
+                const body = getMailBody(lead);
+                
+                window.location.href = `mailto:${lead.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                 renderLeadsList();
             };
 
