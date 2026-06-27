@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Cierre y Guiones de Remarketing | Primavera Events Group</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-dark: #1E1B18;
+            --gold-accent: #C9A96E;
+            --gold-light: #F4EFE6;
+            --border-color: #E2D7CD;
+            --bg-color: #FCFAF6;
+            --card-bg: #FFFFFF;
+            --text-color: #3A3530;
+            --text-muted: #6E655F;
+            --whatsapp-color: #25D366;
+            --primary-pink: #f05a7e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px 50px;
+            box-shadow: 0 10px 40px rgba(30, 27, 24, 0.03);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--gold-accent);
+            padding-bottom: 25px;
+            margin-bottom: 35px;
+        }
+
+        header img {
+            max-height: 55px;
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 0.9rem;
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--gold-accent);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: var(--text-color);
+        }
+
+        .alert-box {
+            background-color: var(--gold-light);
+            border-left: 4px solid var(--gold-accent);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+        }
+
+        .alert-box h4 {
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .script-section {
+            background: #FDFDFD;
+            border: 1px solid #EAEAEA;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.01);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .badge-checkedin {
+            background-color: #E2F8EC;
+            color: #15803d;
+        }
+
+        .badge-pending {
+            background-color: #FFF3CD;
+            color: #856404;
+        }
+
+        .dialogue-step {
+            margin-bottom: 20px;
+            border-left: 2px dashed var(--border-color);
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .dialogue-step::before {
+            content: "";
+            position: absolute;
+            left: -5px;
+            top: 5px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--gold-accent);
+        }
+
+        .dialogue-step strong {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .speech-bubble {
+            background-color: #F6F4EE;
+            border-radius: 0 12px 12px 12px;
+            padding: 15px;
+            font-size: 0.95rem;
+            color: #2D2722;
+            border: 1px solid #EDE8DF;
+            margin-top: 5px;
+            position: relative;
+        }
+
+        .action-notes {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .survey-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            margin-bottom: 25px;
+        }
+
+        .survey-table th, .survey-table td {
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .survey-table th {
+            background-color: var(--gold-light);
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .survey-table tr:nth-child(even) {
+            background-color: #FCFAF6;
+        }
+
+        .print-btn-bar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .btn-action {
+            background-color: var(--gold-accent);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(201, 169, 110, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .btn-action:hover {
+            opacity: 0.95;
+            transform: translateY(-1px);
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .guide-container {
+                border: none;
+                box-shadow: none;
+                padding: 0;
+            }
+            .print-btn-bar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="print-btn-bar">
+        <button class="btn-action" onclick="window.print()"><i class="fa-solid fa-print"></i> Imprimir Guía / Guardar como PDF</button>
+    </div>
+
+    <div class="guide-container">
+        <header>
+            <h1>Guía de Cierre y Guiones de Remarketing</h1>
+            <p>Primavera Events Group — Protocolo de Ventas Post-Expo</p>
+        </header>
+
+        <div class="alert-box">
+            <h4>💡 Enfoque Psicológico de Ventas</h4>
+            <p><strong>El Principio de Reciprocidad:</strong> No inicies la conversación vendiendo. Entrega primero el <strong>Smart Event Planner Kit™</strong> como un regalo incondicional. Esto reduce la fricción, rompe las barreras de defensa y estimula la obligación social inconsciente de responder a nuestras preguntas.</p>
+        </div>
+
+        <!-- SECCIÓN 1: SPEECH DE LLAMADA TELEFÓNICA -->
+        <h2>1. Speech de Llamada Telefónica (Voz a Voz)</h2>
+        <p>Utiliza estos guiones para contactar a los leads telefónicamente si no responden a tus mensajes de WhatsApp o correo electrónico.</p>
+        
+        <!-- GRUPO A -->
+        <div class="script-section">
+            <span class="badge badge-checkedin"><i class="fa-solid fa-circle-check"></i> Grupo A: Asistió a la Expo (Fidelización)</span>
+            
+            <div class="dialogue-step">
+                <strong>Paso 1: Saludo y Rapport</strong>
+                <div class="speech-bubble">
+                    "Hola [Nombre], te saluda [Tu Nombre] de Primavera Events Group. Te llamo rápido principalmente para darte las gracias por habernos acompañado en la Expo en el Centro de Convenciones Presidente. ¡Fue un gustazo saludarte! ¿Qué tal te la pasaste?"
+                </div>
+                <div class="action-notes">Escucha activamente la respuesta. Valida cualquier comentario sobre el evento o la locación.</div>
+            </div>
+
+            <div class="dialogue-step">
+                <strong>Paso 2: Entrega de Valor (Kit de Planeación)</strong>
+                <div class="speech-bubble">
+                    "Sé que en la Expo se recibe muchísima información y a veces uno termina con un torbellino de ideas en la cabeza. Por eso, para ayudarte a ordenar todo sin estrés, te acabo de mandar a tu WhatsApp tu **Smart Event Planner Kit™** de regalo. Es un Excel inteligente que usamos nosotros los organizadores para que no se te escape ningún gasto y controles tus pagos. ¿Te llegó bien?"
+                </div>
+            </div>
+
+            <div class="dialogue-step">
+                <strong>Paso 3: Pregunta de Calificación</strong>
+                <div class="speech-bubble">
+                    "Por cierto, en tu ficha de registro nos comentaste que estás organizando tu [Boda / XV Años]... De los expositores que pudiste conocer, ¿hubo alguno que te encantara o que ya estés considerando contratar?"
+                </div>
+                <div class="action-notes">Anota los servicios que le interesan y si ya tiene cotización.</div>
+            </div>
+
+            <div class="dialogue-step">
+                <strong>Paso 4: Cierre con Beneficio Irresistible</strong>
+                <div class="speech-bubble">
+                    "Excelente. Mira, como beneficio exclusivo para los asistentes a la Expo, si contratas tu banquete o la coordinación con Primavera Events Group, te vamos a dar tu **invitación digital web completamente gratis**. En el WhatsApp que te mandé viene el enlace de nuestros diseños para que veas el demo dinámico con música. ¿Te gustaría que te preparemos una cotización formal de banquete sin compromiso para asegurar este beneficio?"
+                </div>
+            </div>
+        </div>
+
+        <!-- GRUPO B -->
+        <div class="script-section">
+            <span class="badge badge-pending"><i class="fa-solid fa-clock"></i> Grupo B: Pre-registrado que NO Asistió (Recuperación)</span>
+            
+            <div class="dialogue-step">
+                <strong>Paso 1: Saludo y Empatía</strong>
+                <div class="speech-bubble">
+                    "Hola [Nombre], te saluda [Tu Nombre] de Primavera Events Group. Notamos en el sistema de pre-registro que tenías planeado asistir a la Expo Boda y 15 Años en el Centro de Convenciones Presidente, pero no logramos saludarte el fin de semana. Espero que todo esté muy bien por tu lado."
+                </div>
+                <div class="action-notes">Espera a que responda. Sé empático con su razón (falta de tiempo, imprevistos, etc.).</div>
+            </div>
+
+            <div class="dialogue-step">
+                <strong>Paso 2: Regalo de Consolación (Bajar Barreras)</strong>
+                <div class="speech-bubble">
+                    "No te preocupes, entendemos que a veces los tiempos no dan. Pero como sabemos que estás en plena planeación y queremos apoyarte, decidimos enviarte de todos modos el **Smart Event Planner Kit™** de regalo a tu WhatsApp. Es una herramienta de Excel y PDF de Primavera que sirve para ordenar tus gastos, pagos e invitados para evitar imprevistos y ahorrar dinero."
+                </div>
+            </div>
+
+            <div class="dialogue-step">
+                <strong>Paso 3: Calificación y Extensión de Descuentos</strong>
+                <div class="speech-bubble">
+                    "¿Cómo vas con los preparativos de tu [Boda / XV Años]? ¿Qué es lo que más trabajo te ha costado conseguir o decidir hasta el momento?"
+                </div>
+                <div class="action-notes">Anota sus necesidades (banquete, DJ, florería, vestido).</div>
+            </div>
+
+            <div class="dialogue-step">
+                <strong>Paso 4: Gancho de Venta</strong>
+                <div class="speech-bubble">
+                    "Te comento que esta semana logramos extender los convenios y precios especiales de la Expo con varios expositores clave. Además, si contratas con Primavera Events Group, te incluimos tu invitación web digital de gala gratis. ¿Te parece si te comparto nuestro catálogo de paquetes por correo para que lo revises con calma?"
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 2: ENCUESTA POST-EXPO -->
+        <h2>2. Encuesta de Calificación Psicológica</h2>
+        <p>Diseñada con preguntas cerradas de baja fricción para que el cliente la conteste rápidamente por WhatsApp o llamada, dándonos información crucial para el cierre.</p>
+        
+        <table class="survey-table">
+            <thead>
+                <tr>
+                    <th>Pregunta</th>
+                    <th>Opción A (Bajo Interés)</th>
+                    <th>Opción B (Interés Medio)</th>
+                    <th>Opción C (Interés Alto / Caliente)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1. ¿En qué etapa estás?</strong></td>
+                    <td>Apenas buscando ideas generales.</td>
+                    <td>Tengo fecha y lugar, busco proveedores específicos.</td>
+                    <td>¡Lista! Busco cerrar los últimos detalles y paquetes.</td>
+                </tr>
+                <tr>
+                    <td><strong>2. ¿Por qué no fuiste a la Expo?</strong></td>
+                    <td>Ya contraté todo lo que necesitaba.</td>
+                    <td>Se me complicó el horario/tiempo.</td>
+                    <td>No me enteré o no recibí mi pase digital a tiempo.</td>
+                </tr>
+                <tr>
+                    <td><strong>3. ¿Qué te gustaría recibir gratis hoy?</strong></td>
+                    <td>Solo el Smart Event Planner Kit.</td>
+                    <td>Catálogo de precios de los expositores de la Expo.</td>
+                    <td>Cotización personalizada y cita con un Wedding Planner.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- SECCIÓN 3: MANEJO DE OBJECIONES -->
+        <h2>3. Manejo Psicológico de Objeciones</h2>
+        
+        <h3>Objeción: "No tengo tiempo para llamadas"</h3>
+        <p>💡 <em>Respuesta:</em> "Te entiendo perfectamente, el tiempo vuela al organizar esto. Si te parece bien, te dejo toda la información clave en tu WhatsApp y me respondes con un emoji cuando tengas un minuto libre para revisarlo." (Quita presión y da control al cliente).</p>
+        
+        <h3>Objeción: "Los precios de la Expo son muy caros"</h3>
+        <p>💡 <em>Respuesta:</em> "Organizar un evento es una inversión importante. Lo genial de los paquetes que te mandé es que ya incluyen un **10% de descuento directo** respaldado por Primavera. Además, el kit de Excel gratuito te ayudará a ajustar el presupuesto en otras áreas para compensarlo."</p>
+
+        <h3>Objeción: "Ya tengo cotización de otros organizadores/proveedores"</h3>
+        <p>💡 <em>Respuesta:</em> "Me da mucho gusto que ya tengas opciones avanzadas. Solo para asegurar que estés recibiendo el mejor trato, ¿te gustaría que hagamos un comparativo rápido de servicios sin costo? A veces hay letras chiquitas que nosotros detectamos al instante."</p>
+    </div>
+
+</body>
+</html>

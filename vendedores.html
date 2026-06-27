@@ -95,6 +95,7 @@
                 <button class="tab-btn active" data-tab="tabLeads"><i class="fa-solid fa-list"></i> Lista de Leads</button>
                 <button class="tab-btn" data-tab="tabScanner" id="tabScannerBtn"><i class="fa-solid fa-qrcode"></i> Escáner QR</button>
                 <button class="tab-btn" data-tab="tabStats"><i class="fa-solid fa-chart-pie"></i> Estadísticas</button>
+                <button class="tab-btn" data-tab="tabClosingTools"><i class="fa-solid fa-phone-volume"></i> Speech y Encuesta</button>
             </div>
 
             <!-- TAB 1: Leads List -->
@@ -176,6 +177,19 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: Closing Tools Section -->
+            <div class="tab-panel" id="tabClosingTools">
+                <div class="stats-tab-content">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+                        <h2 class="chart-title" style="margin-bottom: 0;"><i class="fa-solid fa-phone-volume" style="color: var(--gold-accent);"></i> Speech de Venta y Encuestas</h2>
+                        <a href="para_impresion/guia_ventas.html" target="_blank" class="btn-quick-register" style="background: var(--gold-accent); color: white; border-color: var(--gold-accent); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: 8px;">
+                            <i class="fa-solid fa-print"></i> Ver Imprimible / PDF
+                        </a>
+                    </div>
+                    <iframe src="para_impresion/guia_ventas.html" style="width: 100%; height: 600px; border: 1px solid var(--border-color); border-radius: 12px; background: white;"></iframe>
                 </div>
             </div>
 
@@ -539,9 +553,20 @@
                 if (currentUrl.startsWith('file://') || currentUrl.includes('localhost') || currentUrl.includes('127.0.0.1')) {
                     currentUrl = 'https://5410m0n0c001.github.io/expo-boda-y-15-a-os/vendedores.html';
                 }
-                const invUrl = currentUrl.replace('vendedores.html', 'invitacion.html') + `?code=${leadId}`;
                 
-                const customMessage = `¡Hola ${lead.name}! Te compartimos tu invitación oficial de gala para la Expo Boda y 15 Años de Primavera Events Group en el Centro de Convenciones Presidente. Accede en este enlace para confirmar tu asistencia: ${invUrl}`;
+                const baseRepoUrl = currentUrl.replace('vendedores.html', '');
+                const plannerUrl = baseRepoUrl + 'assets/Smart_Event_Planner_Pro.xlsx';
+                const guideUrl = baseRepoUrl + 'assets/Guia_Maestra_Primavera_Events.pdf';
+                const demoInvitationsUrl = 'https://5410m0n0c001.github.io/INIT-IDEA/invitaciones.html';
+                
+                let customMessage = '';
+                if (lead.status === 'Checked-In') {
+                    // Attended message
+                    customMessage = `¡Hola ${lead.name}! Te saluda tu asesor de Primavera Events Group. ✨\n\nAgradecemos mucho tu asistencia a la Expo Boda y 15 Años. Para apoyarte en la organización, te compartimos tu Smart Event Planner Kit™ de regalo. Descarga el Excel de presupuesto aquí:\n👉 ${plannerUrl}\nY tu Guía de Planeación Maestra en PDF aquí:\n👉 ${guideUrl}\n\n🎁 PROMO: Si contratas tu evento con nosotros, ¡tu INVITACIÓN WEB DIGITAL de gala es 100% GRATIS! Ver demos:\n👉 ${demoInvitationsUrl}`;
+                } else {
+                    // Pre-registered but did not attend message
+                    customMessage = `¡Hola ${lead.name}! Te saludamos de Primavera Events Group. ✨\n\nNotamos que no pudiste acompañarnos en la Expo y te extrañamos. Como queremos apoyarte a organizar tu gran día sin estrés, te obsequiamos tu Smart Event Planner Kit™. Descarga el Excel de presupuesto aquí:\n👉 ${plannerUrl}\nY tu Guía de Planeación Maestra en PDF aquí:\n👉 ${guideUrl}\n\n🎁 Aún puedes aprovechar los beneficios de la Expo: si contratas tu evento con nosotros, ¡tu INVITACIÓN WEB DIGITAL es GRATIS! Ver demos:\n👉 ${demoInvitationsUrl}`;
+                }
                 
                 // Format phone number
                 let cleanPhone = lead.phone.replace(/\D/g, '');

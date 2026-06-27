@@ -153,15 +153,11 @@ window.metaLeadsData = [
         location: "",
         status: "Pending"
     },
-    {
-        id: "L018",
-        name: "Guadalupe Acevedo",
-        email: "",
-        phone: "7772724610",
+    72774610",
         eventType: "15 años",
         location: "Jiutepec",
         services: "DJ & Proyecciones (D&DP)",
-        status: "Pending"
+        status: "Checked-In"
     },
     {
         id: "L019",
@@ -472,7 +468,7 @@ window.metaLeadsData = [
     {
         id: "L053",
         name: "Silvia Fiorella Perez Heredia",
-        email: "fperezheredia94@gmail.com",
+        email: "fperezhereida94@gmail.com",
         phone: "5565117755",
         eventType: "Boda",
         eventDate: "27-02-27",
@@ -480,7 +476,7 @@ window.metaLeadsData = [
         guests: 120,
         priority: true,
         location: "",
-        status: "Pending"
+        status: "Checked-In"
     },
     {
         id: "L054",
@@ -493,7 +489,7 @@ window.metaLeadsData = [
         guests: 120,
         priority: true,
         location: "",
-        status: "Pending"
+        status: "Checked-In"
     },
     {
         id: "L055",
@@ -503,5 +499,111 @@ window.metaLeadsData = [
         eventType: "Boda",
         location: "Cuernavaca",
         status: "Pending"
+    },
+    {
+        id: "L056",
+        name: "Angelica Pelaez (Peales)",
+        email: "angelicapelaezaz@gmail.com",
+        phone: "7773354049",
+        eventType: "Boda / 15 Años",
+        location: "",
+        status: "Checked-In"
+    },
+    {
+        id: "L057",
+        name: "Vianey Castillo",
+        email: "",
+        phone: "7773019498",
+        eventType: "Boda / 15 Años",
+        location: "",
+        status: "Checked-In"
+    },
+    {
+        id: "L058",
+        name: "Jhonathan Sanchez",
+        email: "",
+        phone: "7774308213",
+        eventType: "Boda",
+        location: "",
+        guests: 100,
+        services: "Todo (Organización de Boda)",
+        status: "Checked-In"
+    },
+    {
+        id: "L059",
+        name: "Marisol Reyes",
+        email: "",
+        phone: "7772401347",
+        eventType: "15 años",
+        location: "",
+        status: "Checked-In"
+    },
+    {
+        id: "L060",
+        name: "Camila Soriano",
+        email: "sorianoreyes16@gmail.com",
+        phone: "7777118208",
+        eventType: "Boda",
+        location: "",
+        status: "Checked-In"
+    },
+    {
+        id: "L061",
+        name: "Laura Robles",
+        email: "",
+        phone: "5584688872",
+        eventType: "Boda / 15 Años",
+        location: "",
+        status: "Checked-In"
+    },
+    {
+        id: "L062",
+        name: "Lourdes Garza",
+        email: "lulu010582@gmail.com",
+        phone: "7771794671",
+        eventType: "Graduación",
+        location: "",
+        status: "Checked-In"
+    },
+    {
+        id: "L063",
+        name: "Karna Itzel",
+        email: "",
+        phone: "7201916789",
+        eventType: "Boda / 15 Años",
+        location: "",
+        status: "Checked-In"
+    },
+    {
+        id: "L064",
+        name: "Sandra Espinoza",
+        email: "",
+        phone: "7771832506",
+        eventType: "Boda / 15 Años",
+        location: "",
+        status: "Checked-In"
+    },
+    {
+        id: "L065",
+        name: "Laura Vargas Figueroa",
+        email: "lauvarf@gmail.com",
+        phone: "7771033333",
+        eventType: "15 años",
+        eventDate: "05-12-26",
+        location: "",
+        guests: 150,
+        status: "Checked-In"
+    },
+    {
+        id: "L066",
+        name: "Cecilia Gonzalo Sanchez",
+        email: "yanet-g-@Hotmail.com",
+        phone: "7773063604",
+        eventType: "15 años",
+        eventDate: "23-01-27",
+        location: "",
+        guests: 180,
+        status: "Checked-In"
     }
+
 ];
