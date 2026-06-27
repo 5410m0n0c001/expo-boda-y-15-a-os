@@ -342,7 +342,17 @@
                                 localLeads.push(lead);
                             } else {
                                 const localLead = localLeadsMap.get(lead.id);
-                                // Merge properties that might have been updated/enriched
+                                // Sync essential metadata from filesystem (allows correction of errors, etc.)
+                                localLead.origin = lead.origin;
+                                if (lead.phone) localLead.phone = lead.phone;
+                                if (lead.email) localLead.email = lead.email;
+                                
+                                // If the lead attended (Checked-In) according to the filesystem, force status sync
+                                if (lead.status === 'Checked-In' && localLead.status !== 'Checked-In') {
+                                    localLead.status = 'Checked-In';
+                                }
+                                
+                                // Merge other properties that might have been updated/enriched
                                 if (lead.services && !localLead.services) localLead.services = lead.services;
                                 if (lead.priority && !localLead.priority) localLead.priority = lead.priority;
                                 if (lead.eventDate && !localLead.eventDate) localLead.eventDate = lead.eventDate;
